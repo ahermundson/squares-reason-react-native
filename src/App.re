@@ -80,85 +80,87 @@ let styles =
   );
 
 [@react.component]
-let app = () =>
+let make = () =>
   <>
-    <StatusBar barStyle=`darkContent />
-    <SafeAreaView>
-      <ScrollView
-        contentInsetAdjustmentBehavior=`automatic style={styles##scrollView}>
-        <Header />
-        <View style={styles##body}>
-          <View style={styles##sectionContainer}>
-            <Text style={styles##sectionTitle}>
-              "Working auto refresh"->React.string
-            </Text>
-            <Text style={styles##sectionDescription}>
-              "Edit "->React.string
-              <Text style={styles##highlight}>
-                "src/App.re"->React.string
+    <ReasonApollo.Provider client=Client.instance>
+      <StatusBar barStyle=`darkContent />
+      <SafeAreaView>
+        <ScrollView
+          contentInsetAdjustmentBehavior=`automatic style={styles##scrollView}>
+          <Header />
+          <View style={styles##body}>
+            <View style={styles##sectionContainer}>
+              <Text style={styles##sectionTitle}>
+                "Working auto refresh"->React.string
               </Text>
-              " to change this  and then come back to see your edits ."
-              ->React.string
-            </Text>
-          </View>
-          <View style={styles##sectionContainer}>
-            <Text style={styles##sectionTitle}>
-              "See Your Changes"->React.string
-            </Text>
-            <Text style={styles##sectionDescription}>
-              <ReloadInstructions />
-            </Text>
-          </View>
-          <View style={styles##sectionContainer}>
-            <Text style={styles##sectionTitle}> "Debug"->React.string </Text>
-            <Text style={styles##sectionDescription}>
-              <DebugInstructions />
-            </Text>
-          </View>
-          <View style={styles##sectionContainer}>
-            <Text style={styles##sectionTitle}>
-              "Learn More"->React.string
-            </Text>
-            <Text style={styles##sectionDescription}>
-              "Read the docs to discover what to do next:"->React.string
-            </Text>
-          </View>
-          <View style={styles##sectionContainer}>
-            <Text style={styles##sectionDescription}>
-              <Text style={styles##highlight}>
-                "Reason React Native"->React.string
-              </Text>
-            </Text>
-            <TouchableOpacity
-              onPress={_ =>
-                openURLInBrowser(
-                  "https://reasonml-community.github.io/reason-react-native/en/docs/",
-                )
-              }>
-              <Text
-                style=Style.(
-                  style(
-                    ~marginTop=8.->dp,
-                    ~fontSize=18.,
-                    ~fontWeight=`_400,
-                    ~color=colors##primary,
-                    (),
-                  )
-                )>
-                "https://reasonml-community.github.io/\nreason-react-native/"
+              <Text style={styles##sectionDescription}>
+                "Edit "->React.string
+                <Text style={styles##highlight}>
+                  "src/App.re"->React.string
+                </Text>
+                " to change this  and then come back to see your edits ."
                 ->React.string
               </Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles##sectionContainer}>
-            <Text style={styles##sectionDescription}>
-              <Text style={styles##highlight}>
-                "React Native"->React.string
+            </View>
+            <View style={styles##sectionContainer}>
+              <Text style={styles##sectionTitle}>
+                "See Your Changes"->React.string
               </Text>
-            </Text>
+              <Text style={styles##sectionDescription}>
+                <ReloadInstructions />
+              </Text>
+            </View>
+            <View style={styles##sectionContainer}>
+              <Text style={styles##sectionTitle}> "Debug"->React.string </Text>
+              <Text style={styles##sectionDescription}>
+                <DebugInstructions />
+              </Text>
+            </View>
+            <View style={styles##sectionContainer}>
+              <Text style={styles##sectionTitle}>
+                "Learn More"->React.string
+              </Text>
+              <Text style={styles##sectionDescription}>
+                "Read the docs to discover what to do next:"->React.string
+              </Text>
+            </View>
+            <View style={styles##sectionContainer}>
+              <Text style={styles##sectionDescription}>
+                <Text style={styles##highlight}>
+                  "Reason React Native"->React.string
+                </Text>
+              </Text>
+              <TouchableOpacity
+                onPress={_ =>
+                  openURLInBrowser(
+                    "https://reasonml-community.github.io/reason-react-native/en/docs/",
+                  )
+                }>
+                <Text
+                  style=Style.(
+                    style(
+                      ~marginTop=8.->dp,
+                      ~fontSize=18.,
+                      ~fontWeight=`_400,
+                      ~color=colors##primary,
+                      (),
+                    )
+                  )>
+                  "https://reasonml-community.github.io/\nreason-react-native/"
+                  ->React.string
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles##sectionContainer}>
+              <Text style={styles##sectionDescription}>
+                <Text style={styles##highlight}>
+                  "React Native"->React.string
+                </Text>
+              </Text>
+            </View>
+            <LearnMoreLinks />
           </View>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+    </ReasonApollo.Provider>
   </>;

@@ -1,2 +1,2 @@
 [@react.component]
-let app: unit => React.element;
+let make: unit => React.element;
