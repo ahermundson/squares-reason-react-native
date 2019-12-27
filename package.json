@@ -22,6 +22,7 @@
     "react-navigation-drawer": "^2.3.3",
     "react-navigation-stack": "^1.10.3",
     "react-navigation-tabs": "^2.6.2",
+    "reason-apollo": "^0.18.0",
     "reason-react": "^0.7.0",
     "reason-react-native": "^0.60.0"
   },
@@ -31,6 +32,7 @@
     "@react-native-community/eslint-config": "^0.0.3",
     "babel-jest": "^24.1.0",
     "bs-platform": "^7.0.1",
+    "graphql_ppx": "^0.2.8",
     "jest": "^24.1.0",
     "metro-react-native-babel-preset": "^0.51.1",
     "react-test-renderer": "16.8.1"
