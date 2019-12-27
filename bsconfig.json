@@ -17,8 +17,9 @@
   ],
   "bs-dependencies": [
     "reason-react",
+    "reason-apollo",
     "reason-react-native",
-    "@reason-react-native/navigation",
-    "reason-apollo"
-  ]
+    "@reason-react-native/navigation"
+  ],
+  "ppx-flags": ["@baransu/graphql_ppx_re/ppx6"]
 }
