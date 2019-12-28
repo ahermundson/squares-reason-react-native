@@ -4,3 +4,6 @@
 # .re and .rei files are Reason, sometimes recognized as C/C++ (on GitHub)
 *.re linguist-language=Reason
 *.rei linguist-language=Reason
+
+* linguist-vendored
+*.re linguist-vendored=false
