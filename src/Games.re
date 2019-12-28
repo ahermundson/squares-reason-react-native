@@ -41,11 +41,6 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
                  <Text> {React.string(game##_id)} </Text>
                </TouchableOpacity>
              )
-          //  <Game
-          //    key=game##_id
-          //    game
-          //    selectGame={() => selectGame(game##boardId)}
-          //  />
           |> ReasonReact.array
         }
       }
