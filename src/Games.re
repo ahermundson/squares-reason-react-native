@@ -10,6 +10,9 @@ module GetAllGames = [%graphql
             homeTeam {
               teamName
             }
+            awayTeam {
+              teamName
+            }
         }
     }
   |}
@@ -38,7 +41,14 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
                      {"gameId": game##boardId},
                    )
                  }>
-                 <Text> {React.string(game##_id)} </Text>
+                 <Text>
+                   {React.string(
+                      game##homeTeam##teamName
+                      ++ " VS "
+                      ++
+                      game##awayTeam##teamName,
+                    )}
+                 </Text>
                </TouchableOpacity>
              )
           |> ReasonReact.array
