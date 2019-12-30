@@ -20,20 +20,64 @@ module GetGameSquares = [%graphql
 
 module GetGameSquareQuery = ReasonApollo.CreateQuery(GetGameSquares);
 
+let createBoardRow = (squares, x) =>
+  squares |> Js.Array.filter(square => square##x == x);
+
+let parseSquares = squares =>
+  switch (squares) {
+  | None => [||]
+  | Some(squares) => [|
+      createBoardRow(squares, 0),
+      createBoardRow(squares, 1),
+      createBoardRow(squares, 2),
+      createBoardRow(squares, 3),
+      createBoardRow(squares, 4),
+      createBoardRow(squares, 5),
+      createBoardRow(squares, 6),
+      createBoardRow(squares, 7),
+      createBoardRow(squares, 8),
+      createBoardRow(squares, 9),
+    |]
+  };
+
 [@react.component]
 let make = (~navigation: ReactNavigation.Navigation.t) => {
   let gameId = navigation->Navigation.getParam("gameId");
+  let teams = navigation->Navigation.getParam("teams");
 
   <View>
-    <TouchableOpacity
-      onPress={_e => navigation->Navigation.navigate("Games")}>
-      <Text>
-        {switch (gameId->Js.Nullable.toOption) {
-         | None => "Error getting Game Id"->React.string
-         | Some(gameId) => gameId->React.string
-         }}
-      </Text>
-    </TouchableOpacity>
+    <Text style=Style.(style(~textAlign=`center, ()))>
+      {switch (teams->Js.Nullable.toOption) {
+       | None => ""->React.string
+       | Some(teams) => teams->React.string
+       }}
+    </Text>
+    <Text>
+      {switch (gameId->Js.Nullable.toOption) {
+       | None => "Error getting Game Id"->React.string
+       | Some(gameId) =>
+         let gameQuery = GetGameSquares.make(~id=gameId, ());
+         <GetGameSquareQuery variables=gameQuery##variables>
+           ...{({result}) =>
+             switch (result) {
+             | Loading => <Text> "Loading Squares"->React.string </Text>
+             | Error(error) =>
+               Js.log(error);
+               navigation->Navigation.navigate("Games");
+               <Text> "Error"->React.string </Text>;
+             | Data(response) =>
+               let gameSquares = response##getGameSquares;
+               let parsedRows = parseSquares(gameSquares);
+               Js.log(parsedRows);
+               <Text> "Squares"->React.string </Text>;
+             //  parsedRows
+             //  |> Js.Array.mapi((row, i) => <BoardRow key={string_of_int(i)} row />)
+             //  |> ReasonReact.array;
+             }
+           }
+         </GetGameSquareQuery>;
+       }}
+    </Text>
   </View>;
 };
 

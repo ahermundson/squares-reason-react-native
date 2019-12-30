@@ -38,7 +38,14 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
                  onPress={_e =>
                    navigation->Navigation.navigateWithParams(
                      "Game",
-                     {"gameId": game##boardId},
+                     {
+                       "gameId": game##boardId,
+                       "teams":
+                         game##homeTeam##teamName
+                         ++ " VS "
+                         ++
+                         game##awayTeam##teamName,
+                     },
                    )
                  }>
                  <Text>
