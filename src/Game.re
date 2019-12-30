@@ -69,10 +69,11 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
                let gameSquares = response##getGameSquares;
                let parsedRows = parseSquares(gameSquares);
                Js.log(parsedRows);
-               <Text> "Squares"->React.string </Text>;
-             //  parsedRows
-             //  |> Js.Array.mapi((row, i) => <BoardRow key={string_of_int(i)} row />)
-             //  |> ReasonReact.array;
+               parsedRows
+               |> Js.Array.mapi((row, i) =>
+                    <BoardRow key={string_of_int(i)} row />
+                  )
+               |> ReasonReact.array;
              }
            }
          </GetGameSquareQuery>;
