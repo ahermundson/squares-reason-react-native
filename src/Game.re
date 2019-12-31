@@ -45,14 +45,14 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
   let gameId = navigation->Navigation.getParam("gameId");
   let teams = navigation->Navigation.getParam("teams");
 
-  <View>
+  <ScrollView>
     <Text style=Style.(style(~textAlign=`center, ()))>
       {switch (teams->Js.Nullable.toOption) {
        | None => ""->React.string
        | Some(teams) => teams->React.string
        }}
     </Text>
-    <Text>
+    <View style=Style.(style(~flexDirection=`row, ()))>
       {switch (gameId->Js.Nullable.toOption) {
        | None => "Error getting Game Id"->React.string
        | Some(gameId) =>
@@ -68,7 +68,6 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
              | Data(response) =>
                let gameSquares = response##getGameSquares;
                let parsedRows = parseSquares(gameSquares);
-               Js.log(parsedRows);
                parsedRows
                |> Js.Array.mapi((row, i) =>
                     <BoardRow key={string_of_int(i)} row />
@@ -78,8 +77,8 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
            }
          </GetGameSquareQuery>;
        }}
-    </Text>
-  </View>;
+    </View>
+  </ScrollView>;
 };
 
 make->NavigationOptions.setDynamicNavigationOptions(_params => {
