@@ -42,12 +42,12 @@ let make = (~square: square) =>
                   ~borderWidth=1.,
                   ~justifyContent=`center,
                   ~alignItems=`center,
+                  ~minHeight=55.->dp,
                   (),
                 )
               )>
-              <View
-                style=Style.(style(~borderWidth=1., ~borderColor="pink", ()))>
-                <Text style=Style.(style(~color="pink", ~fontSize=22., ()))>
+              <View>
+                <Text style=Style.(style(~fontSize=22., ()))>
                   {user##first_name->React.string}
                 </Text>
               </View>
@@ -70,7 +70,7 @@ let make = (~square: square) =>
               key={string_of_int(square##x)}>
               <Text style=Style.(style(~color="black", ~fontSize=22., ()))>
                 {{
-                   "X" ++ string_of_int(square##y);
+                   "X" ++ string_of_int(square##x);
                  }
                  ->React.string}
               </Text>
