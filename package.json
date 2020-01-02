@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@reason-react-native/navigation": "https://github.com/reason-react-native/navigation.git",
+    "apollo-link-ws": "^1.0.19",
     "graphql": "^14.5.8",
     "graphql-tag": "^2.10.1",
     "react": "16.9.0",
@@ -26,7 +27,8 @@
     "react-navigation-tabs": "^2.6.2",
     "reason-apollo": "^0.18.0",
     "reason-react": "^0.7.0",
-    "reason-react-native": "^0.60.0"
+    "reason-react-native": "^0.60.0",
+    "subscriptions-transport-ws": "^0.9.16"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",

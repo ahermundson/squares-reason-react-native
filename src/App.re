@@ -14,8 +14,11 @@ let make = () => {
   let httpLink =
     ApolloLinks.createHttpLink(~uri="http://localhost:4000/graphql", ());
 
+  let wsLink =
+    ApolloLinks.webSocketLink(~uri="ws://localhost:4000/graphql", ());
+
   let instance =
-    ReasonApollo.createApolloClient(~link=httpLink, ~cache=inMemoryCache, ());
+    ReasonApollo.createApolloClient(~link=wsLink, ~cache=inMemoryCache, ());
   <ReasonApollo.Provider client=instance>
     <MyAppContainer screenProps />
   </ReasonApollo.Provider>;

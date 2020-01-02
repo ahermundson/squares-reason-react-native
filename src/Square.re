@@ -54,7 +54,7 @@ let make = (~square: square) =>
             </View>
           }
         : <TouchableOpacity
-            onPress={_mouseEvent =>
+            onPress={_pressEvent =>
               mutation(~variables=updatedSquare##variables, ()) |> ignore
             }>
             <View
