@@ -17,8 +17,21 @@ let make = () => {
   let wsLink =
     ApolloLinks.webSocketLink(~uri="ws://localhost:4000/graphql", ());
 
+  let link =
+    ApolloLinks.split(
+      operation => {
+        let operationDefition =
+          ApolloUtilities.getMainDefinition(operation##query);
+        operationDefition##kind == "OperationDefinition"
+        &&
+        operationDefition##operation == "subscription";
+      },
+      wsLink,
+      httpLink,
+    );
+
   let instance =
-    ReasonApollo.createApolloClient(~link=wsLink, ~cache=inMemoryCache, ());
+    ReasonApollo.createApolloClient(~link, ~cache=inMemoryCache, ());
   <ReasonApollo.Provider client=instance>
     <MyAppContainer screenProps />
   </ReasonApollo.Provider>;
