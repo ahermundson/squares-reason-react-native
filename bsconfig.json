@@ -17,6 +17,7 @@
   ],
   "bs-dependencies": [
     "reason-react",
+    "reason-apollo-hooks",
     "reason-apollo",
     "reason-react-native",
     "@reason-react-native/navigation"

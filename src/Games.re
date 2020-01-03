@@ -66,10 +66,13 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
 };
 
 make->NavigationOptions.setDynamicNavigationOptions(params => {
-  let navigation = params##navigation;
-  let navigationOptions = params##navigationOptions;
-  let screenProps = params##screenProps;
-
+  // let navigation = params##navigation;
+  // let navigationOptions = params##navigationOptions;
+  // let screenProps = params##screenProps;
   /* More properties can be set dynamically based on navigation, navigationOptions or screenProps. */
-  NavigationOptions.t(~title="Games", ~headerTintColor="red", ());
+  NavigationOptions.t(
+    ~title="Games",
+    ~headerTintColor="red",
+    (),
+  )
 });
