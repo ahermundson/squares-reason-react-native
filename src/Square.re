@@ -12,21 +12,6 @@ module MarkSquare = [%graphql
 |}
 ];
 
-module SquareSubscription = [%graphql
-  {|
-    subscription {
-      squareTaken {
-        _id
-        takenByUser{
-          first_name
-        }
-      }
-    }
-  |}
-];
-
-module SquareSub = ReasonApollo.CreateSubscription(SquareSubscription);
-
 [@react.component]
 let make = (~square: square) => {
   let (screamMutation, _simple, _full) =
@@ -37,10 +22,7 @@ let make = (~square: square) => {
 
   let scream = _ => {
     screamMutation()
-    |> Js.Promise.then_(result => {
-         Js.log(result);
-         Js.Promise.resolve();
-       })
+    |> Js.Promise.then_(_result => {Js.Promise.resolve()})
     |> ignore;
   };
   square##isTaken
@@ -73,12 +55,6 @@ let make = (~square: square) => {
             )
           )>
           <View>
-            <SquareSub>
-              ...{({data}) => {
-                Js.log(data);
-                <View />;
-              }}
-            </SquareSub>
             <Text style=Style.(style(~fontSize=22., ()))>
               {user##first_name->React.string}
             </Text>

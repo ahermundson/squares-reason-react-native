@@ -13,12 +13,33 @@ module GetGameSquares = [%graphql
               _id
               first_name
             }
+            board {
+              _id
+            }
         }
     }
   |}
 ];
 
 module GetGameSquareQuery = ReasonApollo.CreateQuery(GetGameSquares);
+
+module SquareSubscription = [%graphql
+  {|
+    subscription($id: ID!) {
+      squareTaken(id: $id) {
+        _id
+        takenByUser{
+          first_name
+        }
+        board {
+          _id
+        }
+      }
+    }
+  |}
+];
+
+module SquareSub = ReasonApollo.CreateSubscription(SquareSubscription);
 
 let createBoardRow = (squares, x) =>
   squares |> Js.Array.filter(square => square##x == x);
@@ -58,7 +79,7 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
        | Some(gameId) =>
          let gameQuery = GetGameSquares.make(~id=gameId, ());
          <GetGameSquareQuery variables=gameQuery##variables>
-           ...{({result}) =>
+           ...{({result}) => {
              switch (result) {
              | Loading => <Text> "Loading Squares"->React.string </Text>
              | Error(error) =>
@@ -68,13 +89,21 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
              | Data(response) =>
                let gameSquares = response##getGameSquares;
                let parsedRows = parseSquares(gameSquares);
-               parsedRows
-               |> Js.Array.mapi((row, i) =>
-                    <BoardRow key={string_of_int(i)} row />
-                  )
-               |> ReasonReact.array;
+               <SquareSub variables=gameQuery##variables>
+                 {(
+                    ({data}) => {
+                      Js.log(data);
+                      Js.log("JKFLSJF");
+                      parsedRows
+                      |> Js.Array.mapi((row, i) =>
+                           <BoardRow key={string_of_int(i)} row />
+                         )
+                      |> ReasonReact.array;
+                    }
+                  )}
+               </SquareSub>;
              }
-           }
+           }}
          </GetGameSquareQuery>;
        }}
     </View>

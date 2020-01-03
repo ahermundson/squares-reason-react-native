@@ -10,4 +10,5 @@ type square = {
   "x": int,
   "y": int,
   "takenByUser": option(user),
+  "board": {. "_id": string},
 };

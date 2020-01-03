@@ -36,6 +36,7 @@ let make = () => {
 
   let instance =
     ReasonApollo.createApolloClient(~link, ~cache=inMemoryCache, ());
+
   <ReasonApollo.Provider client=instance>
     <ApolloHooks.Provider client=instance>
       <MyAppContainer screenProps />
