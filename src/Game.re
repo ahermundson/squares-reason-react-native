@@ -61,6 +61,17 @@ let parseSquares = squares =>
     |]
   };
 
+let findSquare = (square, squares) => {
+  switch (squares) {
+  | None => Js.log("no squares")
+  | Some(sq) =>
+    let squareToUpdate = sq |> Js.Array.findIndex(s => s##_id == square##_id);
+    Js.log("HERE IS THE SQUARE");
+    Js.log(squareToUpdate);
+    // Belt.Array.set(sq, square)
+  };
+};
+
 [@react.component]
 let make = (~navigation: ReactNavigation.Navigation.t) => {
   let gameId = navigation->Navigation.getParam("gameId");
@@ -92,8 +103,11 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
                <SquareSub variables=gameQuery##variables>
                  {(
                     ({data}) => {
-                      Js.log(data);
-                      Js.log("JKFLSJF");
+                      switch (data) {
+                      | None => Js.log("Nothing here")
+                      | Some(square) =>
+                        findSquare(square##squareTaken, gameSquares)
+                      };
                       parsedRows
                       |> Js.Array.mapi((row, i) =>
                            <BoardRow key={string_of_int(i)} row />
