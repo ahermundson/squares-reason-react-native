@@ -74,19 +74,15 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
       squareArray;
     });
 
-  let findSquare = (square, squares) => {
-    Js.log(squares);
-    switch (squares) {
-    | None => Js.log("no squares")
-    | Some(sq) =>
-      let squareToUpdate =
-        sq |> Js.Array.findIndex(s => s##_id == square##_id);
-      Js.log(squareToUpdate);
-      Js.log(sq[squareToUpdate]);
-      if (!sq[squareToUpdate]##isTaken) {
-        sq[squareToUpdate] = square;
-        setSquares(_ => sq);
-      };
+  let findSquare = (square, sq) => {
+    let squaresBeingPassed = sq;
+    let squareToUpdate =
+      squaresBeingPassed |> Js.Array.findIndex(s => s##_id == square##_id);
+    Js.log(squareToUpdate);
+    Js.log(squaresBeingPassed[squareToUpdate]);
+    if (!squaresBeingPassed[squareToUpdate]##isTaken) {
+      squaresBeingPassed[squareToUpdate] = square;
+      setSquares(_ => squaresBeingPassed);
     };
   };
 
@@ -101,13 +97,18 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
       {switch (gameId->Js.Nullable.toOption) {
        | None => "Error getting Game Id"->React.string
        | Some(gameId) =>
-         let gameQuery = GetGameSquares.make(~id=gameId, ());
-         let (simple, _full) =
+         let (squareResponse, _full) =
            useQuery(
              GetGameSquares.definition,
              ~variables=GetGameSquares.makeVariables(~id=gameId, ()),
            );
-         switch (simple) {
+
+         let (squareSub, _full) =
+           useSubscription(
+             SquareSubscription.definition,
+             ~variables=GetGameSquares.makeVariables(~id=gameId, ()),
+           );
+         switch (squareResponse) {
          | Loading => <Text> "Loading Squares"->React.string </Text>
          | NoData => <Text> "No Squares"->React.string </Text>
          | Error(_error) =>
@@ -119,31 +120,25 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
            | None => setSquares(_ => [||])
            | Some(z) =>
              if (Js.Array.length(squares) == 0) {
+               Js.log("What the fuck is going on");
                setSquares(_ => z);
-               Js.log("something");
-             } else {
-               Js.log("Something else");
              }
            };
            let parsedRows = parseSquares(squares);
-           <SquareSub variables=gameQuery##variables>
-             {(
-                ({data}) => {
-                  Js.log(data);
-                  Js.log(parsedRows);
-                  switch (data) {
-                  | None => Js.log("Nothing here")
-                  | Some(square) =>
-                    findSquare(square##squareTaken, gameSquares)
-                  };
-                  parsedRows
-                  |> Js.Array.mapi((row, i) =>
-                       <BoardRow key={string_of_int(i)} row />
-                     )
-                  |> ReasonReact.array;
-                }
-              )}
-           </SquareSub>;
+           Js.log(parsedRows);
+           switch (squareSub) {
+           | NoData => Js.log("Nothing here")
+           | Data(square) =>
+             findSquare(square##squareTaken, squares);
+             ();
+           | Error(_err) => Js.log("error")
+           | Loading => ()
+           };
+           parsedRows
+           |> Js.Array.mapi((row, i) =>
+                <BoardRow key={string_of_int(i)} row />
+              )
+           |> ReasonReact.array;
          };
        }}
     </View>
