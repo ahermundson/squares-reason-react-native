@@ -76,17 +76,14 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
 
   let findSquare = (square, sq) => {
     let squaresBeingPassed = sq;
-    let squareToUpdate =
+    let index =
       squaresBeingPassed |> Js.Array.findIndex(s => s##_id == square##_id);
-    Js.log(squareToUpdate);
-    Js.log(squaresBeingPassed[squareToUpdate]);
-    if (!squaresBeingPassed[squareToUpdate]##isTaken) {
-      squaresBeingPassed[squareToUpdate] = square;
-      setSquares(_ => squaresBeingPassed);
-    };
+    squaresBeingPassed[index] = square;
+    setSquares(_ => squaresBeingPassed);
   };
 
   <ScrollView>
+    <Svg height=1 />
     <Text style=Style.(style(~textAlign=`center, ()))>
       {switch (teams->Js.Nullable.toOption) {
        | None => ""->React.string
@@ -120,17 +117,13 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
            | None => setSquares(_ => [||])
            | Some(z) =>
              if (Js.Array.length(squares) == 0) {
-               Js.log("What the fuck is going on");
                setSquares(_ => z);
              }
            };
            let parsedRows = parseSquares(squares);
-           Js.log(parsedRows);
            switch (squareSub) {
            | NoData => Js.log("Nothing here")
-           | Data(square) =>
-             findSquare(square##squareTaken, squares);
-             ();
+           | Data(square) => findSquare(square##squareTaken, squares)
            | Error(_err) => Js.log("error")
            | Loading => ()
            };

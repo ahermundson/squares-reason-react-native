@@ -65,7 +65,7 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
   </GetAllGamesQuery>;
 };
 
-make->NavigationOptions.setDynamicNavigationOptions(params => {
+make->NavigationOptions.setDynamicNavigationOptions(_params => {
   // let navigation = params##navigation;
   // let navigationOptions = params##navigationOptions;
   // let screenProps = params##screenProps;
