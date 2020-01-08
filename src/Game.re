@@ -83,7 +83,6 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
   };
 
   <ScrollView>
-    <Svg height=1 />
     <Text style=Style.(style(~textAlign=`center, ()))>
       {switch (teams->Js.Nullable.toOption) {
        | None => ""->React.string

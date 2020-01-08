@@ -217,11 +217,13 @@ PODS:
     - React-cxxreact (= 0.61.5)
     - React-jsi (= 0.61.5)
     - ReactCommon/jscallinvoker (= 0.61.5)
-  - RNGestureHandler (1.5.2):
+  - RNGestureHandler (1.5.3):
     - React
   - RNReanimated (1.4.0):
     - React
   - RNScreens (2.0.0-alpha.22):
+    - React
+  - RNSVG (10.0.0):
     - React
   - Yoga (1.14.0)
 
@@ -256,6 +258,7 @@ DEPENDENCIES:
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -317,6 +320,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNSVG:
+    :path: "../node_modules/react-native-svg"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -346,9 +351,10 @@ SPEC CHECKSUMS:
   React-RCTText: 9ccc88273e9a3aacff5094d2175a605efa854dbe
   React-RCTVibration: a49a1f42bf8f5acf1c3e297097517c6b3af377ad
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
-  RNGestureHandler: 946a7691e41df61e2c4b1884deab41a4cdc3afff
+  RNGestureHandler: 02905abe54e1f6e59c081a10b4bd689721e17aa6
   RNReanimated: b2ab0b693dddd2339bd2f300e770f6302d2e960c
   RNScreens: 6adf01eb4080f44af6cca551207c6b0505066857
+  RNSVG: 9d45f03136ecc9b5497e12f6f20838b568acb9f4
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
 PODFILE CHECKSUM: 4b41d77c53dc0b240762dc239621483bd5b0f3da
