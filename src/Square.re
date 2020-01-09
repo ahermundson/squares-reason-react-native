@@ -14,6 +14,25 @@ module MarkSquare = [%graphql
 
 [@react.component]
 let make = (~square: square) => {
+  let springValue = React.useRef(Animated.Value.create(0.3));
+  let spring = () =>
+    Animated.(
+      spring(
+        springValue->React.Ref.current,
+        Value.Spring.config(
+          ~toValue=1.->Value.create->Value.Spring.fromAnimatedValue,
+          (),
+        ),
+      )
+    )
+    ->Animated.start();
+  React.useEffect1(
+    () => {
+      spring();
+      None;
+    },
+    [|square##isTaken|],
+  );
   let (screamMutation, _simple, _full) =
     useMutation(
       ~variables=MarkSquare.makeVariables(~id=square##_id, ()),
@@ -55,9 +74,23 @@ let make = (~square: square) => {
             )
           )>
           <View>
-            <Text style=Style.(style(~fontSize=22., ()))>
+            <Animated.Text
+              style=Style.(
+                style(
+                  ~fontSize=22.,
+                  ~transform=[|
+                    scale(
+                      ~scale=
+                        springValue
+                        ->React.Ref.current
+                        ->Animated.StyleProp.float,
+                    ),
+                  |],
+                  (),
+                )
+              )>
               {user##first_name->React.string}
-            </Text>
+            </Animated.Text>
           </View>
         </View>
       }

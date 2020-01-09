@@ -1,11 +1,17 @@
+[@bs.deriving jsConverter]
+type clipRule = [ | [@bs.as "evenodd"] `Evenodd | [@bs.as "nonzero"] `Nonzero];
+[@bs.deriving jsConverter]
+type potato = [ | [@bs.as "potato"] `Potato];
 module Svg = {
   [@bs.module "react-native-svg"] [@react.component]
   external make:
     (
       ~height: string,
-      ~width: string,
+      ~width: string=?,
       ~viewBox: string,
-      ~children: ReasonReact.reactElement
+      ~children: ReasonReact.reactElement=?,
+      ~clipRule: clipRule,
+      ~potato: potato
     ) =>
     React.element =
     "Svg";

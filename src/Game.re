@@ -2,6 +2,7 @@ open ReactNative;
 open ReactNavigation;
 open SharedTypes;
 open ApolloHooks;
+open ReactNativeSvg;
 
 module GetGameSquares = [%graphql
   {|
@@ -83,6 +84,7 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
   };
 
   <ScrollView>
+    <Svg height="1" viewBox="1" clipRule=`Nonzero potato=`Potato />
     <Text style=Style.(style(~textAlign=`center, ()))>
       {switch (teams->Js.Nullable.toOption) {
        | None => ""->React.string
