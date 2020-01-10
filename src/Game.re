@@ -2,7 +2,6 @@ open ReactNative;
 open ReactNavigation;
 open SharedTypes;
 open ApolloHooks;
-open ReactNativeSvg;
 
 module GetGameSquares = [%graphql
   {|
@@ -80,11 +79,13 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
     let index =
       squaresBeingPassed |> Js.Array.findIndex(s => s##_id == square##_id);
     squaresBeingPassed[index] = square;
-    setSquares(_ => squaresBeingPassed);
+    if (!squaresBeingPassed[index]##isTaken) {
+      Js.log("WTF");
+      setSquares(_ => squaresBeingPassed);
+    };
   };
 
   <ScrollView>
-    <Svg height="1" viewBox="1" clipRule=`Nonzero potato=`Potato />
     <Text style=Style.(style(~textAlign=`center, ()))>
       {switch (teams->Js.Nullable.toOption) {
        | None => ""->React.string
@@ -95,17 +96,17 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
       {switch (gameId->Js.Nullable.toOption) {
        | None => "Error getting Game Id"->React.string
        | Some(gameId) =>
+         let (squareSub, _full) =
+           useSubscription(
+             SquareSubscription.definition,
+             ~variables=GetGameSquares.makeVariables(~id=gameId, ()),
+           );
          let (squareResponse, _full) =
            useQuery(
              GetGameSquares.definition,
              ~variables=GetGameSquares.makeVariables(~id=gameId, ()),
            );
 
-         let (squareSub, _full) =
-           useSubscription(
-             SquareSubscription.definition,
-             ~variables=GetGameSquares.makeVariables(~id=gameId, ()),
-           );
          switch (squareResponse) {
          | Loading => <Text> "Loading Squares"->React.string </Text>
          | NoData => <Text> "No Squares"->React.string </Text>
@@ -119,15 +120,15 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
            | Some(z) =>
              if (Js.Array.length(squares) == 0) {
                setSquares(_ => z);
-             }
+             };
+             switch (squareSub) {
+             | NoData => Js.log("Nothing here")
+             | Data(square) => findSquare(square##squareTaken, squares)
+             | Error(_err) => Js.log("error")
+             | Loading => ()
+             };
            };
            let parsedRows = parseSquares(squares);
-           switch (squareSub) {
-           | NoData => Js.log("Nothing here")
-           | Data(square) => findSquare(square##squareTaken, squares)
-           | Error(_err) => Js.log("error")
-           | Loading => ()
-           };
            parsedRows
            |> Js.Array.mapi((row, i) =>
                 <BoardRow key={string_of_int(i)} row />

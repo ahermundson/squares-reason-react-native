@@ -15,17 +15,19 @@ module MarkSquare = [%graphql
 [@react.component]
 let make = (~square: square) => {
   let springValue = React.useRef(Animated.Value.create(0.3));
-  let spring = () =>
+  let spring = () => {
     Animated.(
-      spring(
+      timing(
         springValue->React.Ref.current,
-        Value.Spring.config(
-          ~toValue=1.->Value.create->Value.Spring.fromAnimatedValue,
+        Value.Timing.config(
+          ~toValue=1.->Value.Timing.fromRawValue,
+          ~duration=150.,
           (),
         ),
       )
     )
     ->Animated.start();
+  };
   React.useEffect1(
     () => {
       spring();
