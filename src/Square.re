@@ -1,6 +1,7 @@
 open ReactNative;
 open ApolloHooks;
 open SharedTypes;
+open RNIcons;
 
 module MarkSquare = [%graphql
   {|
@@ -21,7 +22,7 @@ let make = (~square: square) => {
         springValue->React.Ref.current,
         Value.Timing.config(
           ~toValue=1.->Value.Timing.fromRawValue,
-          ~duration=150.,
+          ~duration=400.,
           (),
         ),
       )
@@ -67,19 +68,21 @@ let make = (~square: square) => {
         <View
           style=Style.(
             style(
-              ~borderColor="black",
+              ~borderColor="white",
               ~borderWidth=1.,
               ~justifyContent=`center,
               ~alignItems=`center,
               ~minHeight=55.->dp,
+              ~backgroundColor="#01C357",
               (),
             )
           )>
           <View>
-            <Animated.Text
+            <Animated.View
               style=Style.(
                 style(
                   ~fontSize=22.,
+                  ~backgroundColor="#01C357",
                   ~transform=[|
                     scale(
                       ~scale=
@@ -91,8 +94,8 @@ let make = (~square: square) => {
                   (),
                 )
               )>
-              {user##first_name->React.string}
-            </Animated.Text>
+              <FontAwesome name=`_checkCircle color="white" size=30. />
+            </Animated.View>
           </View>
         </View>
       }
@@ -100,26 +103,16 @@ let make = (~square: square) => {
         <View
           style=Style.(
             style(
-              ~borderColor="black",
+              ~borderColor="white",
               ~borderWidth=1.,
               ~justifyContent=`center,
               ~alignItems=`center,
+              ~minHeight=55.->dp,
+              ~backgroundColor="#01C357",
               (),
             )
           )
-          key={string_of_int(square##x)}>
-          <Text style=Style.(style(~color="black", ~fontSize=22., ()))>
-            {{
-               "X" ++ string_of_int(square##x);
-             }
-             ->React.string}
-          </Text>
-          <Text style=Style.(style(~color="black", ~fontSize=22., ()))>
-            {{
-               "Y" ++ string_of_int(square##y);
-             }
-             ->React.string}
-          </Text>
-        </View>
+          key={string_of_int(square##x)}
+        />
       </TouchableOpacity>;
 };
