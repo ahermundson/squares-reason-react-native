@@ -109,6 +109,7 @@ let make = (~square: square) => {
               ~alignItems=`center,
               ~minHeight=55.->dp,
               ~backgroundColor="#01C357",
+              ~minWidth=41.5->dp,
               (),
             )
           )

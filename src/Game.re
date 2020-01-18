@@ -47,6 +47,19 @@ module SquareSubscription = [%graphql
 
 module SquareSub = ReasonApollo.CreateSubscription(SquareSubscription);
 
+module ScoreSubscription = [%graphql
+  {|
+  subscription($id: ID!) {
+    scoreUpdated(gameId: $id) {
+      homeTeamScore
+      awayTeamScore
+    }
+  }
+|}
+];
+
+module ScoreSub = ReasonApollo.CreateSubscription(ScoreSubscription);
+
 let createBoardRow = (squares, x) =>
   squares |> Js.Array.filter(square => square##x == x);
 
@@ -80,7 +93,6 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
       squaresBeingPassed |> Js.Array.findIndex(s => s##_id == square##_id);
     squaresBeingPassed[index] = square;
     if (!squaresBeingPassed[index]##isTaken) {
-      Js.log("WTF");
       setSquares(_ => squaresBeingPassed);
     };
   };
@@ -99,6 +111,11 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
          let (squareSub, _full) =
            useSubscription(
              SquareSubscription.definition,
+             ~variables=GetGameSquares.makeVariables(~id=gameId, ()),
+           );
+         let (scoreSub, _full) =
+           useSubscription(
+             ScoreSubscription.definition,
              ~variables=GetGameSquares.makeVariables(~id=gameId, ()),
            );
          let (squareResponse, _full) =
@@ -124,6 +141,12 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
              switch (squareSub) {
              | NoData => Js.log("Nothing here")
              | Data(square) => findSquare(square##squareTaken, squares)
+             | Error(_err) => Js.log("error")
+             | Loading => ()
+             };
+             switch (scoreSub) {
+             | NoData => Js.log("Nothing here")
+             | Data(score) => Js.log(score)
              | Error(_err) => Js.log("error")
              | Loading => ()
              };
