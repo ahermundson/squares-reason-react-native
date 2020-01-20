@@ -87,6 +87,8 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
       squareArray;
     });
 
+  let (homeScore, setHomeScore) = React.useState(() => 0);
+
   let findSquare = (square, sq) => {
     let squaresBeingPassed = sq;
     let index =
