@@ -172,7 +172,7 @@ make->NavigationOptions.setDynamicNavigationOptions(_params => {
   /* More properties can be set dynamically based on navigation, navigationOptions or screenProps. */
   NavigationOptions.t(
     ~title="Game",
-    ~headerTintColor="red",
+    ~headerTintColor="#01C357",
     (),
   )
 });
