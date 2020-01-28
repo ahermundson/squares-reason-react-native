@@ -1,11 +1,31 @@
 open ReactNative;
 
 open ReactNavigation;
+open ApolloHooks;
+
+module Login = [%graphql
+  {|
+  mutation login($email: String!, $password: String!) {
+      login(email: $email, password: $password) {
+          ok
+      }
+  }
+|}
+];
 
 [@react.component]
 let make = (~navigation: ReactNavigation.Navigation.t) => {
-  let (userName, setUsername) = React.useState(() => "");
+  let (email, setEmail) = React.useState(() => "");
   let (password, setPassword) = React.useState(() => "");
+  let (loginMutation, _simple, _full) = useMutation(Login.definition);
+
+  let login = () =>
+    loginMutation(~variables=Login.makeVariables(~email, ~password, ()), ())
+    |> Js.Promise.then_(result => {
+         Js.log(result);
+         Js.Promise.resolve();
+       })
+    |> ignore;
   <View>
     <TextInput
       style=Style.(
@@ -19,9 +39,9 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
           (),
         )
       )
-      value=userName
+      value=email
       placeholder="Username"
-      onChangeText={e => setUsername(_ => e)}
+      onChangeText={e => setEmail(_ => e)}
     />
     <TextInput
       style=Style.(
@@ -40,7 +60,7 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
       onChangeText={e => setPassword(_ => e)}
       secureTextEntry=true
     />
-    <Button onPress={_ => Js.log("pressed")} title="Submit" />
+    <Button onPress={_ => login()} title="Submit" />
   </View>;
 };
 
