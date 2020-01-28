@@ -18,11 +18,23 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
   let (email, setEmail) = React.useState(() => "");
   let (password, setPassword) = React.useState(() => "");
   let (loginMutation, _simple, _full) = useMutation(Login.definition);
+  let (loginError, setLoginError) = React.useState(() => false);
 
   let login = () =>
     loginMutation(~variables=Login.makeVariables(~email, ~password, ()), ())
-    |> Js.Promise.then_(result => {
-         Js.log(result);
+    |> Js.Promise.then_(
+         (response: Mutation.result({. "login": {. "ok": bool}})) => {
+         switch (response) {
+         | Data(_) => navigation->Navigation.navigate("Games")
+         | Error(e) =>
+           setLoginError(_ => true);
+           Js.Promise.resolve(Belt.Result.Error(`apolloErrors(e))) |> ignore;
+         | NoData => Js.log("no data")
+         };
+         Js.Promise.resolve();
+       })
+    |> Js.Promise.catch(_ => {
+         setLoginError(_ => true);
          Js.Promise.resolve();
        })
     |> ignore;
@@ -31,7 +43,9 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
       style=Style.(
         style(
           ~borderWidth=1.,
-          ~borderColor="black",
+          ~borderColor={
+            loginError ? "red" : "black";
+          },
           ~marginHorizontal=35.->dp,
           ~paddingVertical=15.->dp,
           ~paddingLeft=10.->dp,
@@ -47,7 +61,9 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
       style=Style.(
         style(
           ~borderWidth=1.,
-          ~borderColor="black",
+          ~borderColor={
+            loginError ? "red" : "black";
+          },
           ~marginHorizontal=35.->dp,
           ~paddingVertical=15.->dp,
           ~paddingLeft=10.->dp,

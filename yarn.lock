@@ -5385,10 +5385,10 @@ realpath-native@^1.1.0:
   dependencies:
     util.promisify "^1.0.0"
 
-reason-apollo-hooks@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/reason-apollo-hooks/-/reason-apollo-hooks-4.1.0.tgz#a88d74c71f58c8c973fc9fd8f84c18230f676a9c"
-  integrity sha512-imYIbjEjZWWh3o0RavbV0HY27VUI9B7MjZIYtw4RveN7mih0MvPW0zF3EH3oF0UMdgGj3DxKKijHheZrmYNbmA==
+reason-apollo-hooks@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/reason-apollo-hooks/-/reason-apollo-hooks-6.0.0.tgz#0fa68c9eccc375b3d7b6508fd821204ad95303a1"
+  integrity sha512-fY7i/zysetNFnamzGCJJGmFzIPC+Auzf/B8zNyVehNsri7sCY3itTmFl540I+ZEAxYOXQEsZzP+BgafuQpF3aA==
 
 reason-apollo@^0.18.0:
   version "0.18.0"

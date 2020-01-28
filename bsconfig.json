@@ -21,7 +21,8 @@
     "reason-apollo",
     "reason-react-native",
     "@reason-react-native/navigation",
-    "bs-react-native-vector-icons"
+    "bs-react-native-vector-icons",
+    "bs-react-native-paper"
   ],
   "ppx-flags": ["@baransu/graphql_ppx_re/ppx6"]
 }

@@ -32,7 +32,7 @@
     "react-navigation-stack": "^1.10.3",
     "react-navigation-tabs": "^2.6.2",
     "reason-apollo": "^0.18.0",
-    "reason-apollo-hooks": "^4.1.0",
+    "reason-apollo-hooks": "^6.0.0",
     "reason-react": "^0.7.0",
     "reason-react-native": "^0.60.0",
     "subscriptions-transport-ws": "^0.9.16"
