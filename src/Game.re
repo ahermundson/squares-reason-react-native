@@ -80,6 +80,7 @@ let parseSquares = squares => [|
 let make = (~navigation: ReactNavigation.Navigation.t) => {
   let gameId = navigation->Navigation.getParam("gameId");
   let teams = navigation->Navigation.getParam("teams");
+  let (token, setToken) = React.useState(() => "");
 
   let (squares, setSquares) =
     React.useState(() => {

@@ -8,10 +8,24 @@ module Login = [%graphql
   mutation login($email: String!, $password: String!) {
       login(email: $email, password: $password) {
           ok
+          token
+          refreshToken
+          errors
       }
   }
 |}
 ];
+
+type login = {
+  .
+  "login": {
+    .
+    "ok": bool,
+    "refreshToken": option(string),
+    "token": option(string),
+    "errors": option(string),
+  },
+};
 
 [@react.component]
 let make = (~navigation: ReactNavigation.Navigation.t) => {
@@ -22,10 +36,20 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
 
   let login = () =>
     loginMutation(~variables=Login.makeVariables(~email, ~password, ()), ())
-    |> Js.Promise.then_(
-         (response: Mutation.result({. "login": {. "ok": bool}})) => {
+    |> Js.Promise.then_((response: Mutation.result(login)) => {
          switch (response) {
-         | Data(_) => navigation->Navigation.navigate("Games")
+         | Data(data) =>
+           data##login##ok
+             ? {
+               switch (data##login##token) {
+               | Some(token) =>
+                 AsyncStorage.setItem("token", token) |> ignore;
+                 navigation->Navigation.navigate("Games");
+
+               | None => setLoginError(_ => true)
+               };
+             }
+             : setLoginError(_ => true)
          | Error(e) =>
            setLoginError(_ => true);
            Js.Promise.resolve(Belt.Result.Error(`apolloErrors(e))) |> ignore;
@@ -56,6 +80,7 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
       value=email
       placeholder="Username"
       onChangeText={e => setEmail(_ => e)}
+      autoCapitalize=`none
     />
     <TextInput
       style=Style.(
@@ -90,4 +115,4 @@ make->NavigationOptions.setDynamicNavigationOptions(_params => {
     ~headerTintColor="#01C357",
     (),
   )
-});
+}) /* navigation->Navigation.navigate("Games"*/;

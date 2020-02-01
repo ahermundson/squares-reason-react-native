@@ -27,7 +27,13 @@ let make = () => {
     );
 
   let authLink =
-    ApolloLinks.createContextLink(() => {{"headers": "headers"}});
+    ApolloLinks.createContextLink(() =>
+      {
+        "headers": {
+          "authorization": "123",
+        },
+      }
+    );
 
   let link =
     ApolloLinks.split(

@@ -22,6 +22,17 @@ module GetAllGamesQuery = ReasonApollo.CreateQuery(GetAllGames);
 
 [@react.component]
 let make = (~navigation: ReactNavigation.Navigation.t) => {
+  React.useEffect0(() => {
+    Js.log("JFKLJFKLSDJFLKS");
+    AsyncStorage.getItem("token")
+    |> Js.Promise.then_(stringOrNull => {
+         Js.log2("CHECKING_AUTH_TOKEN", stringOrNull);
+         Js.Promise.resolve();
+       })
+    |> ignore;
+    None;
+  });
+
   <GetAllGamesQuery>
     ...{({result}) =>
       switch (result) {
