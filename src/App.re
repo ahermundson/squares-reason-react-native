@@ -1,4 +1,9 @@
 open ReactNavigation;
+[@bs.send]
+external concat:
+  (ReasonApolloTypes.apolloLink, ReasonApolloTypes.apolloLink) =>
+  ReasonApolloTypes.apolloLink =
+  "concat";
 
 module MyAppContainer =
   AppContainer.Make({
@@ -21,6 +26,9 @@ let make = () => {
       (),
     );
 
+  let authLink =
+    ApolloLinks.createContextLink(() => {{"headers": "headers"}});
+
   let link =
     ApolloLinks.split(
       operation => {
@@ -34,8 +42,14 @@ let make = () => {
       httpLink,
     );
 
+  let linkWithAuth = authLink->(concat(link));
+
   let instance =
-    ReasonApollo.createApolloClient(~link, ~cache=inMemoryCache, ());
+    ReasonApollo.createApolloClient(
+      ~link=linkWithAuth,
+      ~cache=inMemoryCache,
+      (),
+    );
 
   <ReasonApollo.Provider client=instance>
     <ApolloHooks.Provider client=instance>
