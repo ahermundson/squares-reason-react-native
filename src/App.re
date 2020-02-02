@@ -1,4 +1,5 @@
 open ReactNavigation;
+open ReactNative;
 [@bs.send]
 external concat:
   (ReasonApolloTypes.apolloLink, ReasonApolloTypes.apolloLink) =>
@@ -26,14 +27,26 @@ let make = () => {
       (),
     );
 
+  let getToken = () => {
+    let token =
+      AsyncStorage.getItem("token")
+      |> Js.Promise.then_(stringOrNull => {
+           Js.log2("CHECKING_AUTH_TOKEN", stringOrNull);
+           Js.Promise.resolve(stringOrNull);
+         });
+    token;
+  };
+
   let authLink =
-    ApolloLinks.createContextLink(() =>
+    ApolloLinks.createContextLink(() => {
+      let token = getToken();
+      Js.log2("TOKEN: ", token);
       {
         "headers": {
-          "authorization": "123",
+          "authorization": token,
         },
-      }
-    );
+      };
+    });
 
   let link =
     ApolloLinks.split(
