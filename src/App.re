@@ -32,7 +32,7 @@ let make = () => {
     );
 
   let authLink =
-    ApolloLinks.createContextLink(() => {
+    ApolloLinks.createContextLinkPromise(() => {
       let%Async token = AsyncStorage.getItem("token");
       Js.Promise.resolve({
         "headers": {

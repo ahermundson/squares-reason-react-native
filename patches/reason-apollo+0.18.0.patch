@@ -60,10 +60,10 @@ diff --git a/node_modules/reason-apollo/lib/bs/.ninja_deps b/node_modules/reason
 index 2afb5cc..e5675ec 100644
 Binary files a/node_modules/reason-apollo/lib/bs/.ninja_deps and b/node_modules/reason-apollo/lib/bs/.ninja_deps differ
 diff --git a/node_modules/reason-apollo/lib/bs/.ninja_log b/node_modules/reason-apollo/lib/bs/.ninja_log
-index dd0eaeb..99cafb6 100644
+index dd0eaeb..e705b8f 100644
 --- a/node_modules/reason-apollo/lib/bs/.ninja_log
 +++ b/node_modules/reason-apollo/lib/bs/.ninja_log
-@@ -1,138 +1,62 @@
+@@ -1,138 +1,77 @@
  # ninja log v5
 -1	77	1555616982	src/ApolloLinks.mlast	c37a53e7adbe1492
 -5	126	1555624720	src/ApolloConsumer.mlast	5eb7bbb939e3413a
@@ -263,6 +263,21 @@ index dd0eaeb..99cafb6 100644
 +731	764	1580783487840988726	src/ReasonApollo.cmj	b254ad28bac88cbf
 +731	764	1580783487840988726	src/ReasonApollo.cmi	b254ad28bac88cbf
 +731	764	1580783487840988726	/Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/reason-apollo/src/ReasonApollo.bs.js	b254ad28bac88cbf
++1	36	1580784776728585815	src/ApolloLinks.reast	96d8e11e76755401
++36	45	1580784776728585815	src/ApolloLinks.d	998a08ef38393078
++45	64	1580784776756975716	src/ApolloLinks.cmj	d05cf9c1387f3ac3
++45	64	1580784776756975716	src/ApolloLinks.cmi	d05cf9c1387f3ac3
++45	64	1580784776756975716	/Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/reason-apollo/src/ApolloLinks.bs.js	d05cf9c1387f3ac3
++1	35	1580784787985405477	src/ApolloLinks.reast	96d8e11e76755401
++35	44	1580784787985405477	src/ApolloLinks.d	998a08ef38393078
++44	63	1580784787985405477	src/ApolloLinks.cmj	d05cf9c1387f3ac3
++44	63	1580784787985405477	src/ApolloLinks.cmi	d05cf9c1387f3ac3
++44	63	1580784787985405477	/Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/reason-apollo/src/ApolloLinks.bs.js	d05cf9c1387f3ac3
++1	34	1580784804508583182	src/ApolloLinks.reast	96d8e11e76755401
++34	43	1580784804508583182	src/ApolloLinks.d	998a08ef38393078
++43	64	1580784804508583182	src/ApolloLinks.cmj	d05cf9c1387f3ac3
++43	64	1580784804508583182	src/ApolloLinks.cmi	d05cf9c1387f3ac3
++43	64	1580784804508583182	/Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/reason-apollo/src/ApolloLinks.bs.js	d05cf9c1387f3ac3
 diff --git a/node_modules/reason-apollo/lib/bs/.sourcedirs.json b/node_modules/reason-apollo/lib/bs/.sourcedirs.json
 deleted file mode 100644
 index 36bb266..0000000
@@ -536,13 +551,13 @@ new file mode 100644
 index 0000000..187ef98
 Binary files /dev/null and b/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.reast differ
 diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloLinks.cmi b/node_modules/reason-apollo/lib/bs/src/ApolloLinks.cmi
-index d7c3523..49c3696 100644
+index d7c3523..8fd94fc 100644
 Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloLinks.cmi and b/node_modules/reason-apollo/lib/bs/src/ApolloLinks.cmi differ
 diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloLinks.cmj b/node_modules/reason-apollo/lib/bs/src/ApolloLinks.cmj
-index ed37d26..bef2363 100644
+index ed37d26..93a5127 100644
 Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloLinks.cmj and b/node_modules/reason-apollo/lib/bs/src/ApolloLinks.cmj differ
 diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloLinks.cmt b/node_modules/reason-apollo/lib/bs/src/ApolloLinks.cmt
-index ef3a9d7..9a739ba 100644
+index ef3a9d7..41a3609 100644
 Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloLinks.cmt and b/node_modules/reason-apollo/lib/bs/src/ApolloLinks.cmt differ
 diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloLinks.d b/node_modules/reason-apollo/lib/bs/src/ApolloLinks.d
 new file mode 100644
@@ -569,7 +584,7 @@ index 8df3b6d..0000000
 \ No newline at end of file
 diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloLinks.reast b/node_modules/reason-apollo/lib/bs/src/ApolloLinks.reast
 new file mode 100644
-index 0000000..cf21239
+index 0000000..beedf96
 Binary files /dev/null and b/node_modules/reason-apollo/lib/bs/src/ApolloLinks.reast differ
 diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloProvider.cmi b/node_modules/reason-apollo/lib/bs/src/ApolloProvider.cmi
 index 4bc902c..a78f083 100644
@@ -1083,22 +1098,22 @@ index 0000000..25efbcb
 +};
 diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloLinks.cmi b/node_modules/reason-apollo/lib/ocaml/ApolloLinks.cmi
 new file mode 100644
-index 0000000..49c3696
+index 0000000..8fd94fc
 Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ApolloLinks.cmi differ
 diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloLinks.cmj b/node_modules/reason-apollo/lib/ocaml/ApolloLinks.cmj
 new file mode 100644
-index 0000000..bef2363
+index 0000000..93a5127
 Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ApolloLinks.cmj differ
 diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloLinks.cmt b/node_modules/reason-apollo/lib/ocaml/ApolloLinks.cmt
 new file mode 100644
-index 0000000..9a739ba
+index 0000000..41a3609
 Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ApolloLinks.cmt differ
 diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloLinks.re b/node_modules/reason-apollo/lib/ocaml/ApolloLinks.re
 new file mode 100644
-index 0000000..5c1cd47
+index 0000000..a9ec6b0
 --- /dev/null
 +++ b/node_modules/reason-apollo/lib/ocaml/ApolloLinks.re
-@@ -0,0 +1,115 @@
+@@ -0,0 +1,119 @@
 +open ReasonApolloTypes;
 +
 +/* Bind the method `from`, used to compose links together */
@@ -1201,9 +1216,13 @@ index 0000000..5c1cd47
 + */
 +let createContextLink = contextHandler => {
 +  /* Instanciate a new context link object */
-+  apolloLinkSetPromiseContext(
++  apolloLinkSetContext(
 +    contextHandler,
 +  );
++};
++
++let createContextLinkPromise = contextHandler => {
++  apolloLinkSetPromiseContext(contextHandler);
 +};
 +
 +/**
@@ -2112,12 +2131,14 @@ index 408db0a..e0c9fcc 100644
 +exports.createInMemoryCache = createInMemoryCache;
  /* apollo-cache-inmemory Not a pure module */
 diff --git a/node_modules/reason-apollo/src/ApolloLinks.bs.js b/node_modules/reason-apollo/src/ApolloLinks.bs.js
-index 8d4ab65..0069f72 100644
+index 8d4ab65..1eb4ded 100644
 --- a/node_modules/reason-apollo/src/ApolloLinks.bs.js
 +++ b/node_modules/reason-apollo/src/ApolloLinks.bs.js
 @@ -1,18 +1,22 @@
 -// Generated by BUCKLESCRIPT VERSION 5.0.3, PLEASE EDIT WITH CARE
--
++// Generated by BUCKLESCRIPT, PLEASE EDIT WITH CARE
++'use strict';
+ 
 -import * as Caml_option from "bs-platform/lib/es6/caml_option.js";
 -import * as ApolloLinkWs from "apollo-link-ws";
 -import * as ApolloLinkHttp from "apollo-link-http";
@@ -2125,11 +2146,6 @@ index 8d4ab65..0069f72 100644
 -import * as ApolloLinkError from "apollo-link-error";
 -import * as ApolloLinkContext from "apollo-link-context";
 -import * as ApolloUploadClient from "apollo-upload-client";
--
--function webSocketLink(uri, reconnect, param) {
-+// Generated by BUCKLESCRIPT, PLEASE EDIT WITH CARE
-+'use strict';
-+
 +var Caml_option = require("bs-platform/lib/js/caml_option.js");
 +var ApolloLinkWs = require("apollo-link-ws");
 +var ApolloLinkHttp = require("apollo-link-http");
@@ -2137,7 +2153,8 @@ index 8d4ab65..0069f72 100644
 +var ApolloLinkError = require("apollo-link-error");
 +var ApolloLinkContext = require("apollo-link-context");
 +var ApolloUploadClient = require("apollo-upload-client");
-+
+ 
+-function webSocketLink(uri, reconnect, param) {
 +function webSocketLink(uri, reconnect, connectionParams, param) {
    var tmp = { };
    if (reconnect !== undefined) {
@@ -2149,7 +2166,15 @@ index 8d4ab65..0069f72 100644
    return new ApolloLinkWs.WebSocketLink({
                uri: uri,
                options: tmp
-@@ -49,12 +53,9 @@ function createErrorLink(errorHandler) {
+@@ -45,16 +49,18 @@ function createContextLink(contextHandler) {
+   return ApolloLinkContext.setContext(contextHandler);
+ }
+ 
++function createContextLinkPromise(contextHandler) {
++  return ApolloLinkContext.setContext(contextHandler);
++}
++
+ function createErrorLink(errorHandler) {
    return ApolloLinkError.onError(errorHandler);
  }
  
@@ -2165,10 +2190,11 @@ index 8d4ab65..0069f72 100644
 +exports.createHttpLink = createHttpLink;
 +exports.createUploadLink = createUploadLink;
 +exports.createContextLink = createContextLink;
++exports.createContextLinkPromise = createContextLinkPromise;
 +exports.createErrorLink = createErrorLink;
  /* apollo-link-ws Not a pure module */
 diff --git a/node_modules/reason-apollo/src/ApolloLinks.re b/node_modules/reason-apollo/src/ApolloLinks.re
-index 788449e..5c1cd47 100644
+index 788449e..a9ec6b0 100644
 --- a/node_modules/reason-apollo/src/ApolloLinks.re
 +++ b/node_modules/reason-apollo/src/ApolloLinks.re
 @@ -18,6 +18,11 @@ external createHttpLink: ApolloClient.linkOptions => apolloLink = "HttpLink";
@@ -2183,15 +2209,17 @@ index 788449e..5c1cd47 100644
  /* Bind the onError method */
  [@bs.module "apollo-link-error"]
  external apolloLinkOnError: (errorResponse => unit) => apolloLink = "onError";
-@@ -95,7 +100,7 @@ let createUploadLink =
-  */
- let createContextLink = contextHandler => {
-   /* Instanciate a new context link object */
--  apolloLinkSetContext(
-+  apolloLinkSetPromiseContext(
-     contextHandler,
+@@ -100,6 +105,10 @@ let createContextLink = contextHandler => {
    );
  };
+ 
++let createContextLinkPromise = contextHandler => {
++  apolloLinkSetPromiseContext(contextHandler);
++};
++
+ /**
+  * CreateErrorLink
+  * https://github.com/apollographql/apollo-link/tree/master/packages/apollo-link-error
 diff --git a/node_modules/reason-apollo/src/ApolloProvider.bs.js b/node_modules/reason-apollo/src/ApolloProvider.bs.js
 index 312aa11..40fed0f 100644
 --- a/node_modules/reason-apollo/src/ApolloProvider.bs.js
