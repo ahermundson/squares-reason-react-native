@@ -30,20 +30,10 @@ let make = () => {
       ~reconnect=true,
       (),
     );
-  let getToken = () => {
-    let%Async token = AsyncStorage.getItem("token");
-    Js.log(token);
-    Js.Promise.resolve(token);
-  };
 
   let authLink =
     ApolloLinks.createContextLink(() => {
       let%Async token = AsyncStorage.getItem("token");
-      // {
-      //   "headers": {
-      //     "authorization": "",
-      //   },
-      // }
       Js.Promise.resolve({
         "headers": {
           "authorization": token,
