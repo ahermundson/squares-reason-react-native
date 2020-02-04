@@ -1,0 +1,2673 @@
+diff --git a/node_modules/reason-apollo/.merlin b/node_modules/reason-apollo/.merlin
+index eec39c5..3063e9f 100644
+--- a/node_modules/reason-apollo/.merlin
++++ b/node_modules/reason-apollo/.merlin
+@@ -1,12 +1,11 @@
+ ####{BSB GENERATED: NO EDIT
+-FLG -ppx '/Users/gregoirevda/dev/opensource/reason-apollo/node_modules/bs-platform/lib/reactjs_jsx_ppx_3.exe'
+-FLG -ppx /Users/gregoirevda/dev/opensource/reason-apollo/node_modules/bs-platform/lib/bsppx.exe
+-S /Users/gregoirevda/dev/opensource/reason-apollo/node_modules/bs-platform/lib/ocaml
+-B /Users/gregoirevda/dev/opensource/reason-apollo/node_modules/bs-platform/lib/ocaml
+-FLG -nostdlib -color always
++FLG -ppx '/Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/bs-platform/lib/bsppx.exe -bs-jsx 3'
++S /Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/bs-platform/lib/ocaml
++B /Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/bs-platform/lib/ocaml
++FLG -nostdlib
+ FLG -w -30-40+6+7+27+32..39+44+45+101
+-S /Users/gregoirevda/dev/opensource/reason-apollo/node_modules/reason-react/lib/ocaml
+-B /Users/gregoirevda/dev/opensource/reason-apollo/node_modules/reason-react/lib/ocaml
++S /Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/reason-react/lib/ocaml
++B /Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/reason-react/lib/ocaml
+ S src
+ B lib/bs/src
+ S src/graphql-types
+diff --git a/node_modules/reason-apollo/lib/bs/.bsbuild b/node_modules/reason-apollo/lib/bs/.bsbuild
+index 72052d6..a019726 100644
+--- a/node_modules/reason-apollo/lib/bs/.bsbuild
++++ b/node_modules/reason-apollo/lib/bs/.bsbuild
+@@ -1,4 +1,4 @@
+-5.0.3
++Ã®z	þ[]0Ðy[
+ 2
+ 12
+ ApolloLinks
+@@ -13,16 +13,8 @@ ReasonApolloUtils
+ ApolloInMemoryCache
+ ReasonApolloMutation
+ ReasonApolloSubscription
+-src/ApolloLinks,04
+-src/ApolloClient,04
+-src/ReasonApollo,04
+-src/ApolloConsumer,04
+-src/ApolloProvider,04
+-src/ApolloUtilities,04
+-src/graphql-types/ReasonApolloQuery,04
+-src/ReasonApolloTypes,04
+-src/ReasonApolloUtils,04
+-src/ApolloInMemoryCache,04
+-src/graphql-types/ReasonApolloMutation,04
+-src/graphql-types/ReasonApolloSubscription,04
++src	src/graphql-types	
++1
+ 0
++
++1
+\ No newline at end of file
+diff --git a/node_modules/reason-apollo/lib/bs/.bsdeps b/node_modules/reason-apollo/lib/bs/.bsdeps
+index 1b9fdb8..db6186a 100644
+Binary files a/node_modules/reason-apollo/lib/bs/.bsdeps and b/node_modules/reason-apollo/lib/bs/.bsdeps differ
+diff --git a/node_modules/reason-apollo/lib/bs/.ninja_deps b/node_modules/reason-apollo/lib/bs/.ninja_deps
+index 2afb5cc..e5675ec 100644
+Binary files a/node_modules/reason-apollo/lib/bs/.ninja_deps and b/node_modules/reason-apollo/lib/bs/.ninja_deps differ
+diff --git a/node_modules/reason-apollo/lib/bs/.ninja_log b/node_modules/reason-apollo/lib/bs/.ninja_log
+index dd0eaeb..99cafb6 100644
+--- a/node_modules/reason-apollo/lib/bs/.ninja_log
++++ b/node_modules/reason-apollo/lib/bs/.ninja_log
+@@ -1,138 +1,62 @@
+ # ninja log v5
+-1	77	1555616982	src/ApolloLinks.mlast	c37a53e7adbe1492
+-5	126	1555624720	src/ApolloConsumer.mlast	5eb7bbb939e3413a
+-9	81	1555616982	src/ApolloUtilities.mlast	1dd630d39a5d70d0
+-1	71	1556374456	src/ApolloProvider.mlast	786808c61857460c
+-121	148	1556374456	src/ReasonApollo.cmi	a627ba105500eb80
+-4	85	1555616982	src/ReasonApollo.mlast	a7dfb168d43da702
+-2	87	1555616982	src/ApolloClient.mlast	340e1c2a95cfe41a
+-78	90	1555616982	src/ApolloLinks.mlast.d	bff81e2d86cc4d4a
+-1	18	1555624720	src/ApolloConsumer.mlast.d	42df79633f55acc8
+-81	97	1555616982	src/ApolloUtilities.mlast.d	4f0ef211ea91efc4
+-71	80	1556374456	src/ApolloProvider.mlast.d	41f99012f33a002c
+-85	101	1555616982	src/ReasonApollo.mlast.d	7c16a89e132e19e5
+-87	103	1555616982	src/ApolloClient.mlast.d	2ccf91a3a5fffcd3
+-94	155	1555616983	src/ReasonApolloUtils.mlast	39819ab8ab362f94
+-93	162	1555616983	src/ReasonApolloTypes.mlast	2e34f113564fef38
+-98	165	1555616983	src/ApolloInMemoryCache.mlast	5b99eed45bc63d15
+-0	38	1556371938	src/graphql-types/ReasonApolloSubscription.mlast	5628899fbf0d7c35
+-33	60	1555616983	src/ApolloUtilities.cmi	fb4f1ba6f1cd7f2a
+-0	40	1556371856	src/graphql-types/ReasonApolloMutation.mlast	fb02ff48fdf2f1ff
+-40	46	1556371856	src/graphql-types/ReasonApolloMutation.mlast.d	37cdd6c9a2594817
+-155	170	1555616983	src/ReasonApolloUtils.mlast.d	5a77163d47cd9f34
+-163	174	1555616983	src/ReasonApolloTypes.mlast.d	8c4cae87fddd9c75
+-165	175	1555616983	src/ApolloInMemoryCache.mlast.d	7c48b15cd42da4b2
+-38	44	1556371938	src/graphql-types/ReasonApolloSubscription.mlast.d	f6f7df19cc2aca15
+-33	60	1555616983	src/ApolloUtilities.cmj	fb4f1ba6f1cd7f2a
+-0	47	1556356504	src/graphql-types/ReasonApolloQuery.mlast	12e719b6327480e
+-47	53	1556356504	src/graphql-types/ReasonApolloQuery.mlast.d	83bde2171d9da796
+-7	31	1555616983	src/ReasonApolloUtils.cmj	efe5f5f14fb797df
+-7	31	1555616983	/Users/gregoirevda/dev/opensource/reason-apollo/src/ReasonApolloUtils.bs.js	efe5f5f14fb797df
+-100	125	1556371828	src/ApolloLinks.cmi	30b4cf6047a79e01
+-7	31	1555616983	src/ReasonApolloUtils.cmi	efe5f5f14fb797df
+-7	33	1555616983	src/ReasonApolloTypes.cmj	d0d9ec035f26797f
+-7	33	1555616983	/Users/gregoirevda/dev/opensource/reason-apollo/src/ReasonApolloTypes.bs.js	d0d9ec035f26797f
+-7	33	1555616983	src/ReasonApolloTypes.cmi	d0d9ec035f26797f
+-34	62	1555616983	src/ApolloInMemoryCache.cmj	9639eca7230d9087
+-34	62	1555616983	/Users/gregoirevda/dev/opensource/reason-apollo/src/ApolloInMemoryCache.bs.js	9639eca7230d9087
+-34	62	1555616983	src/ApolloInMemoryCache.cmi	9639eca7230d9087
+-33	60	1555616983	/Users/gregoirevda/dev/opensource/reason-apollo/src/ApolloUtilities.bs.js	fb4f1ba6f1cd7f2a
+-35	74	1556371856	src/graphql-types/ReasonApolloMutation.cmj	d4f539ecccd562ed
+-35	74	1556371856	/Users/gregoirevda/dev/opensource/reason-apollo/src/graphql-types/ReasonApolloMutation.bs.js	d4f539ecccd562ed
+-35	74	1556371856	src/graphql-types/ReasonApolloMutation.cmi	d4f539ecccd562ed
+-34	75	1556356504	src/graphql-types/ReasonApolloQuery.cmj	3469de73c93631a5
+-34	75	1556356504	/Users/gregoirevda/dev/opensource/reason-apollo/src/graphql-types/ReasonApolloQuery.bs.js	3469de73c93631a5
+-34	75	1556356504	src/graphql-types/ReasonApolloQuery.cmi	3469de73c93631a5
+-101	120	1556374456	src/ApolloProvider.cmj	a8a23abad079af7
+-37	76	1556371938	src/graphql-types/ReasonApolloSubscription.cmj	4be8d2ed6bd34d63
+-37	76	1556371938	/Users/gregoirevda/dev/opensource/reason-apollo/src/graphql-types/ReasonApolloSubscription.bs.js	4be8d2ed6bd34d63
+-37	76	1556371938	src/graphql-types/ReasonApolloSubscription.cmi	4be8d2ed6bd34d63
+-75	100	1556371828	src/ApolloClient.cmj	48720120f930830f
+-75	100	1556371828	/Users/gregoirevda/dev/opensource/reason-apollo/src/ApolloClient.bs.js	48720120f930830f
+-75	100	1556371828	src/ApolloClient.cmi	48720120f930830f
+-101	121	1556371828	src/ApolloConsumer.cmj	daed6688d6b30ec6
+-101	121	1556371828	/Users/gregoirevda/dev/opensource/reason-apollo/src/ApolloConsumer.bs.js	daed6688d6b30ec6
+-101	121	1556371828	src/ApolloConsumer.cmi	daed6688d6b30ec6
+-101	120	1556374456	/Users/gregoirevda/dev/opensource/reason-apollo/src/ApolloProvider.bs.js	a8a23abad079af7
+-101	120	1556374456	src/ApolloProvider.cmi	a8a23abad079af7
+-100	125	1556371828	src/ApolloLinks.cmj	30b4cf6047a79e01
+-100	125	1556371828	/Users/gregoirevda/dev/opensource/reason-apollo/src/ApolloLinks.bs.js	30b4cf6047a79e01
+-121	148	1556374456	src/ReasonApollo.cmj	a627ba105500eb80
+-121	148	1556374456	/Users/gregoirevda/dev/opensource/reason-apollo/src/ReasonApollo.bs.js	a627ba105500eb80
+-0	117	1556374554	src/ApolloConsumer.mlast	5eb7bbb939e3413a
+-117	126	1556374554	src/ApolloConsumer.mlast.d	42df79633f55acc8
+-1	17	1556374554	src/ApolloConsumer.cmj	daed6688d6b30ec6
+-1	17	1556374554	/Users/gregoirevda/dev/opensource/reason-apollo/src/ApolloConsumer.bs.js	daed6688d6b30ec6
+-1	17	1556374554	src/ApolloConsumer.cmi	daed6688d6b30ec6
+-17	39	1556374554	src/ReasonApollo.cmj	a627ba105500eb80
+-17	39	1556374554	/Users/gregoirevda/dev/opensource/reason-apollo/src/ReasonApollo.bs.js	a627ba105500eb80
+-17	39	1556374554	src/ReasonApollo.cmi	a627ba105500eb80
+-1	119	1556375334	src/ApolloProvider.mlast	786808c61857460c
+-3	120	1556375334	src/graphql-types/ReasonApolloQuery.mlast	12e719b6327480e
+-120	130	1556375334	src/graphql-types/ReasonApolloQuery.mlast.d	83bde2171d9da796
+-119	130	1556375334	src/ApolloProvider.mlast.d	41f99012f33a002c
+-0	122	1556375397	src/graphql-types/ReasonApolloQuery.mlast	12e719b6327480e
+-122	135	1556375397	src/graphql-types/ReasonApolloQuery.mlast.d	83bde2171d9da796
+-5	44	1556375397	src/graphql-types/ReasonApolloQuery.cmj	3469de73c93631a5
+-5	44	1556375397	/Users/gregoirevda/dev/opensource/reason-apollo/src/graphql-types/ReasonApolloQuery.bs.js	3469de73c93631a5
+-5	44	1556375397	src/graphql-types/ReasonApolloQuery.cmi	3469de73c93631a5
+-44	69	1556375397	src/ApolloClient.cmj	48720120f930830f
+-44	69	1556375397	/Users/gregoirevda/dev/opensource/reason-apollo/src/ApolloClient.bs.js	48720120f930830f
+-44	69	1556375397	src/ApolloClient.cmi	48720120f930830f
+-70	85	1556375397	src/ApolloConsumer.cmj	daed6688d6b30ec6
+-70	85	1556375397	/Users/gregoirevda/dev/opensource/reason-apollo/src/ApolloConsumer.bs.js	daed6688d6b30ec6
+-70	85	1556375397	src/ApolloConsumer.cmi	daed6688d6b30ec6
+-70	87	1556375397	src/ApolloProvider.cmj	a8a23abad079af7
+-70	87	1556375397	/Users/gregoirevda/dev/opensource/reason-apollo/src/ApolloProvider.bs.js	a8a23abad079af7
+-70	87	1556375397	src/ApolloProvider.cmi	a8a23abad079af7
+-69	93	1556375397	src/ApolloLinks.cmj	30b4cf6047a79e01
+-69	93	1556375397	/Users/gregoirevda/dev/opensource/reason-apollo/src/ApolloLinks.bs.js	30b4cf6047a79e01
+-69	93	1556375397	src/ApolloLinks.cmi	30b4cf6047a79e01
+-87	118	1556375397	src/ReasonApollo.cmj	a627ba105500eb80
+-87	118	1556375397	/Users/gregoirevda/dev/opensource/reason-apollo/src/ReasonApollo.bs.js	a627ba105500eb80
+-87	118	1556375397	src/ReasonApollo.cmi	a627ba105500eb80
+-0	158	1556375807	src/graphql-types/ReasonApolloQuery.mlast	12e719b6327480e
+-158	172	1556375807	src/graphql-types/ReasonApolloQuery.mlast.d	83bde2171d9da796
+-6	45	1556375807	src/graphql-types/ReasonApolloQuery.cmj	3469de73c93631a5
+-6	45	1556375807	/Users/gregoirevda/dev/opensource/reason-apollo/src/graphql-types/ReasonApolloQuery.bs.js	3469de73c93631a5
+-6	45	1556375807	src/graphql-types/ReasonApolloQuery.cmi	3469de73c93631a5
+-1	125	1556377335	src/graphql-types/ReasonApolloQuery.mlast	12e719b6327480e
+-125	139	1556377335	src/graphql-types/ReasonApolloQuery.mlast.d	83bde2171d9da796
+-4	41	1556377335	src/graphql-types/ReasonApolloQuery.cmj	3469de73c93631a5
+-4	41	1556377335	/Users/gregoirevda/dev/opensource/reason-apollo/src/graphql-types/ReasonApolloQuery.bs.js	3469de73c93631a5
+-4	41	1556377335	src/graphql-types/ReasonApolloQuery.cmi	3469de73c93631a5
+-41	67	1556377335	src/ApolloClient.cmj	48720120f930830f
+-41	67	1556377335	/Users/gregoirevda/dev/opensource/reason-apollo/src/ApolloClient.bs.js	48720120f930830f
+-41	67	1556377335	src/ApolloClient.cmi	48720120f930830f
+-68	87	1556377335	src/ApolloConsumer.cmj	daed6688d6b30ec6
+-68	87	1556377335	/Users/gregoirevda/dev/opensource/reason-apollo/src/ApolloConsumer.bs.js	daed6688d6b30ec6
+-68	87	1556377335	src/ApolloConsumer.cmi	daed6688d6b30ec6
+-68	88	1556377335	src/ApolloProvider.cmj	a8a23abad079af7
+-68	88	1556377335	/Users/gregoirevda/dev/opensource/reason-apollo/src/ApolloProvider.bs.js	a8a23abad079af7
+-68	88	1556377335	src/ApolloProvider.cmi	a8a23abad079af7
+-67	93	1556377335	src/ApolloLinks.cmj	30b4cf6047a79e01
+-67	93	1556377335	/Users/gregoirevda/dev/opensource/reason-apollo/src/ApolloLinks.bs.js	30b4cf6047a79e01
+-67	93	1556377335	src/ApolloLinks.cmi	30b4cf6047a79e01
+-88	122	1556377335	src/ReasonApollo.cmj	a627ba105500eb80
+-88	122	1556377335	/Users/gregoirevda/dev/opensource/reason-apollo/src/ReasonApollo.bs.js	a627ba105500eb80
+-88	122	1556377335	src/ReasonApollo.cmi	a627ba105500eb80
+-0	131	1556378112	src/graphql-types/ReasonApolloQuery.mlast	12e719b6327480e
+-131	142	1556378112	src/graphql-types/ReasonApolloQuery.mlast.d	83bde2171d9da796
+-3	40	1556378112	src/graphql-types/ReasonApolloQuery.cmj	3469de73c93631a5
+-3	40	1556378112	/Users/gregoirevda/dev/opensource/reason-apollo/src/graphql-types/ReasonApolloQuery.bs.js	3469de73c93631a5
+-3	40	1556378112	src/graphql-types/ReasonApolloQuery.cmi	3469de73c93631a5
+-40	70	1556378112	src/ApolloClient.cmj	48720120f930830f
+-40	70	1556378112	/Users/gregoirevda/dev/opensource/reason-apollo/src/ApolloClient.bs.js	48720120f930830f
+-40	70	1556378112	src/ApolloClient.cmi	48720120f930830f
+-70	90	1556378112	src/ApolloConsumer.cmj	daed6688d6b30ec6
+-70	90	1556378112	/Users/gregoirevda/dev/opensource/reason-apollo/src/ApolloConsumer.bs.js	daed6688d6b30ec6
+-70	90	1556378112	src/ApolloConsumer.cmi	daed6688d6b30ec6
+-71	90	1556378112	src/ApolloProvider.cmj	a8a23abad079af7
+-71	90	1556378112	/Users/gregoirevda/dev/opensource/reason-apollo/src/ApolloProvider.bs.js	a8a23abad079af7
+-71	90	1556378112	src/ApolloProvider.cmi	a8a23abad079af7
+-70	97	1556378112	src/ApolloLinks.cmj	30b4cf6047a79e01
+-70	97	1556378112	/Users/gregoirevda/dev/opensource/reason-apollo/src/ApolloLinks.bs.js	30b4cf6047a79e01
+-70	97	1556378112	src/ApolloLinks.cmi	30b4cf6047a79e01
+-90	125	1556378112	src/ReasonApollo.cmj	a627ba105500eb80
+-90	125	1556378112	/Users/gregoirevda/dev/opensource/reason-apollo/src/ReasonApollo.bs.js	a627ba105500eb80
+-90	125	1556378112	src/ReasonApollo.cmi	a627ba105500eb80
++# start_time end_time mtime command hash
++3	533	1580783487134364140	src/ApolloClient.reast	f3973e3ed6a3e184
++4	536	1580783487133761486	src/ReasonApollo.reast	77e5168e59efa6de
++6	541	1580783487135247438	src/ApolloConsumer.reast	f03562e7a71980a6
++9	547	1580783487137068335	src/ApolloProvider.reast	d3e8cd2278522231
++12	552	1580783487139083682	src/ApolloUtilities.reast	228cbf39a2b1124f
++15	559	1580783487141376333	src/ReasonApolloTypes.reast	6cf52f5ff9e74bd4
++0	564	1580783487628039474	src/ApolloLinks.reast	96d8e11e76755401
++533	567	1580783487630292328	src/ApolloClient.d	75d484e4d055226f
++536	568	1580783487633626477	src/ReasonApollo.d	54174ba41dbd5b61
++541	568	1580783487640088482	src/ApolloConsumer.d	ec305677d1d060c0
++547	568	1580783487646344840	src/ApolloProvider.d	2c17411af60cd46a
++552	573	1580783487650752451	src/ApolloUtilities.d	cc25501a86796908
++18	576	1580783487652386789	src/ReasonApolloUtils.reast	691e8e59241df449
++521	579	1580783487655875782	src/ApolloInMemoryCache.reast	a12dbcf093cbbad4
++559	583	1580783487655264177	src/ReasonApolloTypes.d	8c3705001c7714c
++526	587	1580783487663862854	src/graphql-types/ReasonApolloMutation.reast	1fb7fd58604ae6e2
++564	591	1580783487658851359	src/ApolloLinks.d	998a08ef38393078
++523	591	1580783487663817645	src/graphql-types/ReasonApolloQuery.reast	e4f29197fe0ea367
++528	594	1580783487668081742	src/graphql-types/ReasonApolloSubscription.reast	d75417d7c8815f3f
++576	597	1580783487669037848	src/ReasonApolloUtils.d	e450c15635a4c442
++580	600	1580783487672843162	src/ApolloInMemoryCache.d	a2219e4a011775dc
++587	602	1580783487679962014	src/graphql-types/ReasonApolloMutation.d	482bcf8e9d7502d5
++591	605	1580783487682955501	src/graphql-types/ReasonApolloQuery.d	72b989e419c2f076
++594	608	1580783487686181767	src/graphql-types/ReasonApolloSubscription.d	dd3dc185011b9461
++583	614	1580783487691635312	src/ReasonApolloTypes.cmj	4a1ce9ee1e9a2465
++583	614	1580783487691635312	src/ReasonApolloTypes.cmi	4a1ce9ee1e9a2465
++583	614	1580783487691635312	/Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/reason-apollo/src/ReasonApolloTypes.bs.js	4a1ce9ee1e9a2465
++597	625	1580783487702012441	src/ReasonApolloUtils.cmj	69a9718829920ec0
++597	625	1580783487702012441	src/ReasonApolloUtils.cmi	69a9718829920ec0
++597	625	1580783487702012441	/Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/reason-apollo/src/ReasonApolloUtils.bs.js	69a9718829920ec0
++614	638	1580783487715486090	src/ApolloUtilities.cmj	4091aeac3def9358
++614	638	1580783487715486090	src/ApolloUtilities.cmi	4091aeac3def9358
++614	638	1580783487715486090	/Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/reason-apollo/src/ApolloUtilities.bs.js	4091aeac3def9358
++616	645	1580783487721722867	src/ApolloInMemoryCache.cmj	e4c6be0bee136c0c
++616	645	1580783487721722867	src/ApolloInMemoryCache.cmi	e4c6be0bee136c0c
++616	645	1580783487721722867	/Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/reason-apollo/src/ApolloInMemoryCache.bs.js	e4c6be0bee136c0c
++632	666	1580783487743090451	src/graphql-types/ReasonApolloSubscription.cmj	60d2948e0050d497
++632	666	1580783487743090451	src/graphql-types/ReasonApolloSubscription.cmi	60d2948e0050d497
++632	666	1580783487743090451	/Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/reason-apollo/src/graphql-types/ReasonApolloSubscription.bs.js	60d2948e0050d497
++628	667	1580783487743444291	src/graphql-types/ReasonApolloMutation.cmj	97100ffeee76285e
++628	667	1580783487743444291	src/graphql-types/ReasonApolloMutation.cmi	97100ffeee76285e
++628	667	1580783487743444291	/Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/reason-apollo/src/graphql-types/ReasonApolloMutation.bs.js	97100ffeee76285e
++625	667	1580783487744009040	src/graphql-types/ReasonApolloQuery.cmj	b548c23595c5152f
++625	667	1580783487744009040	src/graphql-types/ReasonApolloQuery.cmi	b548c23595c5152f
++625	667	1580783487744009040	/Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/reason-apollo/src/graphql-types/ReasonApolloQuery.bs.js	b548c23595c5152f
++667	700	1580783487777332188	src/ApolloClient.cmj	17dc3363cb129461
++667	700	1580783487777332188	src/ApolloClient.cmi	17dc3363cb129461
++667	700	1580783487777332188	/Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/reason-apollo/src/ApolloClient.bs.js	17dc3363cb129461
++705	730	1580783487807016114	src/ApolloProvider.cmj	20c91b696fab2e90
++705	730	1580783487807016114	src/ApolloProvider.cmi	20c91b696fab2e90
++705	730	1580783487807016114	/Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/reason-apollo/src/ApolloProvider.bs.js	20c91b696fab2e90
++702	730	1580783487807162668	src/ApolloConsumer.cmj	ddd509570a61f1f3
++702	730	1580783487807162668	src/ApolloConsumer.cmi	ddd509570a61f1f3
++702	730	1580783487807162668	/Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/reason-apollo/src/ApolloConsumer.bs.js	ddd509570a61f1f3
++700	733	1580783487809650257	src/ApolloLinks.cmj	d05cf9c1387f3ac3
++700	733	1580783487809650257	src/ApolloLinks.cmi	d05cf9c1387f3ac3
++700	733	1580783487809650257	/Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/reason-apollo/src/ApolloLinks.bs.js	d05cf9c1387f3ac3
++731	764	1580783487840988726	src/ReasonApollo.cmj	b254ad28bac88cbf
++731	764	1580783487840988726	src/ReasonApollo.cmi	b254ad28bac88cbf
++731	764	1580783487840988726	/Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/reason-apollo/src/ReasonApollo.bs.js	b254ad28bac88cbf
+diff --git a/node_modules/reason-apollo/lib/bs/.sourcedirs.json b/node_modules/reason-apollo/lib/bs/.sourcedirs.json
+deleted file mode 100644
+index 36bb266..0000000
+--- a/node_modules/reason-apollo/lib/bs/.sourcedirs.json
++++ /dev/null
+@@ -1 +0,0 @@
+-{ "dirs" : [ "examples" , "src" , "src/graphql-types" ] , "generated" : [] }
+\ No newline at end of file
+diff --git a/node_modules/reason-apollo/lib/bs/build.ninja b/node_modules/reason-apollo/lib/bs/build.ninja
+index d07c1c7..7d44322 100644
+--- a/node_modules/reason-apollo/lib/bs/build.ninja
++++ b/node_modules/reason-apollo/lib/bs/build.ninja
+@@ -1,89 +1,73 @@
+-bs_package_flags = -bs-package-name reason-apollo
+-src_root_dir = /Users/gregoirevda/dev/opensource/reason-apollo
+-bsc = /Users/gregoirevda/dev/opensource/reason-apollo/node_modules/bs-platform/lib/bsc.exe
+-bsdep = /Users/gregoirevda/dev/opensource/reason-apollo/node_modules/bs-platform/lib/bsb_helper.exe
++g_std_incl = /Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/bs-platform/lib/ocaml
++g_pkg_flg = -bs-package-name reason-apollo
++src_root_dir = /Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/reason-apollo
++bsc = /Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/bs-platform/lib/bsc.exe
++bsdep = /Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/bs-platform/lib/bsb_helper.exe
+ warnings = -w -30-40+6+7+27+32..39+44+45+101
+-bsc_flags = -bs-suffix -nostdlib -I '/Users/gregoirevda/dev/opensource/reason-apollo/node_modules/bs-platform/lib/ocaml' -bs-super-errors -color always
++bsc_flags = -bs-quiet -bs-super-errors
+ ppx_flags = 
+-bs_package_includes = -I /Users/gregoirevda/dev/opensource/reason-apollo/node_modules/reason-react/lib/ocaml
+-bs_package_dev_includes = 
+-namespace = 
++g_dpkg_incls = 
++g_ns = 
+ bsb_dir_group = 0
+-bsc_group_1_includes = -I examples
+-refmt = /Users/gregoirevda/dev/opensource/reason-apollo/node_modules/bs-platform/lib/refmt.exe
+-reason_react_jsx = -ppx '/Users/gregoirevda/dev/opensource/reason-apollo/node_modules/bs-platform/lib/reactjs_jsx_ppx_3.exe'
+-refmt_flags = --print binary
+-bsc_lib_includes = -I src/graphql-types -I src
+-rule build_ast_and_module_sets_from_re
+-  command = ${bsc} -pp "${refmt} ${refmt_flags}" ${reason_react_jsx}  ${ppx_flags} ${warnings} ${bsc_flags} -c -o ${out} -bs-syntax-only -bs-binary-ast -impl ${in}
++bsc_group_1_includes = 
++g_lib_incls = -I src/graphql-types -I src -I /Users/alex.hermundson/Desktop/Desktop/Dev/squaresReasonNative/node_modules/reason-react/lib/ocaml
++rule build_ast_from_re
++  command = $bsc  $warnings -color always -bs-jsx 3 $bsc_flags -o $out -bs-syntax-only -bs-binary-ast $in
+   description = [34mBuilding[39m [2m${out}[22m
+-build src/ApolloLinks.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/ApolloLinks.re
++build  src/ApolloLinks.reast : build_ast_from_re $src_root_dir/src/ApolloLinks.re
+ rule build_deps
+-  command = ${bsdep} ${namespace} -g ${bsb_dir_group} -MD ${in}
++  command = $bsdep -hash c3ae047a09fe0c1d5b5d151530d0795b $g_ns -g $bsb_dir_group $in
+   restat = 1
+   description = [34mBuilding[39m [2m${out}[22m
+-build src/ApolloLinks.mlast.d : build_deps src/ApolloLinks.mlast
+-rule build_cmj_cmi
+-  command = ${bsc} ${bs_package_flags} -bs-assume-no-mli -bs-no-builtin-ppx-ml -bs-no-implicit-include ${bs_package_includes} ${bsc_lib_includes} ${bsc_extra_includes} ${warnings} ${bsc_flags} ${gentypeconfig} -o ${out} -c  ${in} $postbuild
+-  depfile = ${in}.d
++build  src/ApolloLinks.d : build_deps src/ApolloLinks.reast
++rule ml_cmj_cmi
++  command = $bsc -nostdlib $g_pkg_flg -color always -bs-suffix $g_lib_incls -I $g_std_incl $warnings $bsc_flags -o $out $in
++  dyndep = $in_e.d
+   restat = 1
+   description = [34mBuilding[39m [2m${out}[22m
+-build src/ApolloLinks.cmj |  $src_root_dir/src/ApolloLinks.bs.js src/ApolloLinks.cmi : build_cmj_cmi src/ApolloLinks.mlast
+-  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+-  bs_package_flags = $bs_package_flags  -bs-package-output es6:src
+-build src/ApolloClient.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/ApolloClient.re
+-build src/ApolloClient.mlast.d : build_deps src/ApolloClient.mlast
+-build src/ApolloClient.cmj |  $src_root_dir/src/ApolloClient.bs.js src/ApolloClient.cmi : build_cmj_cmi src/ApolloClient.mlast
+-  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+-  bs_package_flags = $bs_package_flags  -bs-package-output es6:src
+-build src/ReasonApollo.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/ReasonApollo.re
+-build src/ReasonApollo.mlast.d : build_deps src/ReasonApollo.mlast
+-build src/ReasonApollo.cmj |  $src_root_dir/src/ReasonApollo.bs.js src/ReasonApollo.cmi : build_cmj_cmi src/ReasonApollo.mlast
+-  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+-  bs_package_flags = $bs_package_flags  -bs-package-output es6:src
+-build src/ApolloConsumer.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/ApolloConsumer.re
+-build src/ApolloConsumer.mlast.d : build_deps src/ApolloConsumer.mlast
+-build src/ApolloConsumer.cmj |  $src_root_dir/src/ApolloConsumer.bs.js src/ApolloConsumer.cmi : build_cmj_cmi src/ApolloConsumer.mlast
+-  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+-  bs_package_flags = $bs_package_flags  -bs-package-output es6:src
+-build src/ApolloProvider.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/ApolloProvider.re
+-build src/ApolloProvider.mlast.d : build_deps src/ApolloProvider.mlast
+-build src/ApolloProvider.cmj |  $src_root_dir/src/ApolloProvider.bs.js src/ApolloProvider.cmi : build_cmj_cmi src/ApolloProvider.mlast
+-  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+-  bs_package_flags = $bs_package_flags  -bs-package-output es6:src
+-build src/ApolloUtilities.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/ApolloUtilities.re
+-build src/ApolloUtilities.mlast.d : build_deps src/ApolloUtilities.mlast
+-build src/ApolloUtilities.cmj |  $src_root_dir/src/ApolloUtilities.bs.js src/ApolloUtilities.cmi : build_cmj_cmi src/ApolloUtilities.mlast
+-  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+-  bs_package_flags = $bs_package_flags  -bs-package-output es6:src
+-build src/ReasonApolloTypes.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/ReasonApolloTypes.re
+-build src/ReasonApolloTypes.mlast.d : build_deps src/ReasonApolloTypes.mlast
+-build src/ReasonApolloTypes.cmj |  $src_root_dir/src/ReasonApolloTypes.bs.js src/ReasonApolloTypes.cmi : build_cmj_cmi src/ReasonApolloTypes.mlast
+-  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+-  bs_package_flags = $bs_package_flags  -bs-package-output es6:src
+-build src/ReasonApolloUtils.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/ReasonApolloUtils.re
+-build src/ReasonApolloUtils.mlast.d : build_deps src/ReasonApolloUtils.mlast
+-build src/ReasonApolloUtils.cmj |  $src_root_dir/src/ReasonApolloUtils.bs.js src/ReasonApolloUtils.cmi : build_cmj_cmi src/ReasonApolloUtils.mlast
+-  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+-  bs_package_flags = $bs_package_flags  -bs-package-output es6:src
+-build src/ApolloInMemoryCache.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/ApolloInMemoryCache.re
+-build src/ApolloInMemoryCache.mlast.d : build_deps src/ApolloInMemoryCache.mlast
+-build src/ApolloInMemoryCache.cmj |  $src_root_dir/src/ApolloInMemoryCache.bs.js src/ApolloInMemoryCache.cmi : build_cmj_cmi src/ApolloInMemoryCache.mlast
+-  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+-  bs_package_flags = $bs_package_flags  -bs-package-output es6:src
+-build src/graphql-types/ReasonApolloQuery.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/graphql-types/ReasonApolloQuery.re
+-build src/graphql-types/ReasonApolloQuery.mlast.d : build_deps src/graphql-types/ReasonApolloQuery.mlast
+-build src/graphql-types/ReasonApolloQuery.cmj |  $src_root_dir/src/graphql-types/ReasonApolloQuery.bs.js src/graphql-types/ReasonApolloQuery.cmi : build_cmj_cmi src/graphql-types/ReasonApolloQuery.mlast
+-  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+-  bs_package_flags = $bs_package_flags  -bs-package-output es6:src/graphql-types
+-build src/graphql-types/ReasonApolloMutation.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/graphql-types/ReasonApolloMutation.re
+-build src/graphql-types/ReasonApolloMutation.mlast.d : build_deps src/graphql-types/ReasonApolloMutation.mlast
+-build src/graphql-types/ReasonApolloMutation.cmj |  $src_root_dir/src/graphql-types/ReasonApolloMutation.bs.js src/graphql-types/ReasonApolloMutation.cmi : build_cmj_cmi src/graphql-types/ReasonApolloMutation.mlast
+-  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+-  bs_package_flags = $bs_package_flags  -bs-package-output es6:src/graphql-types
+-build src/graphql-types/ReasonApolloSubscription.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/graphql-types/ReasonApolloSubscription.re
+-build src/graphql-types/ReasonApolloSubscription.mlast.d : build_deps src/graphql-types/ReasonApolloSubscription.mlast
+-build src/graphql-types/ReasonApolloSubscription.cmj |  $src_root_dir/src/graphql-types/ReasonApolloSubscription.bs.js src/graphql-types/ReasonApolloSubscription.cmi : build_cmj_cmi src/graphql-types/ReasonApolloSubscription.mlast
+-  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+-  bs_package_flags = $bs_package_flags  -bs-package-output es6:src/graphql-types
+-build build.ninja : phony  ||  src/graphql-types/ReasonApolloSubscription.mlast.d src/graphql-types/ReasonApolloMutation.mlast.d src/graphql-types/ReasonApolloQuery.mlast.d src/ApolloInMemoryCache.mlast.d src/ReasonApolloUtils.mlast.d src/ReasonApolloTypes.mlast.d src/ApolloUtilities.mlast.d src/ApolloProvider.mlast.d src/ApolloConsumer.mlast.d src/ReasonApollo.mlast.d src/ApolloClient.mlast.d src/ApolloLinks.mlast.d
++build  src/ApolloLinks.cmj |  src/ApolloLinks.cmi $src_root_dir/src/ApolloLinks.bs.js : ml_cmj_cmi src/ApolloLinks.reast ||  src/ApolloLinks.d
++  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:src
++build  src/ApolloClient.reast : build_ast_from_re $src_root_dir/src/ApolloClient.re
++build  src/ApolloClient.d : build_deps src/ApolloClient.reast
++build  src/ApolloClient.cmj |  src/ApolloClient.cmi $src_root_dir/src/ApolloClient.bs.js : ml_cmj_cmi src/ApolloClient.reast ||  src/ApolloClient.d
++  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:src
++build  src/ReasonApollo.reast : build_ast_from_re $src_root_dir/src/ReasonApollo.re
++build  src/ReasonApollo.d : build_deps src/ReasonApollo.reast
++build  src/ReasonApollo.cmj |  src/ReasonApollo.cmi $src_root_dir/src/ReasonApollo.bs.js : ml_cmj_cmi src/ReasonApollo.reast ||  src/ReasonApollo.d
++  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:src
++build  src/ApolloConsumer.reast : build_ast_from_re $src_root_dir/src/ApolloConsumer.re
++build  src/ApolloConsumer.d : build_deps src/ApolloConsumer.reast
++build  src/ApolloConsumer.cmj |  src/ApolloConsumer.cmi $src_root_dir/src/ApolloConsumer.bs.js : ml_cmj_cmi src/ApolloConsumer.reast ||  src/ApolloConsumer.d
++  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:src
++build  src/ApolloProvider.reast : build_ast_from_re $src_root_dir/src/ApolloProvider.re
++build  src/ApolloProvider.d : build_deps src/ApolloProvider.reast
++build  src/ApolloProvider.cmj |  src/ApolloProvider.cmi $src_root_dir/src/ApolloProvider.bs.js : ml_cmj_cmi src/ApolloProvider.reast ||  src/ApolloProvider.d
++  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:src
++build  src/ApolloUtilities.reast : build_ast_from_re $src_root_dir/src/ApolloUtilities.re
++build  src/ApolloUtilities.d : build_deps src/ApolloUtilities.reast
++build  src/ApolloUtilities.cmj |  src/ApolloUtilities.cmi $src_root_dir/src/ApolloUtilities.bs.js : ml_cmj_cmi src/ApolloUtilities.reast ||  src/ApolloUtilities.d
++  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:src
++build  src/ReasonApolloTypes.reast : build_ast_from_re $src_root_dir/src/ReasonApolloTypes.re
++build  src/ReasonApolloTypes.d : build_deps src/ReasonApolloTypes.reast
++build  src/ReasonApolloTypes.cmj |  src/ReasonApolloTypes.cmi $src_root_dir/src/ReasonApolloTypes.bs.js : ml_cmj_cmi src/ReasonApolloTypes.reast ||  src/ReasonApolloTypes.d
++  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:src
++build  src/ReasonApolloUtils.reast : build_ast_from_re $src_root_dir/src/ReasonApolloUtils.re
++build  src/ReasonApolloUtils.d : build_deps src/ReasonApolloUtils.reast
++build  src/ReasonApolloUtils.cmj |  src/ReasonApolloUtils.cmi $src_root_dir/src/ReasonApolloUtils.bs.js : ml_cmj_cmi src/ReasonApolloUtils.reast ||  src/ReasonApolloUtils.d
++  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:src
++build  src/ApolloInMemoryCache.reast : build_ast_from_re $src_root_dir/src/ApolloInMemoryCache.re
++build  src/ApolloInMemoryCache.d : build_deps src/ApolloInMemoryCache.reast
++build  src/ApolloInMemoryCache.cmj |  src/ApolloInMemoryCache.cmi $src_root_dir/src/ApolloInMemoryCache.bs.js : ml_cmj_cmi src/ApolloInMemoryCache.reast ||  src/ApolloInMemoryCache.d
++  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:src
++build  src/graphql-types/ReasonApolloQuery.reast : build_ast_from_re $src_root_dir/src/graphql-types/ReasonApolloQuery.re
++build  src/graphql-types/ReasonApolloQuery.d : build_deps src/graphql-types/ReasonApolloQuery.reast
++build  src/graphql-types/ReasonApolloQuery.cmj |  src/graphql-types/ReasonApolloQuery.cmi $src_root_dir/src/graphql-types/ReasonApolloQuery.bs.js : ml_cmj_cmi src/graphql-types/ReasonApolloQuery.reast ||  src/graphql-types/ReasonApolloQuery.d
++  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:src/graphql-types
++build  src/graphql-types/ReasonApolloMutation.reast : build_ast_from_re $src_root_dir/src/graphql-types/ReasonApolloMutation.re
++build  src/graphql-types/ReasonApolloMutation.d : build_deps src/graphql-types/ReasonApolloMutation.reast
++build  src/graphql-types/ReasonApolloMutation.cmj |  src/graphql-types/ReasonApolloMutation.cmi $src_root_dir/src/graphql-types/ReasonApolloMutation.bs.js : ml_cmj_cmi src/graphql-types/ReasonApolloMutation.reast ||  src/graphql-types/ReasonApolloMutation.d
++  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:src/graphql-types
++build  src/graphql-types/ReasonApolloSubscription.reast : build_ast_from_re $src_root_dir/src/graphql-types/ReasonApolloSubscription.re
++build  src/graphql-types/ReasonApolloSubscription.d : build_deps src/graphql-types/ReasonApolloSubscription.reast
++build  src/graphql-types/ReasonApolloSubscription.cmj |  src/graphql-types/ReasonApolloSubscription.cmi $src_root_dir/src/graphql-types/ReasonApolloSubscription.bs.js : ml_cmj_cmi src/graphql-types/ReasonApolloSubscription.reast ||  src/graphql-types/ReasonApolloSubscription.d
++  g_pkg_flg = $g_pkg_flg  -bs-package-output commonjs:src/graphql-types
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloClient.cmi b/node_modules/reason-apollo/lib/bs/src/ApolloClient.cmi
+index 8a82555..7e6a37d 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloClient.cmi and b/node_modules/reason-apollo/lib/bs/src/ApolloClient.cmi differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloClient.cmj b/node_modules/reason-apollo/lib/bs/src/ApolloClient.cmj
+index 29ffd67..4c2fda7 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloClient.cmj and b/node_modules/reason-apollo/lib/bs/src/ApolloClient.cmj differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloClient.cmt b/node_modules/reason-apollo/lib/bs/src/ApolloClient.cmt
+index d086f72..aca1014 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloClient.cmt and b/node_modules/reason-apollo/lib/bs/src/ApolloClient.cmt differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloClient.d b/node_modules/reason-apollo/lib/bs/src/ApolloClient.d
+new file mode 100644
+index 0000000..2afd205
+--- /dev/null
++++ b/node_modules/reason-apollo/lib/bs/src/ApolloClient.d
+@@ -0,0 +1 @@
++src/ApolloClient.cmj :  src/graphql-types/ReasonApolloMutation.cmj src/graphql-types/ReasonApolloMutation.cmi src/graphql-types/ReasonApolloQuery.cmj src/graphql-types/ReasonApolloQuery.cmi src/ReasonApolloTypes.cmj src/ReasonApolloTypes.cmi
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloClient.mlast b/node_modules/reason-apollo/lib/bs/src/ApolloClient.mlast
+deleted file mode 100644
+index 078f930..0000000
+Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloClient.mlast and /dev/null differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloClient.mlast.d b/node_modules/reason-apollo/lib/bs/src/ApolloClient.mlast.d
+deleted file mode 100644
+index 8d3edb3..0000000
+--- a/node_modules/reason-apollo/lib/bs/src/ApolloClient.mlast.d
++++ /dev/null
+@@ -1,7 +0,0 @@
+-src/ApolloClient.cmj :
+-src/graphql-types/ReasonApolloMutation.cmj
+-src/graphql-types/ReasonApolloMutation.cmi
+-src/graphql-types/ReasonApolloQuery.cmj
+-src/graphql-types/ReasonApolloQuery.cmi
+-src/ReasonApolloTypes.cmj
+-src/ReasonApolloTypes.cmi
+\ No newline at end of file
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloClient.reast b/node_modules/reason-apollo/lib/bs/src/ApolloClient.reast
+new file mode 100644
+index 0000000..0918fa7
+Binary files /dev/null and b/node_modules/reason-apollo/lib/bs/src/ApolloClient.reast differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloConsumer.cmi b/node_modules/reason-apollo/lib/bs/src/ApolloConsumer.cmi
+index ca0c5a5..d173395 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloConsumer.cmi and b/node_modules/reason-apollo/lib/bs/src/ApolloConsumer.cmi differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloConsumer.cmj b/node_modules/reason-apollo/lib/bs/src/ApolloConsumer.cmj
+index 39efd86..d4022ce 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloConsumer.cmj and b/node_modules/reason-apollo/lib/bs/src/ApolloConsumer.cmj differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloConsumer.cmt b/node_modules/reason-apollo/lib/bs/src/ApolloConsumer.cmt
+index e843a97..3b4480b 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloConsumer.cmt and b/node_modules/reason-apollo/lib/bs/src/ApolloConsumer.cmt differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloConsumer.d b/node_modules/reason-apollo/lib/bs/src/ApolloConsumer.d
+new file mode 100644
+index 0000000..08fdb25
+--- /dev/null
++++ b/node_modules/reason-apollo/lib/bs/src/ApolloConsumer.d
+@@ -0,0 +1 @@
++src/ApolloConsumer.cmj :  src/ApolloClient.cmj src/ApolloClient.cmi
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloConsumer.mlast b/node_modules/reason-apollo/lib/bs/src/ApolloConsumer.mlast
+deleted file mode 100644
+index 2d309d8..0000000
+Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloConsumer.mlast and /dev/null differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloConsumer.mlast.d b/node_modules/reason-apollo/lib/bs/src/ApolloConsumer.mlast.d
+deleted file mode 100644
+index 4cafdce..0000000
+--- a/node_modules/reason-apollo/lib/bs/src/ApolloConsumer.mlast.d
++++ /dev/null
+@@ -1,3 +0,0 @@
+-src/ApolloConsumer.cmj :
+-src/ApolloClient.cmj
+-src/ApolloClient.cmi
+\ No newline at end of file
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloConsumer.reast b/node_modules/reason-apollo/lib/bs/src/ApolloConsumer.reast
+new file mode 100644
+index 0000000..45f5789
+Binary files /dev/null and b/node_modules/reason-apollo/lib/bs/src/ApolloConsumer.reast differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.cmi b/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.cmi
+index 67668db..bbf5bb5 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.cmi and b/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.cmi differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.cmj b/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.cmj
+index 1fa6874..0e1f253 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.cmj and b/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.cmj differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.cmt b/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.cmt
+index 68ab308..d7c051f 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.cmt and b/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.cmt differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.d b/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.d
+new file mode 100644
+index 0000000..e7dd1ab
+--- /dev/null
++++ b/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.d
+@@ -0,0 +1 @@
++src/ApolloInMemoryCache.cmj :  src/ReasonApolloTypes.cmj src/ReasonApolloTypes.cmi
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.mlast b/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.mlast
+deleted file mode 100644
+index 32ec4df..0000000
+Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.mlast and /dev/null differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.mlast.d b/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.mlast.d
+deleted file mode 100644
+index 386a165..0000000
+--- a/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.mlast.d
++++ /dev/null
+@@ -1,3 +0,0 @@
+-src/ApolloInMemoryCache.cmj :
+-src/ReasonApolloTypes.cmj
+-src/ReasonApolloTypes.cmi
+\ No newline at end of file
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.reast b/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.reast
+new file mode 100644
+index 0000000..187ef98
+Binary files /dev/null and b/node_modules/reason-apollo/lib/bs/src/ApolloInMemoryCache.reast differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloLinks.cmi b/node_modules/reason-apollo/lib/bs/src/ApolloLinks.cmi
+index d7c3523..49c3696 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloLinks.cmi and b/node_modules/reason-apollo/lib/bs/src/ApolloLinks.cmi differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloLinks.cmj b/node_modules/reason-apollo/lib/bs/src/ApolloLinks.cmj
+index ed37d26..bef2363 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloLinks.cmj and b/node_modules/reason-apollo/lib/bs/src/ApolloLinks.cmj differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloLinks.cmt b/node_modules/reason-apollo/lib/bs/src/ApolloLinks.cmt
+index ef3a9d7..9a739ba 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloLinks.cmt and b/node_modules/reason-apollo/lib/bs/src/ApolloLinks.cmt differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloLinks.d b/node_modules/reason-apollo/lib/bs/src/ApolloLinks.d
+new file mode 100644
+index 0000000..cbe2f0a
+--- /dev/null
++++ b/node_modules/reason-apollo/lib/bs/src/ApolloLinks.d
+@@ -0,0 +1 @@
++src/ApolloLinks.cmj :  src/ApolloClient.cmj src/ApolloClient.cmi src/ReasonApolloTypes.cmj src/ReasonApolloTypes.cmi
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloLinks.mlast b/node_modules/reason-apollo/lib/bs/src/ApolloLinks.mlast
+deleted file mode 100644
+index 95896e4..0000000
+Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloLinks.mlast and /dev/null differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloLinks.mlast.d b/node_modules/reason-apollo/lib/bs/src/ApolloLinks.mlast.d
+deleted file mode 100644
+index 8df3b6d..0000000
+--- a/node_modules/reason-apollo/lib/bs/src/ApolloLinks.mlast.d
++++ /dev/null
+@@ -1,5 +0,0 @@
+-src/ApolloLinks.cmj :
+-src/ApolloClient.cmj
+-src/ApolloClient.cmi
+-src/ReasonApolloTypes.cmj
+-src/ReasonApolloTypes.cmi
+\ No newline at end of file
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloLinks.reast b/node_modules/reason-apollo/lib/bs/src/ApolloLinks.reast
+new file mode 100644
+index 0000000..cf21239
+Binary files /dev/null and b/node_modules/reason-apollo/lib/bs/src/ApolloLinks.reast differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloProvider.cmi b/node_modules/reason-apollo/lib/bs/src/ApolloProvider.cmi
+index 4bc902c..a78f083 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloProvider.cmi and b/node_modules/reason-apollo/lib/bs/src/ApolloProvider.cmi differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloProvider.cmj b/node_modules/reason-apollo/lib/bs/src/ApolloProvider.cmj
+index 39efd86..b3b2fcb 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloProvider.cmj and b/node_modules/reason-apollo/lib/bs/src/ApolloProvider.cmj differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloProvider.cmt b/node_modules/reason-apollo/lib/bs/src/ApolloProvider.cmt
+index 75a3f2c..720e3b1 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloProvider.cmt and b/node_modules/reason-apollo/lib/bs/src/ApolloProvider.cmt differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloProvider.d b/node_modules/reason-apollo/lib/bs/src/ApolloProvider.d
+new file mode 100644
+index 0000000..538584f
+--- /dev/null
++++ b/node_modules/reason-apollo/lib/bs/src/ApolloProvider.d
+@@ -0,0 +1 @@
++src/ApolloProvider.cmj :  src/ApolloClient.cmj src/ApolloClient.cmi
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloProvider.mlast b/node_modules/reason-apollo/lib/bs/src/ApolloProvider.mlast
+deleted file mode 100644
+index 19325f8..0000000
+Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloProvider.mlast and /dev/null differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloProvider.mlast.d b/node_modules/reason-apollo/lib/bs/src/ApolloProvider.mlast.d
+deleted file mode 100644
+index b3f1efa..0000000
+--- a/node_modules/reason-apollo/lib/bs/src/ApolloProvider.mlast.d
++++ /dev/null
+@@ -1,3 +0,0 @@
+-src/ApolloProvider.cmj :
+-src/ApolloClient.cmj
+-src/ApolloClient.cmi
+\ No newline at end of file
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloProvider.reast b/node_modules/reason-apollo/lib/bs/src/ApolloProvider.reast
+new file mode 100644
+index 0000000..7946366
+Binary files /dev/null and b/node_modules/reason-apollo/lib/bs/src/ApolloProvider.reast differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloUtilities.cmi b/node_modules/reason-apollo/lib/bs/src/ApolloUtilities.cmi
+index 75d0700..233ce1c 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloUtilities.cmi and b/node_modules/reason-apollo/lib/bs/src/ApolloUtilities.cmi differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloUtilities.cmj b/node_modules/reason-apollo/lib/bs/src/ApolloUtilities.cmj
+index 39efd86..b3b2fcb 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloUtilities.cmj and b/node_modules/reason-apollo/lib/bs/src/ApolloUtilities.cmj differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloUtilities.cmt b/node_modules/reason-apollo/lib/bs/src/ApolloUtilities.cmt
+index b928e11..c72605b 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloUtilities.cmt and b/node_modules/reason-apollo/lib/bs/src/ApolloUtilities.cmt differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloUtilities.d b/node_modules/reason-apollo/lib/bs/src/ApolloUtilities.d
+new file mode 100644
+index 0000000..bac43d3
+--- /dev/null
++++ b/node_modules/reason-apollo/lib/bs/src/ApolloUtilities.d
+@@ -0,0 +1 @@
++src/ApolloUtilities.cmj :  src/ReasonApolloTypes.cmj src/ReasonApolloTypes.cmi
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloUtilities.mlast b/node_modules/reason-apollo/lib/bs/src/ApolloUtilities.mlast
+deleted file mode 100644
+index 4b230dc..0000000
+Binary files a/node_modules/reason-apollo/lib/bs/src/ApolloUtilities.mlast and /dev/null differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloUtilities.mlast.d b/node_modules/reason-apollo/lib/bs/src/ApolloUtilities.mlast.d
+deleted file mode 100644
+index ac674c8..0000000
+--- a/node_modules/reason-apollo/lib/bs/src/ApolloUtilities.mlast.d
++++ /dev/null
+@@ -1,3 +0,0 @@
+-src/ApolloUtilities.cmj :
+-src/ReasonApolloTypes.cmj
+-src/ReasonApolloTypes.cmi
+\ No newline at end of file
+diff --git a/node_modules/reason-apollo/lib/bs/src/ApolloUtilities.reast b/node_modules/reason-apollo/lib/bs/src/ApolloUtilities.reast
+new file mode 100644
+index 0000000..71bcff8
+Binary files /dev/null and b/node_modules/reason-apollo/lib/bs/src/ApolloUtilities.reast differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ReasonApollo.cmi b/node_modules/reason-apollo/lib/bs/src/ReasonApollo.cmi
+index 7574706..f1ebe95 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ReasonApollo.cmi and b/node_modules/reason-apollo/lib/bs/src/ReasonApollo.cmi differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ReasonApollo.cmj b/node_modules/reason-apollo/lib/bs/src/ReasonApollo.cmj
+index 7cc759c..301a5fd 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ReasonApollo.cmj and b/node_modules/reason-apollo/lib/bs/src/ReasonApollo.cmj differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ReasonApollo.cmt b/node_modules/reason-apollo/lib/bs/src/ReasonApollo.cmt
+index 7be113b..9f9e873 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ReasonApollo.cmt and b/node_modules/reason-apollo/lib/bs/src/ReasonApollo.cmt differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ReasonApollo.d b/node_modules/reason-apollo/lib/bs/src/ReasonApollo.d
+new file mode 100644
+index 0000000..2ce98a7
+--- /dev/null
++++ b/node_modules/reason-apollo/lib/bs/src/ReasonApollo.d
+@@ -0,0 +1 @@
++src/ReasonApollo.cmj :  src/ApolloClient.cmj src/ApolloClient.cmi src/ApolloConsumer.cmj src/ApolloConsumer.cmi src/ApolloProvider.cmj src/ApolloProvider.cmi src/graphql-types/ReasonApolloMutation.cmj src/graphql-types/ReasonApolloMutation.cmi src/graphql-types/ReasonApolloQuery.cmj src/graphql-types/ReasonApolloQuery.cmi src/graphql-types/ReasonApolloSubscription.cmj src/graphql-types/ReasonApolloSubscription.cmi src/ReasonApolloTypes.cmj src/ReasonApolloTypes.cmi
+diff --git a/node_modules/reason-apollo/lib/bs/src/ReasonApollo.mlast b/node_modules/reason-apollo/lib/bs/src/ReasonApollo.mlast
+deleted file mode 100644
+index 5bda3f0..0000000
+Binary files a/node_modules/reason-apollo/lib/bs/src/ReasonApollo.mlast and /dev/null differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ReasonApollo.mlast.d b/node_modules/reason-apollo/lib/bs/src/ReasonApollo.mlast.d
+deleted file mode 100644
+index 273485d..0000000
+--- a/node_modules/reason-apollo/lib/bs/src/ReasonApollo.mlast.d
++++ /dev/null
+@@ -1,15 +0,0 @@
+-src/ReasonApollo.cmj :
+-src/ApolloClient.cmj
+-src/ApolloClient.cmi
+-src/ApolloConsumer.cmj
+-src/ApolloConsumer.cmi
+-src/ApolloProvider.cmj
+-src/ApolloProvider.cmi
+-src/graphql-types/ReasonApolloMutation.cmj
+-src/graphql-types/ReasonApolloMutation.cmi
+-src/graphql-types/ReasonApolloQuery.cmj
+-src/graphql-types/ReasonApolloQuery.cmi
+-src/graphql-types/ReasonApolloSubscription.cmj
+-src/graphql-types/ReasonApolloSubscription.cmi
+-src/ReasonApolloTypes.cmj
+-src/ReasonApolloTypes.cmi
+\ No newline at end of file
+diff --git a/node_modules/reason-apollo/lib/bs/src/ReasonApollo.reast b/node_modules/reason-apollo/lib/bs/src/ReasonApollo.reast
+new file mode 100644
+index 0000000..3027fda
+Binary files /dev/null and b/node_modules/reason-apollo/lib/bs/src/ReasonApollo.reast differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ReasonApolloTypes.cmi b/node_modules/reason-apollo/lib/bs/src/ReasonApolloTypes.cmi
+index 2d2ca0f..bd3b97d 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ReasonApolloTypes.cmi and b/node_modules/reason-apollo/lib/bs/src/ReasonApolloTypes.cmi differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ReasonApolloTypes.cmj b/node_modules/reason-apollo/lib/bs/src/ReasonApolloTypes.cmj
+index 39efd86..b3b2fcb 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ReasonApolloTypes.cmj and b/node_modules/reason-apollo/lib/bs/src/ReasonApolloTypes.cmj differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ReasonApolloTypes.cmt b/node_modules/reason-apollo/lib/bs/src/ReasonApolloTypes.cmt
+index 1fcdf52..06beecf 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ReasonApolloTypes.cmt and b/node_modules/reason-apollo/lib/bs/src/ReasonApolloTypes.cmt differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ReasonApolloTypes.d b/node_modules/reason-apollo/lib/bs/src/ReasonApolloTypes.d
+new file mode 100644
+index 0000000..e69de29
+diff --git a/node_modules/reason-apollo/lib/bs/src/ReasonApolloTypes.mlast b/node_modules/reason-apollo/lib/bs/src/ReasonApolloTypes.mlast
+deleted file mode 100644
+index d456c1d..0000000
+Binary files a/node_modules/reason-apollo/lib/bs/src/ReasonApolloTypes.mlast and /dev/null differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ReasonApolloTypes.mlast.d b/node_modules/reason-apollo/lib/bs/src/ReasonApolloTypes.mlast.d
+deleted file mode 100644
+index f1928d2..0000000
+--- a/node_modules/reason-apollo/lib/bs/src/ReasonApolloTypes.mlast.d
++++ /dev/null
+@@ -1 +0,0 @@
+-src/ReasonApolloTypes.cmj :
+\ No newline at end of file
+diff --git a/node_modules/reason-apollo/lib/bs/src/ReasonApolloTypes.reast b/node_modules/reason-apollo/lib/bs/src/ReasonApolloTypes.reast
+new file mode 100644
+index 0000000..3f82850
+Binary files /dev/null and b/node_modules/reason-apollo/lib/bs/src/ReasonApolloTypes.reast differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ReasonApolloUtils.cmi b/node_modules/reason-apollo/lib/bs/src/ReasonApolloUtils.cmi
+index 92700c7..f40ad6a 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ReasonApolloUtils.cmi and b/node_modules/reason-apollo/lib/bs/src/ReasonApolloUtils.cmi differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ReasonApolloUtils.cmj b/node_modules/reason-apollo/lib/bs/src/ReasonApolloUtils.cmj
+index d4911ff..ef1aa54 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ReasonApolloUtils.cmj and b/node_modules/reason-apollo/lib/bs/src/ReasonApolloUtils.cmj differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ReasonApolloUtils.cmt b/node_modules/reason-apollo/lib/bs/src/ReasonApolloUtils.cmt
+index 2d3c913..80614a4 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/ReasonApolloUtils.cmt and b/node_modules/reason-apollo/lib/bs/src/ReasonApolloUtils.cmt differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ReasonApolloUtils.d b/node_modules/reason-apollo/lib/bs/src/ReasonApolloUtils.d
+new file mode 100644
+index 0000000..e69de29
+diff --git a/node_modules/reason-apollo/lib/bs/src/ReasonApolloUtils.mlast b/node_modules/reason-apollo/lib/bs/src/ReasonApolloUtils.mlast
+deleted file mode 100644
+index 315f299..0000000
+Binary files a/node_modules/reason-apollo/lib/bs/src/ReasonApolloUtils.mlast and /dev/null differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/ReasonApolloUtils.mlast.d b/node_modules/reason-apollo/lib/bs/src/ReasonApolloUtils.mlast.d
+deleted file mode 100644
+index a0a0266..0000000
+--- a/node_modules/reason-apollo/lib/bs/src/ReasonApolloUtils.mlast.d
++++ /dev/null
+@@ -1 +0,0 @@
+-src/ReasonApolloUtils.cmj :
+\ No newline at end of file
+diff --git a/node_modules/reason-apollo/lib/bs/src/ReasonApolloUtils.reast b/node_modules/reason-apollo/lib/bs/src/ReasonApolloUtils.reast
+new file mode 100644
+index 0000000..989b29d
+Binary files /dev/null and b/node_modules/reason-apollo/lib/bs/src/ReasonApolloUtils.reast differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloMutation.cmi b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloMutation.cmi
+index b931c1c..90568d2 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloMutation.cmi and b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloMutation.cmi differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloMutation.cmj b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloMutation.cmj
+index da66134..28a090b 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloMutation.cmj and b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloMutation.cmj differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloMutation.cmt b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloMutation.cmt
+index b3f86a4..504b251 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloMutation.cmt and b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloMutation.cmt differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloMutation.d b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloMutation.d
+new file mode 100644
+index 0000000..fe1ecd0
+--- /dev/null
++++ b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloMutation.d
+@@ -0,0 +1 @@
++src/graphql-types/ReasonApolloMutation.cmj :  src/ReasonApolloTypes.cmj src/ReasonApolloTypes.cmi src/ReasonApolloUtils.cmj src/ReasonApolloUtils.cmi
+diff --git a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloMutation.mlast b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloMutation.mlast
+deleted file mode 100644
+index 8a1a7f4..0000000
+Binary files a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloMutation.mlast and /dev/null differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloMutation.mlast.d b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloMutation.mlast.d
+deleted file mode 100644
+index e3a38ac..0000000
+--- a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloMutation.mlast.d
++++ /dev/null
+@@ -1,5 +0,0 @@
+-src/graphql-types/ReasonApolloMutation.cmj :
+-src/ReasonApolloTypes.cmj
+-src/ReasonApolloTypes.cmi
+-src/ReasonApolloUtils.cmj
+-src/ReasonApolloUtils.cmi
+\ No newline at end of file
+diff --git a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloMutation.reast b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloMutation.reast
+new file mode 100644
+index 0000000..60bbff7
+Binary files /dev/null and b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloMutation.reast differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloQuery.cmi b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloQuery.cmi
+index 7c01935..c43c0cf 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloQuery.cmi and b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloQuery.cmi differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloQuery.cmj b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloQuery.cmj
+index da66134..28a090b 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloQuery.cmj and b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloQuery.cmj differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloQuery.cmt b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloQuery.cmt
+index 0fb6d4b..1ea5fcd 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloQuery.cmt and b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloQuery.cmt differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloQuery.d b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloQuery.d
+new file mode 100644
+index 0000000..c11ba4b
+--- /dev/null
++++ b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloQuery.d
+@@ -0,0 +1 @@
++src/graphql-types/ReasonApolloQuery.cmj :  src/ReasonApolloTypes.cmj src/ReasonApolloTypes.cmi src/ReasonApolloUtils.cmj src/ReasonApolloUtils.cmi
+diff --git a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloQuery.mlast b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloQuery.mlast
+deleted file mode 100644
+index a708bc3..0000000
+Binary files a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloQuery.mlast and /dev/null differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloQuery.mlast.d b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloQuery.mlast.d
+deleted file mode 100644
+index 40621bd..0000000
+--- a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloQuery.mlast.d
++++ /dev/null
+@@ -1,5 +0,0 @@
+-src/graphql-types/ReasonApolloQuery.cmj :
+-src/ReasonApolloTypes.cmj
+-src/ReasonApolloTypes.cmi
+-src/ReasonApolloUtils.cmj
+-src/ReasonApolloUtils.cmi
+\ No newline at end of file
+diff --git a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloQuery.reast b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloQuery.reast
+new file mode 100644
+index 0000000..cb5e9e0
+Binary files /dev/null and b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloQuery.reast differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloSubscription.cmi b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloSubscription.cmi
+index 15cf0a2..dd7bcdf 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloSubscription.cmi and b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloSubscription.cmi differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloSubscription.cmj b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloSubscription.cmj
+index da66134..28a090b 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloSubscription.cmj and b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloSubscription.cmj differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloSubscription.cmt b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloSubscription.cmt
+index 7f259c2..c0d4385 100644
+Binary files a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloSubscription.cmt and b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloSubscription.cmt differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloSubscription.d b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloSubscription.d
+new file mode 100644
+index 0000000..cfe8f01
+--- /dev/null
++++ b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloSubscription.d
+@@ -0,0 +1 @@
++src/graphql-types/ReasonApolloSubscription.cmj :  src/ReasonApolloTypes.cmj src/ReasonApolloTypes.cmi src/ReasonApolloUtils.cmj src/ReasonApolloUtils.cmi
+diff --git a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloSubscription.mlast b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloSubscription.mlast
+deleted file mode 100644
+index 33e6134..0000000
+Binary files a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloSubscription.mlast and /dev/null differ
+diff --git a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloSubscription.mlast.d b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloSubscription.mlast.d
+deleted file mode 100644
+index 83894d0..0000000
+--- a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloSubscription.mlast.d
++++ /dev/null
+@@ -1,5 +0,0 @@
+-src/graphql-types/ReasonApolloSubscription.cmj :
+-src/ReasonApolloTypes.cmj
+-src/ReasonApolloTypes.cmi
+-src/ReasonApolloUtils.cmj
+-src/ReasonApolloUtils.cmi
+\ No newline at end of file
+diff --git a/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloSubscription.reast b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloSubscription.reast
+new file mode 100644
+index 0000000..566d5f9
+Binary files /dev/null and b/node_modules/reason-apollo/lib/bs/src/graphql-types/ReasonApolloSubscription.reast differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloClient.cmi b/node_modules/reason-apollo/lib/ocaml/ApolloClient.cmi
+new file mode 100644
+index 0000000..7e6a37d
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ApolloClient.cmi differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloClient.cmj b/node_modules/reason-apollo/lib/ocaml/ApolloClient.cmj
+new file mode 100644
+index 0000000..4c2fda7
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ApolloClient.cmj differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloClient.cmt b/node_modules/reason-apollo/lib/ocaml/ApolloClient.cmt
+new file mode 100644
+index 0000000..aca1014
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ApolloClient.cmt differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloClient.re b/node_modules/reason-apollo/lib/ocaml/ApolloClient.re
+new file mode 100644
+index 0000000..7e41374
+--- /dev/null
++++ b/node_modules/reason-apollo/lib/ocaml/ApolloClient.re
+@@ -0,0 +1,115 @@
++open ReasonApolloTypes;
++
++type queryObj = {
++  .
++  "query": ReasonApolloTypes.queryString,
++  "variables": Js.Json.t,
++};
++
++type mutationObj = {
++  .
++  "mutation": ReasonApolloTypes.queryString,
++  "variables": Js.Json.t,
++};
++
++type generatedApolloClient = {
++  .
++  "query":
++    [@bs.meth] (queryObj => Js.Promise.t(ReasonApolloQuery.renderPropObjJS)),
++  "mutate":
++    [@bs.meth] (
++      mutationObj => Js.Promise.t(ReasonApolloMutation.renderPropObjJS)
++    ),
++  "resetStore": [@bs.meth] (unit => Js.Promise.t(unit)),
++};
++
++type fetch;
++
++type linkOptions = {
++  .
++  "uri": string,
++  "includeExtensions": Js.Nullable.t(bool),
++  "fetch": Js.Nullable.t(fetch),
++  "headers": Js.Nullable.t(Js.Json.t),
++  "credentials": Js.Nullable.t(string),
++  "fetchOptions": Js.Nullable.t(Js.Json.t),
++};
++
++type uploadLinkOptions = {
++  .
++  "uri": Js.Nullable.t(string),
++  "fetch": Js.Nullable.t(fetch),
++  "fetchOptions": Js.Nullable.t(Js.t({.})),
++  "credentials": Js.Nullable.t(string),
++  "headers": Js.Nullable.t(Js.Json.t),
++  "includeExtensions": Js.Nullable.t(bool),
++};
++
++[@bs.module "apollo-client"] [@bs.new]
++external createApolloClientJS: 'a => generatedApolloClient = "ApolloClient";
++
++[@bs.module "graphql-tag"] external gql: ReasonApolloTypes.gql = "default";
++
++[@bs.obj]
++external apolloClientObjectParam:
++  (
++    ~link: apolloLink,
++    ~cache: apolloCache,
++    ~ssrMode: bool=?,
++    ~ssrForceFetchDelay: int=?,
++    ~connectToDevTools: bool=?,
++    ~queryDeduplication: bool=?
++  ) =>
++  _ =
++  "";
++
++module ReadQuery = (Config: ReasonApolloTypes.Config) => {
++  type readQueryOptions = {
++    .
++    "query": ReasonApolloTypes.queryString,
++    "variables": Js.Nullable.t(Js.Json.t),
++  };
++  type response = option(Config.t);
++  [@bs.send]
++  external readQuery:
++    (generatedApolloClient, readQueryOptions) => Js.Nullable.t(Js.Json.t) =
++    "";
++
++  let graphqlQueryAST = gql(. Config.query);
++  let apolloDataToRecord: Js.Nullable.t(Js.Json.t) => response =
++    apolloData =>
++      Js.Nullable.toOption(apolloData)->(Belt.Option.map(Config.parse));
++
++  let make = (~client, ~variables: option(Js.Json.t)=?, ()) =>
++    readQuery(
++      client,
++      {
++        "query": graphqlQueryAST,
++        "variables": Js.Nullable.fromOption(variables),
++      },
++    )
++    ->apolloDataToRecord;
++};
++
++module WriteQuery = (Config: ReasonApolloTypes.Config) => {
++  type writeQueryOptions = {
++    .
++    "query": ReasonApolloTypes.queryString,
++    "variables": Js.Nullable.t(Js.Json.t),
++    "data": Config.t,
++  };
++  [@bs.send]
++  external writeQuery: (generatedApolloClient, writeQueryOptions) => unit = "";
++
++  let graphqlQueryAST = gql(. Config.query);
++
++  let make = (~client, ~variables: option(Js.Json.t)=?, ~data: Config.t, ()) =>
++    writeQuery(
++      client,
++      {
++        "query": graphqlQueryAST,
++        "variables": Js.Nullable.fromOption(variables),
++        "data": data,
++      },
++    );
++};
+diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloConsumer.cmi b/node_modules/reason-apollo/lib/ocaml/ApolloConsumer.cmi
+new file mode 100644
+index 0000000..d173395
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ApolloConsumer.cmi differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloConsumer.cmj b/node_modules/reason-apollo/lib/ocaml/ApolloConsumer.cmj
+new file mode 100644
+index 0000000..d4022ce
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ApolloConsumer.cmj differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloConsumer.cmt b/node_modules/reason-apollo/lib/ocaml/ApolloConsumer.cmt
+new file mode 100644
+index 0000000..3b4480b
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ApolloConsumer.cmt differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloConsumer.re b/node_modules/reason-apollo/lib/ocaml/ApolloConsumer.re
+new file mode 100644
+index 0000000..4f06616
+--- /dev/null
++++ b/node_modules/reason-apollo/lib/ocaml/ApolloConsumer.re
+@@ -0,0 +1,12 @@
++open ApolloClient;
++
++module JsConsumer = {
++  [@bs.module "react-apollo"] [@react.component]
++  external make:
++    (~children: generatedApolloClient => React.element) => React.element =
++    "ApolloConsumer";
++};
++
++[@react.component]
++let make = (~children: generatedApolloClient => React.element) =>
++  <JsConsumer> {client => children(client)} </JsConsumer>;
+diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloInMemoryCache.cmi b/node_modules/reason-apollo/lib/ocaml/ApolloInMemoryCache.cmi
+new file mode 100644
+index 0000000..bbf5bb5
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ApolloInMemoryCache.cmi differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloInMemoryCache.cmj b/node_modules/reason-apollo/lib/ocaml/ApolloInMemoryCache.cmj
+new file mode 100644
+index 0000000..0e1f253
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ApolloInMemoryCache.cmj differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloInMemoryCache.cmt b/node_modules/reason-apollo/lib/ocaml/ApolloInMemoryCache.cmt
+new file mode 100644
+index 0000000..d7c051f
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ApolloInMemoryCache.cmt differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloInMemoryCache.re b/node_modules/reason-apollo/lib/ocaml/ApolloInMemoryCache.re
+new file mode 100644
+index 0000000..25efbcb
+--- /dev/null
++++ b/node_modules/reason-apollo/lib/ocaml/ApolloInMemoryCache.re
+@@ -0,0 +1,51 @@
++open ReasonApolloTypes;
++
++/**
++ * Used on the client to rehydrate the cache using the initial data passed from the server
++ * - e.g. window.__APOLLO_STATE__
++ */
++type restoreData;
++
++/**
++ * Define the data to pass to the restore method that'll be used used to rehydrate client.
++ * If you don't want to pass any data, simply return `Js_null_undefined.undefined`.
++ */
++type inMemoryCacheRestoreData = Js.Nullable.t(restoreData);
++
++/**
++ * CreateInMemoryCache
++ * https://github.com/apollographql/apollo-client/tree/master/packages/apollo-cache-inmemory
++ */
++/* Bind the InMemoryCache class */
++[@bs.module "apollo-cache-inmemory"]
++[@bs.new]
++external apolloInMemoryCache : 'a => apolloCache = "InMemoryCache";
++
++/* Bind the restore method */
++[@bs.send.pipe : 't]
++external restore : inMemoryCacheRestoreData => apolloCache = "restore";
++
++/* Fragment matcher */
++type fragmentMatcher;
++
++[@bs.module "apollo-cache-inmemory"] [@bs.new]
++external introspectionFragmentMatcher : Js.t({..}) => fragmentMatcher =
++  "IntrospectionFragmentMatcher";
++
++let createIntrospectionFragmentMatcher = (~data) =>
++  introspectionFragmentMatcher({"introspectionQueryResultData": data});
++
++/* Instantiate a new cache object */
++[@bs.obj] external
++makeApolloInMemoryCacheParams : 
++(
++  ~dataIdFromObject: (Js.t({..}) => string)=?, 
++  ~fragmentMatcher: fragmentMatcher=?
++) => _ = "";
++
++let createInMemoryCache = (~dataIdFromObject=?, ~fragmentMatcher=?, ()) => {
++    /* Apollo Client, looks for key in Object. Doesn't check if value is null  */
++  apolloInMemoryCache(
++     makeApolloInMemoryCacheParams(~dataIdFromObject?, ~fragmentMatcher?)
++   );
++};
+diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloLinks.cmi b/node_modules/reason-apollo/lib/ocaml/ApolloLinks.cmi
+new file mode 100644
+index 0000000..49c3696
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ApolloLinks.cmi differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloLinks.cmj b/node_modules/reason-apollo/lib/ocaml/ApolloLinks.cmj
+new file mode 100644
+index 0000000..bef2363
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ApolloLinks.cmj differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloLinks.cmt b/node_modules/reason-apollo/lib/ocaml/ApolloLinks.cmt
+new file mode 100644
+index 0000000..9a739ba
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ApolloLinks.cmt differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloLinks.re b/node_modules/reason-apollo/lib/ocaml/ApolloLinks.re
+new file mode 100644
+index 0000000..5c1cd47
+--- /dev/null
++++ b/node_modules/reason-apollo/lib/ocaml/ApolloLinks.re
+@@ -0,0 +1,115 @@
++open ReasonApolloTypes;
++
++/* Bind the method `from`, used to compose links together */
++[@bs.module "apollo-link"]
++external from: array(apolloLink) => apolloLink = "from";
++
++/* Bind the method split. Based on a test send left or right */
++[@bs.module "apollo-link"]
++external split: (splitTest => bool, apolloLink, apolloLink) => apolloLink =
++  "split";
++
++/* Bind the HttpLink class */
++[@bs.module "apollo-link-http"] [@bs.new]
++external createHttpLink: ApolloClient.linkOptions => apolloLink = "HttpLink";
++
++/* Bind the setContext method */
++[@bs.module "apollo-link-context"]
++external apolloLinkSetContext: (unit => Js.t({..})) => apolloLink =
++  "setContext";
++
++[@bs.module "apollo-link-context"]
++external apolloLinkSetPromiseContext:
++  (unit => Js.Promise.t(Js.t({..}))) => apolloLink =
++  "setContext";
++
++/* Bind the onError method */
++[@bs.module "apollo-link-error"]
++external apolloLinkOnError: (errorResponse => unit) => apolloLink = "onError";
++
++/* bind apollo-link-ws */
++[@bs.module "apollo-link-ws"] [@bs.new]
++external webSocketLink: webSocketLinkT => apolloLink = "WebSocketLink";
++
++/* Bind createUploadLink function from apollo upload link */
++[@bs.module "apollo-upload-client"]
++external createUploadLink: ApolloClient.uploadLinkOptions => apolloLink =
++  "createUploadLink";
++
++let webSocketLink = (~uri, ~reconnect=?, ~connectionParams=?, ()) => {
++  webSocketLink(
++    webSocketLinkT(
++      ~uri,
++      ~options=webSocketLinkOptionsT(~reconnect?, ~connectionParams?, ()),
++    ),
++  );
++};
++
++/**
++ * CreateHttpLink
++ * https://github.com/apollographql/apollo-link/tree/master/packages/apollo-link-http
++ */
++let createHttpLink =
++    (
++      ~uri,
++      ~includeExtensions=?,
++      ~fetch=?,
++      ~headers=?,
++      ~credentials=?,
++      ~fetchOptions=?,
++      (),
++    ) => {
++  createHttpLink({
++    "uri": uri,
++    "includeExtensions": Js.Nullable.fromOption(includeExtensions),
++    "fetch": Js.Nullable.fromOption(fetch),
++    "headers": Js.Nullable.fromOption(headers),
++    "credentials": Js.Nullable.fromOption(credentials),
++    "fetchOptions": Js.Nullable.fromOption(fetchOptions),
++  });
++};
++
++/**
++ * CreateUploadLink
++ * https://github.com/jaydenseric/apollo-upload-client#function-createuploadlink
++ */
++let createUploadLink =
++    (
++      ~uri=?,
++      ~fetch=?,
++      ~fetchOptions=?,
++      ~credentials=?,
++      ~headers=?,
++      ~includeExtensions=?,
++      (),
++    ) =>
++  createUploadLink(
++    Js.Nullable.{
++      "uri": fromOption(uri),
++      "fetch": fromOption(fetch),
++      "fetchOptions": fromOption(fetchOptions),
++      "credentials": fromOption(credentials),
++      "headers": fromOption(headers),
++      "includeExtensions": fromOption(includeExtensions),
++    },
++  );
++
++/**
++ * CreateContextLink
++ * https://github.com/apollographql/apollo-link/tree/master/packages/apollo-link-context
++ */
++let createContextLink = contextHandler => {
++  /* Instanciate a new context link object */
++  apolloLinkSetPromiseContext(
++    contextHandler,
++  );
++};
++
++/**
++ * CreateErrorLink
++ * https://github.com/apollographql/apollo-link/tree/master/packages/apollo-link-error
++ */
++let createErrorLink = errorHandler => {
++  /* Instanciate a new error link object */
++  apolloLinkOnError(errorHandler);
++};
+\ No newline at end of file
+diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloProvider.cmi b/node_modules/reason-apollo/lib/ocaml/ApolloProvider.cmi
+new file mode 100644
+index 0000000..a78f083
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ApolloProvider.cmi differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloProvider.cmj b/node_modules/reason-apollo/lib/ocaml/ApolloProvider.cmj
+new file mode 100644
+index 0000000..b3b2fcb
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ApolloProvider.cmj differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloProvider.cmt b/node_modules/reason-apollo/lib/ocaml/ApolloProvider.cmt
+new file mode 100644
+index 0000000..720e3b1
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ApolloProvider.cmt differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloProvider.re b/node_modules/reason-apollo/lib/ocaml/ApolloProvider.re
+new file mode 100644
+index 0000000..b5ad8e2
+--- /dev/null
++++ b/node_modules/reason-apollo/lib/ocaml/ApolloProvider.re
+@@ -0,0 +1,6 @@
++open ApolloClient;
++
++[@bs.module "react-apollo"] [@react.component]
++external make:
++  (~client: generatedApolloClient, ~children: React.element) => React.element =
++  "ApolloProvider";
+diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloUtilities.cmi b/node_modules/reason-apollo/lib/ocaml/ApolloUtilities.cmi
+new file mode 100644
+index 0000000..233ce1c
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ApolloUtilities.cmi differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloUtilities.cmj b/node_modules/reason-apollo/lib/ocaml/ApolloUtilities.cmj
+new file mode 100644
+index 0000000..b3b2fcb
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ApolloUtilities.cmj differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloUtilities.cmt b/node_modules/reason-apollo/lib/ocaml/ApolloUtilities.cmt
+new file mode 100644
+index 0000000..c72605b
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ApolloUtilities.cmt differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ApolloUtilities.re b/node_modules/reason-apollo/lib/ocaml/ApolloUtilities.re
+new file mode 100644
+index 0000000..0cace6a
+--- /dev/null
++++ b/node_modules/reason-apollo/lib/ocaml/ApolloUtilities.re
+@@ -0,0 +1,8 @@
++type operationDefinitionNode = {
++  .
++  "kind": string,
++  "operation": string
++};
++
++[@bs.module "apollo-utilities"] external getMainDefinition: ReasonApolloTypes.documentNodeT => operationDefinitionNode = "getMainDefinition";
++
+diff --git a/node_modules/reason-apollo/lib/ocaml/ReasonApollo.cmi b/node_modules/reason-apollo/lib/ocaml/ReasonApollo.cmi
+new file mode 100644
+index 0000000..f1ebe95
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ReasonApollo.cmi differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ReasonApollo.cmj b/node_modules/reason-apollo/lib/ocaml/ReasonApollo.cmj
+new file mode 100644
+index 0000000..301a5fd
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ReasonApollo.cmj differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ReasonApollo.cmt b/node_modules/reason-apollo/lib/ocaml/ReasonApollo.cmt
+new file mode 100644
+index 0000000..9f9e873
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ReasonApollo.cmt differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ReasonApollo.re b/node_modules/reason-apollo/lib/ocaml/ReasonApollo.re
+new file mode 100644
+index 0000000..5b5b061
+--- /dev/null
++++ b/node_modules/reason-apollo/lib/ocaml/ReasonApollo.re
+@@ -0,0 +1,47 @@
++open ApolloClient;
++
++/*
++ * Expose a createApolloClient function that has to be passed to the ApolloProvider
++ */
++let createApolloClient =
++    (
++      ~link,
++      ~cache,
++      ~ssrMode=?,
++      ~ssrForceFetchDelay=?,
++      ~connectToDevTools=?,
++      ~queryDeduplication=?,
++      (),
++    ) => {
++  createApolloClientJS(
++    apolloClientObjectParam(
++      ~link,
++      ~cache,
++      ~ssrMode?,
++      ~ssrForceFetchDelay?,
++      ~connectToDevTools?,
++      ~queryDeduplication?,
++    ),
++  );
++};
++
++/*
++ * Expose a module to perform "query" operations for the given client
++ */
++module CreateQuery = (Config: ReasonApolloTypes.Config) =>
++  ReasonApolloQuery.Make(Config);
++
++/*
++ * Expose a module to perform "mutation" operations for the given client
++ */
++module CreateMutation = (Config: ReasonApolloTypes.Config) =>
++  ReasonApolloMutation.Make(Config);
++/*
++ * Expose a module to perform "subscription" operations for the given client
++ */
++module CreateSubscription = (Config: ReasonApolloTypes.Config) =>
++  ReasonApolloSubscription.Make(Config);
++
++module Provider = ApolloProvider;
++
++module Consumer = ApolloConsumer;
+diff --git a/node_modules/reason-apollo/lib/ocaml/ReasonApolloMutation.cmi b/node_modules/reason-apollo/lib/ocaml/ReasonApolloMutation.cmi
+new file mode 100644
+index 0000000..90568d2
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ReasonApolloMutation.cmi differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ReasonApolloMutation.cmj b/node_modules/reason-apollo/lib/ocaml/ReasonApolloMutation.cmj
+new file mode 100644
+index 0000000..28a090b
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ReasonApolloMutation.cmj differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ReasonApolloMutation.cmt b/node_modules/reason-apollo/lib/ocaml/ReasonApolloMutation.cmt
+new file mode 100644
+index 0000000..504b251
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ReasonApolloMutation.cmt differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ReasonApolloMutation.re b/node_modules/reason-apollo/lib/ocaml/ReasonApolloMutation.re
+new file mode 100644
+index 0000000..e6fcb90
+--- /dev/null
++++ b/node_modules/reason-apollo/lib/ocaml/ReasonApolloMutation.re
+@@ -0,0 +1,145 @@
++open ReasonApolloTypes;
++
++type renderPropObjJS = {
++  .
++  "loading": bool,
++  "called": bool,
++  "data": Js.Nullable.t(Js.Json.t),
++  "error": Js.Nullable.t(apolloError),
++  "networkStatus": Js.Nullable.t(int),
++  "variables": Js.Null_undefined.t(Js.Json.t),
++};
++
++module Make = (Config: Config) => {
++  external cast:
++    string =>
++    {
++      .
++      "data": Js.Json.t,
++      "loading": bool,
++    } =
++    "%identity";
++
++  [@bs.module "graphql-tag"] external gql: ReasonApolloTypes.gql = "default";
++
++  let graphqlMutationAST = gql(. Config.query);
++  type response = mutationResponse(Config.t);
++  type renderPropObj = {
++    result: response,
++    data: option(Config.t),
++    loading: bool,
++    error: option(apolloError),
++    networkStatus: option(int),
++  };
++  type apolloMutation =
++    (
++      ~variables: Js.Json.t=?,
++      ~refetchQueries: array(string)=?,
++      ~optimisticResponse: Config.t=?,
++      unit
++    ) =>
++    Js.Promise.t(executionResponse(Config.t));
++
++  [@bs.deriving abstract]
++  type jsMutationParams = {
++    [@bs.optional]
++    variables: Js.Json.t,
++    [@bs.optional]
++    refetchQueries: array(string),
++    [@bs.optional]
++    optimisticResponse: Config.t,
++  };
++
++  let convertExecutionResultToReason = (executionResult: executionResult) =>
++    switch (
++      executionResult##data |> ReasonApolloUtils.getNonEmptyObj,
++      executionResult##errors |> Js.Nullable.toOption,
++    ) {
++    | (Some(data), _) => Data(Config.parse(data))
++    | (_, Some(errors)) => Errors(errors)
++    | (None, None) => EmptyResponse
++    };
++
++  let apolloMutationFactory =
++      (
++        ~jsMutation,
++        ~variables=?,
++        ~refetchQueries=?,
++        ~optimisticResponse=?,
++        (),
++      ) =>
++    jsMutation(
++      jsMutationParams(
++        ~variables?,
++        ~refetchQueries?,
++        ~optimisticResponse?,
++        (),
++      ),
++    )
++    |> Js.Promise.(
++         then_(response => resolve(convertExecutionResultToReason(response)))
++       );
++
++  let apolloDataToReason: renderPropObjJS => response =
++    apolloData =>
++      switch (
++        apolloData##loading,
++        apolloData##data |> ReasonApolloUtils.getNonEmptyObj,
++        apolloData##error |> Js.Nullable.toOption,
++      ) {
++      | (true, _, _) => Loading
++      | (false, Some(data), _) => Data(Config.parse(data))
++      | (false, _, Some(error)) => Error(error)
++      | (false, None, None) => NotCalled
++      };
++
++  let convertJsInputToReason = (apolloData: renderPropObjJS) => {
++    result: apolloDataToReason(apolloData),
++    data:
++      switch (apolloData##data |> ReasonApolloUtils.getNonEmptyObj) {
++      | None => None
++      | Some(data) =>
++        switch (Config.parse(data)) {
++        | parsedData => Some(parsedData)
++        | exception _ => None
++        }
++      },
++    error: apolloData##error |> Js.Nullable.toOption,
++    loading: apolloData##loading,
++    networkStatus: apolloData##networkStatus->Js.Nullable.toOption,
++  };
++
++  module JsMutation = {
++    [@bs.module "react-apollo"] [@react.component]
++    external make:
++      (
++        ~mutation: ReasonApolloTypes.queryString,
++        ~variables: Js.Json.t=?,
++        ~onCompleted: unit => unit=?,
++        ~onError: apolloError => unit=?,
++        ~children: (
++                     jsMutationParams => Js.Promise.t(executionResult),
++                     renderPropObjJS
++                   ) =>
++                   React.element
++      ) =>
++      React.element =
++      "Mutation";
++  };
++
++  [@react.component]
++  let make =
++      (
++        ~variables: Js.Json.t=?,
++        ~onError: apolloError => unit=?,
++        ~onCompleted: unit => unit=?,
++        ~children: (apolloMutation, renderPropObj) => React.element,
++      ) =>
++    <JsMutation mutation=graphqlMutationAST variables onError onCompleted>
++      {(mutation, apolloData) =>
++         children(
++           apolloMutationFactory(~jsMutation=mutation),
++           apolloData |> convertJsInputToReason,
++         )}
++    </JsMutation>;
++};
+diff --git a/node_modules/reason-apollo/lib/ocaml/ReasonApolloQuery.cmi b/node_modules/reason-apollo/lib/ocaml/ReasonApolloQuery.cmi
+new file mode 100644
+index 0000000..c43c0cf
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ReasonApolloQuery.cmi differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ReasonApolloQuery.cmj b/node_modules/reason-apollo/lib/ocaml/ReasonApolloQuery.cmj
+new file mode 100644
+index 0000000..28a090b
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ReasonApolloQuery.cmj differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ReasonApolloQuery.cmt b/node_modules/reason-apollo/lib/ocaml/ReasonApolloQuery.cmt
+new file mode 100644
+index 0000000..1ea5fcd
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ReasonApolloQuery.cmt differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ReasonApolloQuery.re b/node_modules/reason-apollo/lib/ocaml/ReasonApolloQuery.re
+new file mode 100644
+index 0000000..b9e0d7f
+--- /dev/null
++++ b/node_modules/reason-apollo/lib/ocaml/ReasonApolloQuery.re
+@@ -0,0 +1,200 @@
++open ReasonApolloTypes;
++
++[@bs.deriving abstract]
++type updateQueryOptions = {
++  [@bs.optional]
++  fetchMoreResult: Js.Json.t,
++  [@bs.optional]
++  variables: Js.Json.t,
++};
++
++type onErrorT;
++type updateQueryT = (Js.Json.t, updateQueryOptions) => Js.Json.t;
++type updateSubscriptionOptions = {
++  .
++  "subscriptionData": Js.Nullable.t(Js.Json.t),
++  "variables": Js.Nullable.t(Js.Json.t),
++};
++type updateQuerySubscriptionT =
++  (Js.Json.t, updateSubscriptionOptions) => Js.Json.t;
++
++[@bs.deriving abstract]
++type subscribeToMoreOptions = {
++  document: queryString,
++  [@bs.optional]
++  variables: Js.Json.t,
++  [@bs.optional]
++  updateQuery: updateQuerySubscriptionT,
++  [@bs.optional]
++  onError: onErrorT,
++};
++
++/* We dont accept a new query for now */
++[@bs.deriving abstract]
++type fetchMoreOptions = {
++  [@bs.optional]
++  variables: Js.Json.t,
++  updateQuery: updateQueryT,
++};
++
++[@bs.deriving abstract]
++type renderPropObjJS = {
++  loading: bool,
++  data: Js.Nullable.t(Js.Json.t),
++  error: Js.Nullable.t(apolloError),
++  refetch: Js.Null_undefined.t(Js.Json.t) => Js.Promise.t(renderPropObjJS),
++  networkStatus: Js.Nullable.t(int),
++  variables: Js.Null_undefined.t(Js.Json.t),
++  fetchMore: fetchMoreOptions => Js.Promise.t(unit),
++  subscribeToMore: subscribeToMoreOptions => unit,
++};
++
++module Make = (Config: ReasonApolloTypes.Config) => {
++  [@bs.module "graphql-tag"] external gql: ReasonApolloTypes.gql = "default";
++
++  type response = queryResponse(Config.t);
++
++  type renderPropObj = {
++    result: response,
++    data: option(Config.t),
++    error: option(apolloError),
++    loading: bool,
++    refetch: option(Js.Json.t) => Js.Promise.t(response),
++    fetchMore:
++      (~variables: Js.Json.t=?, ~updateQuery: updateQueryT, unit) =>
++      Js.Promise.t(unit),
++    networkStatus: option(int),
++    subscribeToMore:
++      (
++        ~document: queryString,
++        ~variables: Js.Json.t=?,
++        ~updateQuery: updateQuerySubscriptionT=?,
++        ~onError: onErrorT=?,
++        unit
++      ) =>
++      unit,
++  };
++
++  let graphqlQueryAST = gql(. Config.query);
++  let apolloDataToVariant: renderPropObjJS => response =
++    apolloData =>
++      switch (
++        apolloData->loadingGet,
++        apolloData->dataGet |> ReasonApolloUtils.getNonEmptyObj,
++        apolloData->errorGet |> Js.Nullable.toOption,
++      ) {
++      | (true, _, _) => Loading
++      | (false, Some(response), _) => Data(Config.parse(response))
++      | (false, _, Some(error)) => Error(error)
++      | (false, None, None) =>
++        Error({
++          "message": "No data",
++          "graphQLErrors": Js.Nullable.null,
++          "networkError": Js.Nullable.null,
++        })
++      };
++
++  let convertJsInputToReason = (apolloData: renderPropObjJS) => {
++    result: apolloData |> apolloDataToVariant,
++    data:
++      switch (apolloData->dataGet |> ReasonApolloUtils.getNonEmptyObj) {
++      | None => None
++      | Some(data) =>
++        switch (Config.parse(data)) {
++        | parsedData => Some(parsedData)
++        | exception _ => None
++        }
++      },
++    error:
++      switch (apolloData->errorGet |> Js.Nullable.toOption) {
++      | Some(error) => Some(error)
++      | None => None
++      },
++    loading: apolloData->loadingGet,
++    refetch: variables =>
++      apolloData->(refetchGet(variables |> Js.Nullable.fromOption))
++      |> Js.Promise.then_(data =>
++           data |> apolloDataToVariant |> Js.Promise.resolve
++         ),
++    fetchMore: (~variables=?, ~updateQuery, ()) =>
++      apolloData->(
++                    fetchMoreGet(
++                      fetchMoreOptions(~variables?, ~updateQuery, ()),
++                    )
++                  ),
++    networkStatus: apolloData->networkStatusGet->Js.Nullable.toOption,
++    subscribeToMore:
++      (~document, ~variables=?, ~updateQuery=?, ~onError=?, ()) =>
++      apolloData->(
++                    subscribeToMoreGet(
++                      subscribeToMoreOptions(
++                        ~document,
++                        ~variables?,
++                        ~updateQuery?,
++                        ~onError?,
++                        (),
++                      ),
++                    )
++                  ),
++  };
++
++  module JsQuery = {
++    [@bs.module "react-apollo"] [@react.component]
++    external make:
++      (
++        ~query: ReasonApolloTypes.queryString,
++        ~variables: Js.Json.t=?,
++        ~pollInterval: int=?,
++        ~notifyOnNetworkStatusChange: bool=?,
++        ~fetchPolicy: string=?,
++        ~errorPolicy: string=?,
++        ~ssr: bool=?,
++        ~displayName: string=?,
++        ~skip: bool=?,
++        ~onCompleted: Js.Nullable.t(Js.Json.t) => unit=?,
++        ~onError: apolloError => unit=?,
++        ~partialRefetch: bool=?,
++        ~delay: bool=?,
++        ~context: Js.Json.t=?,
++        ~children: renderPropObjJS => React.element
++      ) =>
++      React.element =
++      "Query";
++  };
++
++  [@react.component]
++  let make =
++      (
++        ~variables: Js.Json.t=?,
++        ~pollInterval: int=?,
++        ~notifyOnNetworkStatusChange: bool=?,
++        ~fetchPolicy: string=?,
++        ~errorPolicy: string=?,
++        ~ssr: bool=?,
++        ~displayName: string=?,
++        ~skip: bool=?,
++        ~onCompleted: Js.Nullable.t(Js.Json.t) => unit=?,
++        ~onError: apolloError => unit=?,
++        ~partialRefetch: bool=?,
++        ~delay: bool=?,
++        ~context: Js.Json.t=?,
++        ~children: renderPropObj => React.element,
++      ) =>
++    <JsQuery
++      query=graphqlQueryAST
++      variables
++      pollInterval
++      notifyOnNetworkStatusChange
++      fetchPolicy
++      errorPolicy
++      ssr
++      displayName
++      skip
++      onCompleted
++      onError
++      partialRefetch
++      delay
++      context>
++      {apolloData => apolloData |> convertJsInputToReason |> children}
++    </JsQuery>;
++};
+diff --git a/node_modules/reason-apollo/lib/ocaml/ReasonApolloSubscription.cmi b/node_modules/reason-apollo/lib/ocaml/ReasonApolloSubscription.cmi
+new file mode 100644
+index 0000000..dd7bcdf
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ReasonApolloSubscription.cmi differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ReasonApolloSubscription.cmj b/node_modules/reason-apollo/lib/ocaml/ReasonApolloSubscription.cmj
+new file mode 100644
+index 0000000..28a090b
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ReasonApolloSubscription.cmj differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ReasonApolloSubscription.cmt b/node_modules/reason-apollo/lib/ocaml/ReasonApolloSubscription.cmt
+new file mode 100644
+index 0000000..c0d4385
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ReasonApolloSubscription.cmt differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ReasonApolloSubscription.re b/node_modules/reason-apollo/lib/ocaml/ReasonApolloSubscription.re
+new file mode 100644
+index 0000000..fd6e149
+--- /dev/null
++++ b/node_modules/reason-apollo/lib/ocaml/ReasonApolloSubscription.re
+@@ -0,0 +1,83 @@
++open ReasonApolloTypes;
++
++module Make = (Config: ReasonApolloTypes.Config) => {
++  [@bs.module "graphql-tag"] external gql: ReasonApolloTypes.gql = "default";
++
++  let graphQLSubscriptionAST = gql(. Config.query);
++
++  type response = subscriptionResponse(Config.t);
++
++  type renderPropObj = {
++    result: response,
++    data: option(Config.t),
++    error: option(apolloError),
++    loading: bool,
++  };
++
++  type renderPropObjJS = {
++    .
++    "loading": bool,
++    "data": Js.Nullable.t(Js.Json.t),
++    "error": Js.Nullable.t(apolloError),
++  };
++
++  let apolloDataToVariant: renderPropObjJS => response =
++    apolloData =>
++      switch (
++        apolloData##loading,
++        apolloData##data |> ReasonApolloUtils.getNonEmptyObj,
++        apolloData##error |> Js.Nullable.toOption,
++      ) {
++      | (true, _, _) => Loading
++      | (false, Some(response), _) => Data(Config.parse(response))
++      | (false, _, Some(error)) => Error(error)
++      | (false, None, None) =>
++        Error({
++          "message": "No data",
++          "graphQLErrors": Js.Nullable.null,
++          "networkError": Js.Nullable.null,
++        })
++      };
++
++  let convertJsInputToReason: renderPropObjJS => renderPropObj =
++    apolloData => {
++      result: apolloData |> apolloDataToVariant,
++      data:
++        switch (apolloData##data |> ReasonApolloUtils.getNonEmptyObj) {
++        | None => None
++        | Some(data) =>
++          switch (Config.parse(data)) {
++          | parsedData => Some(parsedData)
++          | exception _ => None
++          }
++        },
++      error:
++        switch (apolloData##error |> Js.Nullable.toOption) {
++        | Some(error) => Some(error)
++        | None => None
++        },
++      loading: apolloData##loading,
++    };
++
++  module JsSubscription = {
++    [@bs.module "react-apollo"] [@react.component]
++    external make:
++      (
++        ~subscription: ReasonApolloTypes.queryString,
++        ~variables: option(Js.Json.t),
++        ~children: renderPropObjJS => ReasonReact.reactElement
++      ) =>
++      ReasonReact.reactElement =
++      "Subscription";
++  };
++
++  [@react.component]
++  let make =
++      (
++        ~variables: option(Js.Json.t)=?,
++        ~children: renderPropObj => ReasonReact.reactElement,
++      ) =>
++    <JsSubscription subscription=graphQLSubscriptionAST variables>
++      {apolloData => apolloData |> convertJsInputToReason |> children}
++    </JsSubscription>;
++};
+diff --git a/node_modules/reason-apollo/lib/ocaml/ReasonApolloTypes.cmi b/node_modules/reason-apollo/lib/ocaml/ReasonApolloTypes.cmi
+new file mode 100644
+index 0000000..bd3b97d
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ReasonApolloTypes.cmi differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ReasonApolloTypes.cmj b/node_modules/reason-apollo/lib/ocaml/ReasonApolloTypes.cmj
+new file mode 100644
+index 0000000..b3b2fcb
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ReasonApolloTypes.cmj differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ReasonApolloTypes.cmt b/node_modules/reason-apollo/lib/ocaml/ReasonApolloTypes.cmt
+new file mode 100644
+index 0000000..06beecf
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ReasonApolloTypes.cmt differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ReasonApolloTypes.re b/node_modules/reason-apollo/lib/ocaml/ReasonApolloTypes.re
+new file mode 100644
+index 0000000..719dbb9
+--- /dev/null
++++ b/node_modules/reason-apollo/lib/ocaml/ReasonApolloTypes.re
+@@ -0,0 +1,117 @@
++/**
++ * An abstract type to describe a query string object.
++ */
++type queryString;
++
++/**
++ * The signature of the `graphql-tag/gql` function that transforms a GraphQL
++ * query string to the standard GraphQL AST.
++ * https://github.com/apollographql/graphql-tag
++ */
++type gql = (. string) => queryString;
++
++/**
++ * An abstract type to describe an Apollo Link object.
++ */
++type apolloLink;
++
++/**
++ * An abstract type to describe an Apollo Cache object.
++ */
++type apolloCache;
++
++type networkError = {. "statusCode": int};
++
++type apolloErrorExtensions = {. "code": Js.Nullable.t(string)};
++
++type graphqlError = {
++  .
++  "message": string,
++  "name": Js.Nullable.t(string),
++  "extensions": Js.Nullable.t(apolloErrorExtensions),
++  "locations": Js.Nullable.t(array(string)),
++  "path": Js.Nullable.t(array(string)),
++  "nodes": Js.Nullable.t(array(string)),
++};
++
++type executionResult = {
++  .
++  "errors": Js.Nullable.t(Js.Array.t(graphqlError)),
++  "data": Js.Nullable.t(Js.Json.t),
++};
++
++/* TODO define all types */
++type operation = {. "query": queryString};
++
++/* TODO define subscription */
++type subscription;
++
++type errorResponse = {
++  .
++  "graphQLErrors": Js.Nullable.t(Js.Array.t(graphqlError)),
++  "networkError": Js.Nullable.t(networkError),
++  "response": Js.Nullable.t(executionResult),
++  "operation": operation,
++  "forward": operation => subscription,
++};
++
++module type Config = {
++  let query: string;
++  type t;
++  let parse: Js.Json.t => t;
++};
++
++type apolloError = {
++  .
++  "message": string,
++  "graphQLErrors": Js.Nullable.t(array(graphqlError)),
++  "networkError": Js.Nullable.t(string),
++};
++
++type apolloOptions = {
++  .
++  "query": queryString,
++  "variables": Js.Json.t,
++};
++
++type queryResponse('a) =
++  | Loading
++  | Error(apolloError)
++  | Data('a);
++
++type mutationResponse('a) =
++  | Loading
++  | Error(apolloError)
++  | Data('a)
++  | NotCalled;
++
++type subscriptionResponse('a) =
++  | Loading
++  | Error(apolloError)
++  | Data('a);
++
++type executionResponse('a) =
++  | Errors(array(graphqlError))
++  | EmptyResponse
++  | Data('a);
++/*
++ apollo link ws
++ */
++
++[@bs.deriving abstract]
++type webSocketLinkOptionsT = {
++  [@bs.optional]
++  reconnect: bool,
++  [@bs.optional]
++  connectionParams: Js.Json.t,
++};
++
++[@bs.deriving abstract]
++type webSocketLinkT = {
++  uri: string,
++  options: webSocketLinkOptionsT,
++};
++
++type documentNodeT;
++
++type splitTest = {. "query": documentNodeT};
+diff --git a/node_modules/reason-apollo/lib/ocaml/ReasonApolloUtils.cmi b/node_modules/reason-apollo/lib/ocaml/ReasonApolloUtils.cmi
+new file mode 100644
+index 0000000..f40ad6a
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ReasonApolloUtils.cmi differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ReasonApolloUtils.cmj b/node_modules/reason-apollo/lib/ocaml/ReasonApolloUtils.cmj
+new file mode 100644
+index 0000000..ef1aa54
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ReasonApolloUtils.cmj differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ReasonApolloUtils.cmt b/node_modules/reason-apollo/lib/ocaml/ReasonApolloUtils.cmt
+new file mode 100644
+index 0000000..80614a4
+Binary files /dev/null and b/node_modules/reason-apollo/lib/ocaml/ReasonApolloUtils.cmt differ
+diff --git a/node_modules/reason-apollo/lib/ocaml/ReasonApolloUtils.re b/node_modules/reason-apollo/lib/ocaml/ReasonApolloUtils.re
+new file mode 100644
+index 0000000..518631e
+--- /dev/null
++++ b/node_modules/reason-apollo/lib/ocaml/ReasonApolloUtils.re
+@@ -0,0 +1,13 @@
++let getNonEmptyObj = jsObj =>
++  switch (jsObj |> Js.Nullable.toOption) {
++  | None => None
++  | Some(data) =>
++    switch (Js.Json.decodeObject(data)) {
++    | None => None
++    | Some(data) =>
++      switch (Array.length(Js.Dict.keys(data))) {
++      | 0 => None
++      | _ => Some(Js.Json.object_(data))
++      }
++    }
++  };
+\ No newline at end of file
+diff --git a/node_modules/reason-apollo/src/ApolloClient.bs.js b/node_modules/reason-apollo/src/ApolloClient.bs.js
+index ed792bc..c4c2189 100644
+--- a/node_modules/reason-apollo/src/ApolloClient.bs.js
++++ b/node_modules/reason-apollo/src/ApolloClient.bs.js
+@@ -1,30 +1,32 @@
+-// Generated by BUCKLESCRIPT VERSION 5.0.3, PLEASE EDIT WITH CARE
++// Generated by BUCKLESCRIPT, PLEASE EDIT WITH CARE
++'use strict';
+ 
+-import * as Belt_Option from "bs-platform/lib/es6/belt_Option.js";
+-import * as Caml_option from "bs-platform/lib/es6/caml_option.js";
+-import * as GraphqlTag from "graphql-tag";
+-import * as Js_null_undefined from "bs-platform/lib/es6/js_null_undefined.js";
++var Belt_Option = require("bs-platform/lib/js/belt_Option.js");
++var Caml_option = require("bs-platform/lib/js/caml_option.js");
++var GraphqlTag = require("graphql-tag");
++var Js_null_undefined = require("bs-platform/lib/js/js_null_undefined.js");
+ 
+ function ReadQuery(Config) {
+-  var graphqlQueryAST = GraphqlTag(Config[/* query */0]);
++  var graphqlQueryAST = GraphqlTag.default(Config.query);
+   var apolloDataToRecord = function (apolloData) {
+-    return Belt_Option.map((apolloData == null) ? undefined : Caml_option.some(apolloData), Config[/* parse */1]);
++    return Belt_Option.map((apolloData == null) ? undefined : Caml_option.some(apolloData), Config.parse);
+   };
+   var make = function (client, variables, param) {
+-    return apolloDataToRecord(client.readQuery({
+-                    query: graphqlQueryAST,
+-                    variables: Js_null_undefined.fromOption(variables)
+-                  }));
++    var apolloData = client.readQuery({
++          query: graphqlQueryAST,
++          variables: Js_null_undefined.fromOption(variables)
++        });
++    return Belt_Option.map((apolloData == null) ? undefined : Caml_option.some(apolloData), Config.parse);
+   };
+-  return /* module */[
+-          /* graphqlQueryAST */graphqlQueryAST,
+-          /* apolloDataToRecord */apolloDataToRecord,
+-          /* make */make
+-        ];
++  return {
++          graphqlQueryAST: graphqlQueryAST,
++          apolloDataToRecord: apolloDataToRecord,
++          make: make
++        };
+ }
+ 
+ function WriteQuery(Config) {
+-  var graphqlQueryAST = GraphqlTag(Config[/* query */0]);
++  var graphqlQueryAST = GraphqlTag.default(Config.query);
+   var make = function (client, variables, data, param) {
+     client.writeQuery({
+           query: graphqlQueryAST,
+@@ -33,15 +35,12 @@ function WriteQuery(Config) {
+         });
+     return /* () */0;
+   };
+-  return /* module */[
+-          /* graphqlQueryAST */graphqlQueryAST,
+-          /* make */make
+-        ];
++  return {
++          graphqlQueryAST: graphqlQueryAST,
++          make: make
++        };
+ }
+ 
+-export {
+-  ReadQuery ,
+-  WriteQuery ,
+-  
+-}
++exports.ReadQuery = ReadQuery;
++exports.WriteQuery = WriteQuery;
+ /* graphql-tag Not a pure module */
+diff --git a/node_modules/reason-apollo/src/ApolloConsumer.bs.js b/node_modules/reason-apollo/src/ApolloConsumer.bs.js
+index 312aa11..dc320a9 100644
+--- a/node_modules/reason-apollo/src/ApolloConsumer.bs.js
++++ b/node_modules/reason-apollo/src/ApolloConsumer.bs.js
+@@ -1,2 +1,21 @@
+-// Generated by BUCKLESCRIPT VERSION 5.0.3, PLEASE EDIT WITH CARE
+-/* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */
++// Generated by BUCKLESCRIPT, PLEASE EDIT WITH CARE
++'use strict';
++
++var Curry = require("bs-platform/lib/js/curry.js");
++var React = require("react");
++var ReactApollo = require("react-apollo");
++
++var JsConsumer = { };
++
++function ApolloConsumer(Props) {
++  var children = Props.children;
++  return React.createElement(ReactApollo.ApolloConsumer, {
++              children: Curry.__1(children)
++            });
++}
++
++var make = ApolloConsumer;
++
++exports.JsConsumer = JsConsumer;
++exports.make = make;
++/* react Not a pure module */
+diff --git a/node_modules/reason-apollo/src/ApolloInMemoryCache.bs.js b/node_modules/reason-apollo/src/ApolloInMemoryCache.bs.js
+index 408db0a..e0c9fcc 100644
+--- a/node_modules/reason-apollo/src/ApolloInMemoryCache.bs.js
++++ b/node_modules/reason-apollo/src/ApolloInMemoryCache.bs.js
+@@ -1,7 +1,8 @@
+-// Generated by BUCKLESCRIPT VERSION 5.0.3, PLEASE EDIT WITH CARE
++// Generated by BUCKLESCRIPT, PLEASE EDIT WITH CARE
++'use strict';
+ 
+-import * as Caml_option from "bs-platform/lib/es6/caml_option.js";
+-import * as ApolloCacheInmemory from "apollo-cache-inmemory";
++var Caml_option = require("bs-platform/lib/js/caml_option.js");
++var ApolloCacheInmemory = require("apollo-cache-inmemory");
+ 
+ function createIntrospectionFragmentMatcher(data) {
+   return new ApolloCacheInmemory.IntrospectionFragmentMatcher({
+@@ -20,9 +21,6 @@ function createInMemoryCache(dataIdFromObject, fragmentMatcher, param) {
+   return new ApolloCacheInmemory.InMemoryCache(tmp);
+ }
+ 
+-export {
+-  createIntrospectionFragmentMatcher ,
+-  createInMemoryCache ,
+-  
+-}
++exports.createIntrospectionFragmentMatcher = createIntrospectionFragmentMatcher;
++exports.createInMemoryCache = createInMemoryCache;
+ /* apollo-cache-inmemory Not a pure module */
+diff --git a/node_modules/reason-apollo/src/ApolloLinks.bs.js b/node_modules/reason-apollo/src/ApolloLinks.bs.js
+index 8d4ab65..0069f72 100644
+--- a/node_modules/reason-apollo/src/ApolloLinks.bs.js
++++ b/node_modules/reason-apollo/src/ApolloLinks.bs.js
+@@ -1,18 +1,22 @@
+-// Generated by BUCKLESCRIPT VERSION 5.0.3, PLEASE EDIT WITH CARE
+-
+-import * as Caml_option from "bs-platform/lib/es6/caml_option.js";
+-import * as ApolloLinkWs from "apollo-link-ws";
+-import * as ApolloLinkHttp from "apollo-link-http";
+-import * as Js_null_undefined from "bs-platform/lib/es6/js_null_undefined.js";
+-import * as ApolloLinkError from "apollo-link-error";
+-import * as ApolloLinkContext from "apollo-link-context";
+-import * as ApolloUploadClient from "apollo-upload-client";
+-
+-function webSocketLink(uri, reconnect, param) {
++// Generated by BUCKLESCRIPT, PLEASE EDIT WITH CARE
++'use strict';
++
++var Caml_option = require("bs-platform/lib/js/caml_option.js");
++var ApolloLinkWs = require("apollo-link-ws");
++var ApolloLinkHttp = require("apollo-link-http");
++var Js_null_undefined = require("bs-platform/lib/js/js_null_undefined.js");
++var ApolloLinkError = require("apollo-link-error");
++var ApolloLinkContext = require("apollo-link-context");
++var ApolloUploadClient = require("apollo-upload-client");
++
++function webSocketLink(uri, reconnect, connectionParams, param) {
+   var tmp = { };
+   if (reconnect !== undefined) {
+     tmp.reconnect = Caml_option.valFromOption(reconnect);
+   }
++  if (connectionParams !== undefined) {
++    tmp.connectionParams = Caml_option.valFromOption(connectionParams);
++  }
+   return new ApolloLinkWs.WebSocketLink({
+               uri: uri,
+               options: tmp
+@@ -49,12 +53,9 @@ function createErrorLink(errorHandler) {
+   return ApolloLinkError.onError(errorHandler);
+ }
+ 
+-export {
+-  webSocketLink ,
+-  createHttpLink ,
+-  createUploadLink ,
+-  createContextLink ,
+-  createErrorLink ,
+-  
+-}
++exports.webSocketLink = webSocketLink;
++exports.createHttpLink = createHttpLink;
++exports.createUploadLink = createUploadLink;
++exports.createContextLink = createContextLink;
++exports.createErrorLink = createErrorLink;
+ /* apollo-link-ws Not a pure module */
+diff --git a/node_modules/reason-apollo/src/ApolloLinks.re b/node_modules/reason-apollo/src/ApolloLinks.re
+index 788449e..5c1cd47 100644
+--- a/node_modules/reason-apollo/src/ApolloLinks.re
++++ b/node_modules/reason-apollo/src/ApolloLinks.re
+@@ -18,6 +18,11 @@ external createHttpLink: ApolloClient.linkOptions => apolloLink = "HttpLink";
+ external apolloLinkSetContext: (unit => Js.t({..})) => apolloLink =
+   "setContext";
+ 
++[@bs.module "apollo-link-context"]
++external apolloLinkSetPromiseContext:
++  (unit => Js.Promise.t(Js.t({..}))) => apolloLink =
++  "setContext";
++
+ /* Bind the onError method */
+ [@bs.module "apollo-link-error"]
+ external apolloLinkOnError: (errorResponse => unit) => apolloLink = "onError";
+@@ -95,7 +100,7 @@ let createUploadLink =
+  */
+ let createContextLink = contextHandler => {
+   /* Instanciate a new context link object */
+-  apolloLinkSetContext(
++  apolloLinkSetPromiseContext(
+     contextHandler,
+   );
+ };
+diff --git a/node_modules/reason-apollo/src/ApolloProvider.bs.js b/node_modules/reason-apollo/src/ApolloProvider.bs.js
+index 312aa11..40fed0f 100644
+--- a/node_modules/reason-apollo/src/ApolloProvider.bs.js
++++ b/node_modules/reason-apollo/src/ApolloProvider.bs.js
+@@ -1,2 +1,2 @@
+-// Generated by BUCKLESCRIPT VERSION 5.0.3, PLEASE EDIT WITH CARE
++// Generated by BUCKLESCRIPT, PLEASE EDIT WITH CARE
+ /* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */
+diff --git a/node_modules/reason-apollo/src/ApolloUtilities.bs.js b/node_modules/reason-apollo/src/ApolloUtilities.bs.js
+index 312aa11..40fed0f 100644
+--- a/node_modules/reason-apollo/src/ApolloUtilities.bs.js
++++ b/node_modules/reason-apollo/src/ApolloUtilities.bs.js
+@@ -1,2 +1,2 @@
+-// Generated by BUCKLESCRIPT VERSION 5.0.3, PLEASE EDIT WITH CARE
++// Generated by BUCKLESCRIPT, PLEASE EDIT WITH CARE
+ /* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */
+diff --git a/node_modules/reason-apollo/src/ReasonApollo.bs.js b/node_modules/reason-apollo/src/ReasonApollo.bs.js
+index 91056de..c961519 100644
+--- a/node_modules/reason-apollo/src/ReasonApollo.bs.js
++++ b/node_modules/reason-apollo/src/ReasonApollo.bs.js
+@@ -1,10 +1,11 @@
+-// Generated by BUCKLESCRIPT VERSION 5.0.3, PLEASE EDIT WITH CARE
++// Generated by BUCKLESCRIPT, PLEASE EDIT WITH CARE
++'use strict';
+ 
+-import * as Caml_option from "bs-platform/lib/es6/caml_option.js";
+-import * as ApolloClient from "apollo-client";
+-import * as ReasonApolloQuery from "./graphql-types/ReasonApolloQuery.bs.js";
+-import * as ReasonApolloMutation from "./graphql-types/ReasonApolloMutation.bs.js";
+-import * as ReasonApolloSubscription from "./graphql-types/ReasonApolloSubscription.bs.js";
++var Caml_option = require("bs-platform/lib/js/caml_option.js");
++var ApolloClient = require("apollo-client");
++var ReasonApolloQuery = require("./graphql-types/ReasonApolloQuery.bs.js");
++var ReasonApolloMutation = require("./graphql-types/ReasonApolloMutation.bs.js");
++var ReasonApolloSubscription = require("./graphql-types/ReasonApolloSubscription.bs.js");
+ 
+ function createApolloClient(link, cache, ssrMode, ssrForceFetchDelay, connectToDevTools, queryDeduplication, param) {
+   var tmp = {
+@@ -32,17 +33,14 @@ var CreateMutation = ReasonApolloMutation.Make;
+ 
+ var CreateSubscription = ReasonApolloSubscription.Make;
+ 
+-var Provider = 0;
++var Provider = /* alias */0;
+ 
+-var Consumer = 0;
++var Consumer = /* alias */0;
+ 
+-export {
+-  createApolloClient ,
+-  CreateQuery ,
+-  CreateMutation ,
+-  CreateSubscription ,
+-  Provider ,
+-  Consumer ,
+-  
+-}
++exports.createApolloClient = createApolloClient;
++exports.CreateQuery = CreateQuery;
++exports.CreateMutation = CreateMutation;
++exports.CreateSubscription = CreateSubscription;
++exports.Provider = Provider;
++exports.Consumer = Consumer;
+ /* apollo-client Not a pure module */
+diff --git a/node_modules/reason-apollo/src/ReasonApolloTypes.bs.js b/node_modules/reason-apollo/src/ReasonApolloTypes.bs.js
+index 312aa11..40fed0f 100644
+--- a/node_modules/reason-apollo/src/ReasonApolloTypes.bs.js
++++ b/node_modules/reason-apollo/src/ReasonApolloTypes.bs.js
+@@ -1,2 +1,2 @@
+-// Generated by BUCKLESCRIPT VERSION 5.0.3, PLEASE EDIT WITH CARE
++// Generated by BUCKLESCRIPT, PLEASE EDIT WITH CARE
+ /* This output is empty. Its source's type definitions, externals and/or unused code got optimized away. */
+diff --git a/node_modules/reason-apollo/src/ReasonApolloUtils.bs.js b/node_modules/reason-apollo/src/ReasonApolloUtils.bs.js
+index 8689efe..edb1b80 100644
+--- a/node_modules/reason-apollo/src/ReasonApolloUtils.bs.js
++++ b/node_modules/reason-apollo/src/ReasonApolloUtils.bs.js
+@@ -1,11 +1,12 @@
+-// Generated by BUCKLESCRIPT VERSION 5.0.3, PLEASE EDIT WITH CARE
++// Generated by BUCKLESCRIPT, PLEASE EDIT WITH CARE
++'use strict';
+ 
+-import * as Js_json from "bs-platform/lib/es6/js_json.js";
+-import * as Caml_option from "bs-platform/lib/es6/caml_option.js";
++var Js_json = require("bs-platform/lib/js/js_json.js");
++var Caml_option = require("bs-platform/lib/js/caml_option.js");
+ 
+ function getNonEmptyObj(jsObj) {
+   if (jsObj == null) {
+-    return undefined;
++    return ;
+   } else {
+     var match = Js_json.decodeObject(jsObj);
+     if (match !== undefined) {
+@@ -14,16 +15,13 @@ function getNonEmptyObj(jsObj) {
+       if (match$1 !== 0) {
+         return Caml_option.some(data);
+       } else {
+-        return undefined;
++        return ;
+       }
+     } else {
+-      return undefined;
++      return ;
+     }
+   }
+ }
+ 
+-export {
+-  getNonEmptyObj ,
+-  
+-}
++exports.getNonEmptyObj = getNonEmptyObj;
+ /* No side effect */
+diff --git a/node_modules/reason-apollo/src/graphql-types/ReasonApolloMutation.bs.js b/node_modules/reason-apollo/src/graphql-types/ReasonApolloMutation.bs.js
+index a56e866..7a0c9c8 100644
+--- a/node_modules/reason-apollo/src/graphql-types/ReasonApolloMutation.bs.js
++++ b/node_modules/reason-apollo/src/graphql-types/ReasonApolloMutation.bs.js
+@@ -1,20 +1,21 @@
+-// Generated by BUCKLESCRIPT VERSION 5.0.3, PLEASE EDIT WITH CARE
++// Generated by BUCKLESCRIPT, PLEASE EDIT WITH CARE
++'use strict';
+ 
+-import * as Block from "bs-platform/lib/es6/block.js";
+-import * as Curry from "bs-platform/lib/es6/curry.js";
+-import * as React from "react";
+-import * as Caml_option from "bs-platform/lib/es6/caml_option.js";
+-import * as GraphqlTag from "graphql-tag";
+-import * as ReactApollo from "react-apollo";
+-import * as ReasonApolloUtils from "../ReasonApolloUtils.bs.js";
++var Block = require("bs-platform/lib/js/block.js");
++var Curry = require("bs-platform/lib/js/curry.js");
++var React = require("react");
++var Caml_option = require("bs-platform/lib/js/caml_option.js");
++var GraphqlTag = require("graphql-tag");
++var ReactApollo = require("react-apollo");
++var ReasonApolloUtils = require("../ReasonApolloUtils.bs.js");
+ 
+ function Make(Config) {
+-  var graphqlMutationAST = GraphqlTag(Config[/* query */0]);
++  var graphqlMutationAST = GraphqlTag.default(Config.query);
+   var convertExecutionResultToReason = function (executionResult) {
+     var match = ReasonApolloUtils.getNonEmptyObj(executionResult.data);
+     var match$1 = executionResult.errors;
+     if (match !== undefined) {
+-      return /* Data */Block.__(1, [Curry._1(Config[/* parse */1], Caml_option.valFromOption(match))]);
++      return /* Data */Block.__(1, [Curry._1(Config.parse, Caml_option.valFromOption(match))]);
+     } else if (match$1 == null) {
+       return /* EmptyResponse */0;
+     } else {
+@@ -43,7 +44,7 @@ function Make(Config) {
+     if (match) {
+       return /* Loading */0;
+     } else if (match$1 !== undefined) {
+-      return /* Data */Block.__(1, [Curry._1(Config[/* parse */1], Caml_option.valFromOption(match$1))]);
++      return /* Data */Block.__(1, [Curry._1(Config.parse, Caml_option.valFromOption(match$1))]);
+     } else if (match$2 == null) {
+       return /* NotCalled */1;
+     } else {
+@@ -57,7 +58,7 @@ function Make(Config) {
+       var exit = 0;
+       var parsedData;
+       try {
+-        parsedData = Curry._1(Config[/* parse */1], Caml_option.valFromOption(match));
++        parsedData = Curry._1(Config.parse, Caml_option.valFromOption(match));
+         exit = 1;
+       }
+       catch (exn){
+@@ -70,15 +71,15 @@ function Make(Config) {
+     } else {
+       tmp = undefined;
+     }
+-    return /* record */[
+-            /* result */apolloDataToReason(apolloData),
+-            /* data */tmp,
+-            /* loading */apolloData.loading,
+-            /* error */Caml_option.nullable_to_opt(apolloData.error),
+-            /* networkStatus */Caml_option.nullable_to_opt(apolloData.networkStatus)
+-          ];
++    return {
++            result: apolloDataToReason(apolloData),
++            data: tmp,
++            loading: apolloData.loading,
++            error: Caml_option.nullable_to_opt(apolloData.error),
++            networkStatus: Caml_option.nullable_to_opt(apolloData.networkStatus)
++          };
+   };
+-  var JsMutation = /* module */[];
++  var JsMutation = { };
+   var ReasonApolloMutation$Make = function (Props) {
+     var variables = Props.variables;
+     var onError = Props.onError;
+@@ -96,19 +97,16 @@ function Make(Config) {
+                   })
+               });
+   };
+-  return /* module */[
+-          /* graphqlMutationAST */graphqlMutationAST,
+-          /* convertExecutionResultToReason */convertExecutionResultToReason,
+-          /* apolloMutationFactory */apolloMutationFactory,
+-          /* apolloDataToReason */apolloDataToReason,
+-          /* convertJsInputToReason */convertJsInputToReason,
+-          /* JsMutation */JsMutation,
+-          /* make */ReasonApolloMutation$Make
+-        ];
++  return {
++          graphqlMutationAST: graphqlMutationAST,
++          convertExecutionResultToReason: convertExecutionResultToReason,
++          apolloMutationFactory: apolloMutationFactory,
++          apolloDataToReason: apolloDataToReason,
++          convertJsInputToReason: convertJsInputToReason,
++          JsMutation: JsMutation,
++          make: ReasonApolloMutation$Make
++        };
+ }
+ 
+-export {
+-  Make ,
+-  
+-}
++exports.Make = Make;
+ /* react Not a pure module */
+diff --git a/node_modules/reason-apollo/src/graphql-types/ReasonApolloQuery.bs.js b/node_modules/reason-apollo/src/graphql-types/ReasonApolloQuery.bs.js
+index 2ee396d..b6d0e6d 100644
+--- a/node_modules/reason-apollo/src/graphql-types/ReasonApolloQuery.bs.js
++++ b/node_modules/reason-apollo/src/graphql-types/ReasonApolloQuery.bs.js
+@@ -1,34 +1,33 @@
+-// Generated by BUCKLESCRIPT VERSION 5.0.3, PLEASE EDIT WITH CARE
++// Generated by BUCKLESCRIPT, PLEASE EDIT WITH CARE
++'use strict';
+ 
+-import * as Block from "bs-platform/lib/es6/block.js";
+-import * as Curry from "bs-platform/lib/es6/curry.js";
+-import * as React from "react";
+-import * as Caml_option from "bs-platform/lib/es6/caml_option.js";
+-import * as GraphqlTag from "graphql-tag";
+-import * as ReactApollo from "react-apollo";
+-import * as Js_null_undefined from "bs-platform/lib/es6/js_null_undefined.js";
+-import * as ReasonApolloUtils from "../ReasonApolloUtils.bs.js";
++var Block = require("bs-platform/lib/js/block.js");
++var Curry = require("bs-platform/lib/js/curry.js");
++var React = require("react");
++var Caml_option = require("bs-platform/lib/js/caml_option.js");
++var GraphqlTag = require("graphql-tag");
++var ReactApollo = require("react-apollo");
++var Js_null_undefined = require("bs-platform/lib/js/js_null_undefined.js");
++var ReasonApolloUtils = require("../ReasonApolloUtils.bs.js");
+ 
+ function Make(Config) {
+-  var graphqlQueryAST = GraphqlTag(Config[/* query */0]);
++  var graphqlQueryAST = GraphqlTag.default(Config.query);
+   var apolloDataToVariant = function (apolloData) {
+     var match = apolloData.loading;
+-    var match$1 = apolloData.data;
++    var match$1 = ReasonApolloUtils.getNonEmptyObj(apolloData.data);
+     var match$2 = apolloData.error;
+     if (match) {
+       return /* Loading */0;
+-    } else if (match$1 == null) {
+-      if (match$2 == null) {
+-        return /* Error */Block.__(0, [{
+-                    message: "No data",
+-                    graphQLErrors: null,
+-                    networkError: null
+-                  }]);
+-      } else {
+-        return /* Error */Block.__(0, [match$2]);
+-      }
++    } else if (match$1 !== undefined) {
++      return /* Data */Block.__(1, [Curry._1(Config.parse, Caml_option.valFromOption(match$1))]);
++    } else if (match$2 == null) {
++      return /* Error */Block.__(0, [{
++                  message: "No data",
++                  graphQLErrors: null,
++                  networkError: null
++                }]);
+     } else {
+-      return /* Data */Block.__(1, [Curry._1(Config[/* parse */1], match$1)]);
++      return /* Error */Block.__(0, [match$2]);
+     }
+   };
+   var convertJsInputToReason = function (apolloData) {
+@@ -38,7 +37,7 @@ function Make(Config) {
+       var exit = 0;
+       var parsedData;
+       try {
+-        parsedData = Curry._1(Config[/* parse */1], Caml_option.valFromOption(match));
++        parsedData = Curry._1(Config.parse, Caml_option.valFromOption(match));
+         exit = 1;
+       }
+       catch (exn){
+@@ -52,17 +51,17 @@ function Make(Config) {
+       tmp = undefined;
+     }
+     var match$1 = apolloData.error;
+-    return /* record */[
+-            /* result */apolloDataToVariant(apolloData),
+-            /* data */tmp,
+-            /* error */(match$1 == null) ? undefined : Caml_option.some(match$1),
+-            /* loading */apolloData.loading,
+-            /* refetch */(function (variables) {
++    return {
++            result: apolloDataToVariant(apolloData),
++            data: tmp,
++            error: (match$1 == null) ? undefined : Caml_option.some(match$1),
++            loading: apolloData.loading,
++            refetch: (function (variables) {
+                 return Curry._1(apolloData.refetch, Js_null_undefined.fromOption(variables)).then((function (data) {
+                               return Promise.resolve(apolloDataToVariant(data));
+                             }));
+               }),
+-            /* fetchMore */(function (variables, updateQuery, param) {
++            fetchMore: (function (variables, updateQuery, param) {
+                 var tmp = {
+                   updateQuery: updateQuery
+                 };
+@@ -71,8 +70,8 @@ function Make(Config) {
+                 }
+                 return Curry._1(apolloData.fetchMore, tmp);
+               }),
+-            /* networkStatus */Caml_option.nullable_to_opt(apolloData.networkStatus),
+-            /* subscribeToMore */(function ($$document, variables, updateQuery, onError, param) {
++            networkStatus: Caml_option.nullable_to_opt(apolloData.networkStatus),
++            subscribeToMore: (function ($$document, variables, updateQuery, onError, param) {
+                 var tmp = {
+                   document: $$document
+                 };
+@@ -87,9 +86,9 @@ function Make(Config) {
+                 }
+                 return Curry._1(apolloData.subscribeToMore, tmp);
+               })
+-          ];
++          };
+   };
+-  var JsQuery = /* module */[];
++  var JsQuery = { };
+   var ReasonApolloQuery$Make = function (Props) {
+     var variables = Props.variables;
+     var pollInterval = Props.pollInterval;
+@@ -125,17 +124,14 @@ function Make(Config) {
+                   })
+               });
+   };
+-  return /* module */[
+-          /* graphqlQueryAST */graphqlQueryAST,
+-          /* apolloDataToVariant */apolloDataToVariant,
+-          /* convertJsInputToReason */convertJsInputToReason,
+-          /* JsQuery */JsQuery,
+-          /* make */ReasonApolloQuery$Make
+-        ];
++  return {
++          graphqlQueryAST: graphqlQueryAST,
++          apolloDataToVariant: apolloDataToVariant,
++          convertJsInputToReason: convertJsInputToReason,
++          JsQuery: JsQuery,
++          make: ReasonApolloQuery$Make
++        };
+ }
+ 
+-export {
+-  Make ,
+-  
+-}
++exports.Make = Make;
+ /* react Not a pure module */
+diff --git a/node_modules/reason-apollo/src/graphql-types/ReasonApolloSubscription.bs.js b/node_modules/reason-apollo/src/graphql-types/ReasonApolloSubscription.bs.js
+index 69ffb21..47330ad 100644
+--- a/node_modules/reason-apollo/src/graphql-types/ReasonApolloSubscription.bs.js
++++ b/node_modules/reason-apollo/src/graphql-types/ReasonApolloSubscription.bs.js
+@@ -1,33 +1,32 @@
+-// Generated by BUCKLESCRIPT VERSION 5.0.3, PLEASE EDIT WITH CARE
++// Generated by BUCKLESCRIPT, PLEASE EDIT WITH CARE
++'use strict';
+ 
+-import * as Block from "bs-platform/lib/es6/block.js";
+-import * as Curry from "bs-platform/lib/es6/curry.js";
+-import * as React from "react";
+-import * as Caml_option from "bs-platform/lib/es6/caml_option.js";
+-import * as GraphqlTag from "graphql-tag";
+-import * as ReactApollo from "react-apollo";
+-import * as ReasonApolloUtils from "../ReasonApolloUtils.bs.js";
++var Block = require("bs-platform/lib/js/block.js");
++var Curry = require("bs-platform/lib/js/curry.js");
++var React = require("react");
++var Caml_option = require("bs-platform/lib/js/caml_option.js");
++var GraphqlTag = require("graphql-tag");
++var ReactApollo = require("react-apollo");
++var ReasonApolloUtils = require("../ReasonApolloUtils.bs.js");
+ 
+ function Make(Config) {
+-  var graphQLSubscriptionAST = GraphqlTag(Config[/* query */0]);
++  var graphQLSubscriptionAST = GraphqlTag.default(Config.query);
+   var apolloDataToVariant = function (apolloData) {
+     var match = apolloData.loading;
+-    var match$1 = apolloData.data;
++    var match$1 = ReasonApolloUtils.getNonEmptyObj(apolloData.data);
+     var match$2 = apolloData.error;
+     if (match) {
+       return /* Loading */0;
+-    } else if (match$1 == null) {
+-      if (match$2 == null) {
+-        return /* Error */Block.__(0, [{
+-                    message: "No data",
+-                    graphQLErrors: null,
+-                    networkError: null
+-                  }]);
+-      } else {
+-        return /* Error */Block.__(0, [match$2]);
+-      }
++    } else if (match$1 !== undefined) {
++      return /* Data */Block.__(1, [Curry._1(Config.parse, Caml_option.valFromOption(match$1))]);
++    } else if (match$2 == null) {
++      return /* Error */Block.__(0, [{
++                  message: "No data",
++                  graphQLErrors: null,
++                  networkError: null
++                }]);
+     } else {
+-      return /* Data */Block.__(1, [Curry._1(Config[/* parse */1], match$1)]);
++      return /* Error */Block.__(0, [match$2]);
+     }
+   };
+   var convertJsInputToReason = function (apolloData) {
+@@ -37,7 +36,7 @@ function Make(Config) {
+       var exit = 0;
+       var parsedData;
+       try {
+-        parsedData = Curry._1(Config[/* parse */1], Caml_option.valFromOption(match));
++        parsedData = Curry._1(Config.parse, Caml_option.valFromOption(match));
+         exit = 1;
+       }
+       catch (exn){
+@@ -51,14 +50,14 @@ function Make(Config) {
+       tmp = undefined;
+     }
+     var match$1 = apolloData.error;
+-    return /* record */[
+-            /* result */apolloDataToVariant(apolloData),
+-            /* data */tmp,
+-            /* error */(match$1 == null) ? undefined : Caml_option.some(match$1),
+-            /* loading */apolloData.loading
+-          ];
++    return {
++            result: apolloDataToVariant(apolloData),
++            data: tmp,
++            error: (match$1 == null) ? undefined : Caml_option.some(match$1),
++            loading: apolloData.loading
++          };
+   };
+-  var JsSubscription = /* module */[];
++  var JsSubscription = { };
+   var ReasonApolloSubscription$Make = function (Props) {
+     var variables = Props.variables;
+     var children = Props.children;
+@@ -70,17 +69,14 @@ function Make(Config) {
+                   })
+               });
+   };
+-  return /* module */[
+-          /* graphQLSubscriptionAST */graphQLSubscriptionAST,
+-          /* apolloDataToVariant */apolloDataToVariant,
+-          /* convertJsInputToReason */convertJsInputToReason,
+-          /* JsSubscription */JsSubscription,
+-          /* make */ReasonApolloSubscription$Make
+-        ];
++  return {
++          graphQLSubscriptionAST: graphQLSubscriptionAST,
++          apolloDataToVariant: apolloDataToVariant,
++          convertJsInputToReason: convertJsInputToReason,
++          JsSubscription: JsSubscription,
++          make: ReasonApolloSubscription$Make
++        };
+ }
+ 
+-export {
+-  Make ,
+-  
+-}
++exports.Make = Make;
+ /* react Not a pure module */

@@ -12,6 +12,10 @@ module MyAppContainer =
     let navigator = MyStackNavigator.navigator;
   });
 
+module Async = {
+  let let_ = (prom, cb) => Js.Promise.then_(cb, prom);
+};
+
 [@react.component]
 let make = () => {
   let screenProps = {"someProp": 42};
@@ -26,26 +30,25 @@ let make = () => {
       ~reconnect=true,
       (),
     );
-
   let getToken = () => {
-    let token =
-      AsyncStorage.getItem("token")
-      |> Js.Promise.then_(stringOrNull => {
-           Js.log2("CHECKING_AUTH_TOKEN", stringOrNull);
-           Js.Promise.resolve(stringOrNull);
-         });
-    token;
+    let%Async token = AsyncStorage.getItem("token");
+    Js.log(token);
+    Js.Promise.resolve(token);
   };
 
   let authLink =
     ApolloLinks.createContextLink(() => {
-      let token = getToken();
-      Js.log2("TOKEN: ", token);
-      {
+      let%Async token = AsyncStorage.getItem("token");
+      // {
+      //   "headers": {
+      //     "authorization": "",
+      //   },
+      // }
+      Js.Promise.resolve({
         "headers": {
           "authorization": token,
         },
-      };
+      });
     });
 
   let link =
