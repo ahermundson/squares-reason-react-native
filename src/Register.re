@@ -3,9 +3,9 @@ open ReactNative;
 open ReactNavigation;
 open ApolloHooks;
 
-module Login = [%graphql
+module Register = [%graphql
   {|
-  mutation login($email: String!, $password: String!) {
+  mutation register($email: String!, $password: String!) {
       login(email: $email, password: $password) {
           ok
           token
@@ -31,37 +31,37 @@ type login = {
 let make = (~navigation: ReactNavigation.Navigation.t) => {
   let (email, setEmail) = React.useState(() => "");
   let (password, setPassword) = React.useState(() => "");
-  let (loginMutation, _simple, _full) = useMutation(Login.definition);
+  let (loginMutation, _simple, _full) = useMutation(Register.definition);
   let (loginError, setLoginError) = React.useState(() => false);
 
-  let login = () =>
-    loginMutation(~variables=Login.makeVariables(~email, ~password, ()), ())
-    |> Js.Promise.then_((response: Mutation.result(login)) => {
-         switch (response) {
-         | Data(data) =>
-           data##login##ok
-             ? {
-               switch (data##login##token) {
-               | Some(token) =>
-                 AsyncStorage.setItem("token", token) |> ignore;
-                 navigation->Navigation.navigate("Games");
+  //   let login = () =>
+  //     loginMutation(~variables=Register.makeVariables(~email, ~password, ()), ())
+  //     |> Js.Promise.then_((response: Mutation.result(login)) => {
+  //          switch (response) {
+  //          | Data(data) =>
+  //            data##login##ok
+  //              ? {
+  //                switch (data##login##token) {
+  //                | Some(token) =>
+  //                  AsyncStorage.setItem("token", token) |> ignore;
+  //                  navigation->Navigation.navigate("Games");
 
-               | None => setLoginError(_ => true)
-               };
-             }
-             : setLoginError(_ => true)
-         | Error(e) =>
-           setLoginError(_ => true);
-           Js.Promise.resolve(Belt.Result.Error(`apolloErrors(e))) |> ignore;
-         | NoData => Js.log("no data")
-         };
-         Js.Promise.resolve();
-       })
-    |> Js.Promise.catch(_ => {
-         setLoginError(_ => true);
-         Js.Promise.resolve();
-       })
-    |> ignore;
+  //                | None => setLoginError(_ => true)
+  //                };
+  //              }
+  //              : setLoginError(_ => true)
+  //          | Error(e) =>
+  //            setLoginError(_ => true);
+  //            Js.Promise.resolve(Belt.Result.Error(`apolloErrors(e))) |> ignore;
+  //          | NoData => Js.log("no data")
+  //          };
+  //          Js.Promise.resolve();
+  //        })
+  //     |> Js.Promise.catch(_ => {
+  //          setLoginError(_ => true);
+  //          Js.Promise.resolve();
+  //        })
+  //     |> ignore;
   <View>
     <TextInput
       style=Style.(
@@ -101,11 +101,7 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
       onChangeText={e => setPassword(_ => e)}
       secureTextEntry=true
     />
-    <Button onPress={_ => login()} title="Submit" />
-    <Button
-      onPress={_ => navigation->Navigation.navigate("Register")}
-      title="Register"
-    />
+    <Button onPress={_ => Js.log("register press")} title="Submit" />
   </View>;
 };
 
@@ -115,8 +111,8 @@ make->NavigationOptions.setDynamicNavigationOptions(_params => {
   // let screenProps = params##screenProps;
   /* More properties can be set dynamically based on navigation, navigationOptions or screenProps. */
   NavigationOptions.t(
-    ~title="Login",
+    ~title="Register",
     ~headerTintColor="#01C357",
     (),
   )
-}) /* navigation->Navigation.navigate("Games"*/;
+});
