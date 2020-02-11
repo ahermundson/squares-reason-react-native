@@ -103,7 +103,10 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
     />
     <Button onPress={_ => login()} title="Submit" />
     <Button
-      onPress={_ => navigation->Navigation.navigate("Register")}
+      onPress={_ => {
+        Js.log("kjlfa;dksjf;");
+        navigation->Navigation.navigate("Register");
+      }}
       title="Register"
     />
   </View>;
