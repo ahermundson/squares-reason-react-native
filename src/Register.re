@@ -5,25 +5,23 @@ open ApolloHooks;
 
 module Register = [%graphql
   {|
-  mutation register($email: String!, $password: String!) {
-      login(email: $email, password: $password) {
+  mutation register($email: String!, $password: String!, $username: String!) {
+      register(email: $email, password: $password, username: $username) {
           ok
-          token
-          refreshToken
-          errors
+          user {
+            _id
+          }
       }
   }
 |}
 ];
 
-type login = {
+type register = {
   .
-  "login": {
+  "register": {
     .
     "ok": bool,
-    "refreshToken": option(string),
-    "token": option(string),
-    "errors": option(string),
+    "user": option({. "_id": string}),
   },
 };
 
@@ -31,37 +29,36 @@ type login = {
 let make = (~navigation: ReactNavigation.Navigation.t) => {
   let (email, setEmail) = React.useState(() => "");
   let (password, setPassword) = React.useState(() => "");
+  let (username, setUsername) = React.useState(() => "");
   let (loginMutation, _simple, _full) = useMutation(Register.definition);
   let (loginError, setLoginError) = React.useState(() => false);
 
-  //   let login = () =>
-  //     loginMutation(~variables=Register.makeVariables(~email, ~password, ()), ())
-  //     |> Js.Promise.then_((response: Mutation.result(login)) => {
-  //          switch (response) {
-  //          | Data(data) =>
-  //            data##login##ok
-  //              ? {
-  //                switch (data##login##token) {
-  //                | Some(token) =>
-  //                  AsyncStorage.setItem("token", token) |> ignore;
-  //                  navigation->Navigation.navigate("Games");
-
-  //                | None => setLoginError(_ => true)
-  //                };
-  //              }
-  //              : setLoginError(_ => true)
-  //          | Error(e) =>
-  //            setLoginError(_ => true);
-  //            Js.Promise.resolve(Belt.Result.Error(`apolloErrors(e))) |> ignore;
-  //          | NoData => Js.log("no data")
-  //          };
-  //          Js.Promise.resolve();
-  //        })
-  //     |> Js.Promise.catch(_ => {
-  //          setLoginError(_ => true);
-  //          Js.Promise.resolve();
-  //        })
-  //     |> ignore;
+  let register = () =>
+    loginMutation(
+      ~variables=Register.makeVariables(~email, ~password, ~username, ()),
+      (),
+    )
+    |> Js.Promise.then_((response: Mutation.result(register)) => {
+         switch (response) {
+         | Data(data) =>
+           data##register##ok
+             ? {
+               Js.log("ok");
+               navigation->Navigation.navigate("Games");
+             }
+             : setLoginError(_ => true)
+         | Error(e) =>
+           setLoginError(_ => true);
+           Js.Promise.resolve(Belt.Result.Error(`apolloErrors(e))) |> ignore;
+         | NoData => Js.log("no data")
+         };
+         Js.Promise.resolve();
+       })
+    |> Js.Promise.catch(_ => {
+         setLoginError(_ => true);
+         Js.Promise.resolve();
+       })
+    |> ignore;
   <View>
     <TextInput
       style=Style.(
@@ -78,9 +75,27 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
         )
       )
       value=email
-      placeholder="Username"
+      placeholder="email"
       onChangeText={e => setEmail(_ => e)}
       autoCapitalize=`none
+    />
+    <TextInput
+      style=Style.(
+        style(
+          ~borderWidth=1.,
+          ~borderColor={
+            loginError ? "red" : "black";
+          },
+          ~marginHorizontal=35.->dp,
+          ~paddingVertical=15.->dp,
+          ~paddingLeft=10.->dp,
+          ~marginTop=15.->dp,
+          (),
+        )
+      )
+      value=username
+      placeholder="Username"
+      onChangeText={e => setUsername(_ => e)}
     />
     <TextInput
       style=Style.(
@@ -101,7 +116,7 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
       onChangeText={e => setPassword(_ => e)}
       secureTextEntry=true
     />
-    <Button onPress={_ => Js.log("register press")} title="Submit" />
+    <Button onPress={_ => register()} title="Submit" />
   </View>;
 };
 
