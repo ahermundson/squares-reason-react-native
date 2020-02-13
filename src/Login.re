@@ -29,6 +29,15 @@ type login = {
 
 [@react.component]
 let make = (~navigation: ReactNavigation.Navigation.t) => {
+  React.useEffect0(() => {
+    AsyncStorage.getItem("token")
+    |> Js.Promise.then_(stringOrNull => {
+         Js.log2("CHECKING_AUTH_TOKEN", stringOrNull);
+         Js.Promise.resolve();
+       })
+    |> ignore;
+    None;
+  });
   let (email, setEmail) = React.useState(() => "");
   let (password, setPassword) = React.useState(() => "");
   let (loginMutation, _simple, _full) = useMutation(Login.definition);

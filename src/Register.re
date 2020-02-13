@@ -8,6 +8,8 @@ module Register = [%graphql
   mutation register($email: String!, $password: String!, $username: String!) {
       register(email: $email, password: $password, username: $username) {
           ok
+          token
+          refreshToken
           user {
             _id
           }
@@ -22,6 +24,8 @@ type register = {
     .
     "ok": bool,
     "user": option({. "_id": string}),
+    "refreshToken": option(string),
+    "token": option(string),
   },
 };
 
@@ -43,8 +47,12 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
          | Data(data) =>
            data##register##ok
              ? {
-               Js.log("ok");
-               navigation->Navigation.navigate("Games");
+               switch (data##register##token) {
+               | Some(token) =>
+                 AsyncStorage.setItem("token", token) |> ignore;
+                 navigation->Navigation.navigate("Games");
+               | None => setLoginError(_ => true)
+               };
              }
              : setLoginError(_ => true)
          | Error(e) =>
