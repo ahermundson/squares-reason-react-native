@@ -12,3 +12,9 @@ type square = {
   "takenByUser": option(user),
   "board": {. "_id": string},
 };
+
+type tokens = {
+  .
+  "token": string,
+  "refreshToken": option(string),
+};

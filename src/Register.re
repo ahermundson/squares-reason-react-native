@@ -3,6 +3,8 @@ open ReactNative;
 open ReactNavigation;
 open ApolloHooks;
 
+open SharedTypes;
+
 module Register = [%graphql
   {|
   mutation register($email: String!, $password: String!, $username: String!) {
@@ -49,8 +51,15 @@ let make = (~navigation: ReactNavigation.Navigation.t) => {
              ? {
                switch (data##register##token) {
                | Some(token) =>
-                 AsyncStorage.setItem("token", token) |> ignore;
-                 navigation->Navigation.navigate("Games");
+                 AsyncStorage.setItem("tokens", token) |> ignore;
+                 switch (data##register##refreshToken) {
+                 | Some(refreshToken) =>
+                   AsyncStorage.setItem("refreshToken", refreshToken)
+                   |> ignore;
+                   navigation->Navigation.navigate("Games");
+
+                 | None => navigation->Navigation.navigate("Games")
+                 };
                | None => setLoginError(_ => true)
                };
              }
