@@ -1,5 +1,6 @@
 open ReactNavigation;
 open ReactNative;
+
 [@bs.send]
 external concat:
   (ReasonApolloTypes.apolloLink, ReasonApolloTypes.apolloLink) =>
@@ -15,6 +16,9 @@ module MyAppContainer =
 module Async = {
   let let_ = (prom, cb) => Js.Promise.then_(cb, prom);
 };
+
+[@bs.module "./afterLink"]
+external afterLink: ReasonApolloTypes.apolloLink = "default";
 
 [@react.component]
 let make = () => {
@@ -54,14 +58,10 @@ let make = () => {
       httpLink,
     );
 
-  let linkWithAuth = authLink->(concat(link));
+  let links = ApolloLinks.from([|authLink, afterLink, link|]);
 
   let instance =
-    ReasonApollo.createApolloClient(
-      ~link=linkWithAuth,
-      ~cache=inMemoryCache,
-      (),
-    );
+    ReasonApollo.createApolloClient(~link=links, ~cache=inMemoryCache, ());
 
   <ReasonApollo.Provider client=instance>
     <ApolloHooks.Provider client=instance>
